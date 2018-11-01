@@ -251,6 +251,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='stylesheet'>
-@import 'assets/css/index.css';
 
 </style>
