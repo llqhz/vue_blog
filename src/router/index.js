@@ -11,7 +11,7 @@ export default new Router({
     mode: 'history',
 
     // 路由前缀
-    base: "/",
+    base: "",
 
     // 路由列表
     routes,
