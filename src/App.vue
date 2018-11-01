@@ -1,25 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="main-wrapper">
+    <header id="header">
+      <header-top />
+    </header>
+      <!-- <router-link to="/">Home</router-link> -->
+    <!-- <router-view/> -->
   </div>
 </template>
+
+<script>
+import HeaderTop from './views/common/Header.vue'
+export default {
+    name: 'app',
+    components: {
+        HeaderTop,
+    },
+    data() {
+        return {
+            "pageName": "",
+            "routerAnimate": false,
+            "enterAnimate": "", //页面进入动效
+            "leaveAnimate": "" //页面离开动效
+        }
+    }
+}
+</script>
+
+
+<style lang="css">
+/* 引入css文件和css里面的bg-img等url需要加上"~@" */
+@import url('~@/assets/css/index.css');
+
+/* 统一在此引入公共文件 */
+@import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css';
+@import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+
+</style>
+
+
 <style lang="stylus">
 #app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
+  padding 0;
 </style>
