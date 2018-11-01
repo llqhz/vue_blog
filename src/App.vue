@@ -10,22 +10,27 @@
 
 <script>
 import HeaderTop from './views/common/Header.vue'
+
+// 在此引入js
+
+import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
+import '~@/assets/js/index.js'
+
 export default {
-    name: 'app',
-    components: {
-        HeaderTop,
-    },
-    data() {
-        return {
-            "pageName": "",
-            "routerAnimate": false,
-            "enterAnimate": "", //页面进入动效
-            "leaveAnimate": "" //页面离开动效
-        }
+  name: 'app',
+  components: {
+    HeaderTop
+  },
+  data () {
+    return {
+      pageName: '',
+      routerAnimate: false,
+      enterAnimate: '', // 页面进入动效
+      leaveAnimate: '' // 页面离开动效
     }
+  }
 }
 </script>
-
 
 <style lang="css">
 /* 引入css文件和css里面的bg-img等url需要加上"~@" */
@@ -35,9 +40,7 @@ export default {
 @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css';
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
 
-
 </style>
-
 
 <style lang="stylus">
 #app
