@@ -1,0 +1,416 @@
+/*
+* @Author: llqhz
+* @Date:   2017-11-24 19:17:25
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-09-09 11:06:07
+*/
+* {
+    /*border: 1px dotted red;*/
+}
+
+nav {
+    height: 50px;
+    background-color: rgba(134, 135, 136, 0.5);;
+    /* position: fixed;
+    width: 100%; */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0px;
+    float: right;
+}
+nav ul li , nav .logo{
+    display: inline-block;
+    height: 50px;
+}
+@media screen and (max-width: 600px) {
+    nav .logo {
+        display: none;
+    }
+}
+/* a 本来就是span元素 => line-height<=height */
+/* inline-block => height */
+nav ul li a , .logo a {
+    line-height: 50px;
+    display: inline-block;
+    height: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* 左边logo */
+
+nav .logo {
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 700;
+    float: left;
+    padding-left: 20px;
+}
+.logo a {
+    color: #fff;
+}
+
+
+.banner {
+    background: rgba(0,0,0,0.40);
+    height: 100vh/* 607px */;
+}
+.banner .inner h2 {
+    height: 23px;
+}
+.banner .inner .hr {
+    width: 8rem;
+}
+
+
+button, button:focus {
+    background: #2dc1a0;
+    border: 0px;
+    padding: 14px 40px;
+    outline-width: 0px;
+    color: white;
+
+    /* 鼠标形状：手形 */
+    cursor: pointer;
+}
+
+
+/* inner */
+.banner .inner {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 16vh;
+    color: white;
+}
+.banner .inner h2 {
+    margin: 10px;
+}
+.banner .inner .sub-heading {
+    margin: 30px;
+}
+.banner .inner .more {
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+@keyframes more-arrow {
+    0% { top:0px; }
+    100% { top:20px }
+}
+.banner .inner .more i {
+    position: relative;
+    animation: more-arrow 1s infinite;
+}
+
+
+
+
+.hr {
+    height: 2px;
+    max-width: 92vw;
+    margin: 0 auto;
+    background: #fff;
+}
+
+
+section.green-section {
+    text-align: center;
+    height: 700px;
+    background: #2dc1a0;
+    color: white;
+}
+
+section.green-section .hr, .purple-section .hr {
+    width: 600px;
+    margin: 30px auto;
+    background: rgba(0,0,0,0.15);
+}
+
+.wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.sub-heading {
+    font-size: 18px;
+}
+
+.green-section h2 {
+    margin-top: 10%;
+}
+
+.green-section .icon-group .icon {
+    display: inline-block;
+    /* background: #eee; */
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin:0 3%;
+}
+
+.green-section .icon-group {
+    margin-top: 2.5rem/* 40px */;
+    font-size: 1.2625rem/* 25px */;
+}
+
+
+.gray-section {
+    background: gray;
+}
+
+.img-section img {
+    width: 100%;
+    max-height: 400px;
+}
+
+.article-preview {
+    background: rgba(19, 11, 18, 0.7);
+    color: white;
+    /* 去除.article-preview间间隙 */
+    font-size: 0;
+    padding: 0;
+}
+.article-preview:nth-child(odd) {
+    background-color: rgba(18, 9, 19, 0.57);
+}
+
+.img-section {
+    width: 45%;
+}
+.text-section {
+    width: 54%;
+    box-sizing: border-box;
+    /* padding: 58px 50px; */
+    padding: 2% 2%;
+}
+.text-section h2 {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.text-section p {
+    font-size: 1.1rem;
+    letter-spacing: 0.03vw;
+}
+.text-section .sub-heading {
+    margin:-10px 0;
+}
+
+
+.article-preview > div {
+    float: left;
+}
+
+.article-preview::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.article-preview .text-content {
+    height: 20%;
+    max-height: 20vw;
+    overflow: hidden;
+    line-height: 25px;
+}
+/*@media screen and (max-width: 600px) {
+    nav .logo {
+        display: none;
+    }
+}*/
+@media screen and  (max-width: 1100px) {
+    .article-preview .text-content {
+        line-height: 18px;
+    }
+    .text-section p {
+        font-size: 0.9rem;
+        letter-spacing: 0;
+    }
+    .text-section h2 {
+        margin-top: 0;
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    .text-section h4 {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+
+}
+
+
+
+.purple-section {
+    background: #262149;
+    color: #fff;
+}
+
+.purple-section .wrapper {
+    max-width: 700px;
+}
+
+.purple-section .head-wrapper {
+
+    text-align: center;
+}
+
+.purple-section .card-group {
+    padding-top: 20px ;
+}
+.purple-section .card-group::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.purple-section .card-group .card {
+    float: left;
+    width: 50%;
+    min-height: 230px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+
+
+.card:nth-child(1) {
+    background: rgba(0,0,0,0.09);
+}
+.card:nth-child(2) {
+    background: rgba(0,0,0,0.13);
+}
+.card:nth-child(3) {
+    background: rgba(0,0,0,0.17);
+}
+.card:nth-child(4) {
+    background: rgba(0,0,0,0.21);
+}
+.card:nth-child(5) {
+    background: rgba(0,0,0,0.25);
+}
+.card:nth-child(6) {
+    background: rgba(0,0,0,0.29);
+}
+@media screen and (max-width: 660px){
+    .purple-section .card-group .card {
+        padding: 10px 10px;
+        font-size: 0.8rem;
+    }
+    .purple-section .card-group .card h2 {
+        font-size: 1.1rem;
+    }
+
+    nav ul li a {
+        margin-right: 10px;
+    }
+    body .sideBar {
+        width: 250px;
+    }
+}
+
+footer {
+    min-height: 200px;
+    text-align: center;
+    background: #151523;
+    color: white;
+}
+footer ul {
+    /* width: 1080px; */
+    margin: 0 auto;
+    padding: 40px;
+}
+footer ul li {
+    display: inline-block;
+    padding: 10px;
+}
+footer ul li a {
+    color: white;
+}
+
+
+.copy {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* .main-wrapper {
+    background: #444 url('../img/banner.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-size: cover;
+    background-size: contain;
+    background-position: center center;
+} */
+/* 某些移动端不支持: background-attachment: fixed; */
+.main-wrapper:before {
+  content: ' ';
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #444 url('../img/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sideBar {
+    width: 300px;
+    background: #888;
+    position: fixed;
+    top: 0px;
+    right: -300px;
+    bottom: 0px;
+}
+.sideBar ul {
+    margin: 20px 0;
+    list-style-type: none;
+    padding-top: 20px;
+}
+.sideBar ul li {
+    width: 200px;
+    padding: 15px 20px;
+}
+.sideBar ul li:hover {
+    background: rgba(0,0,0,0.2);
+}
+.sideBar ul li a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+.mask {
+    display: none;
+    background: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.5);
+
+    display: none;
+}
+.back-to-top:focus {
+    background: rgba(0,0,0,0.5);
+}
+.back-to-top:hover {
+    background: rgba(0,0,0,0.7);
+}
