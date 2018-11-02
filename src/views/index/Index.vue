@@ -1,23 +1,90 @@
 <template>
-    <div>
-        <h1> {{ msg }} </h1>
-    </div>
+  <div class="content">
+    <banner />
+    <green-section />
+    <section class="gray-section">
+      <article-preview direction='left' />
+      <article-preview direction='right' />
+      <article-preview direction='left' />
+      <article-preview direction='right' />
+      <article-preview direction='left' />
+      <article-preview direction='right' />
+    </section>
+    <purple-section></purple-section>
+
+  </div>
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator'
+import Banner from '@/views/common/Banner';
+import GreenSection from '@/views/common/GreenSection';
+import ArticlePreview from '@/views/common/ArticlePreview';
+import PurpleSection from '@/views/common/PurpleSection';
 
-export default class Index extends Vue {
-    data () {
-        return {
-            msg: 'Index Pages'
-        }
+
+export default {
+  components: {
+    Banner,
+    GreenSection,
+    ArticlePreview,
+    PurpleSection,
+  },
+  name: 'Index',
+  data: () => {
+    return {
+      msg: 'hello'
     }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style lang="stylus" scoped>
+<style >
+.hr {
+    height: 2px;
+    max-width: 92vw;
+    margin: 0 auto;
+    background: #fff;
+}
 
+.wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* .main-wrapper {
+    background: #444 url('../img/banner.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-size: cover;
+    background-size: contain;
+    background-position: center center;
+} */
+/* 某些移动端不支持: background-attachment: fixed; */
+.main-wrapper:before {
+  content: ' ';
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #444 url('~@/assets/img/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+section.green-section .hr, .purple-section .hr {
+    width: 600px;
+    margin: 30px auto;
+    background: rgba(0,0,0,0.15);
+}
+
+.gray-section {
+    background: gray;
+}
 </style>

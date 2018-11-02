@@ -14,15 +14,20 @@
     </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-
-export default class Banner extends Vue {
-
+<script>
+export default {
+  name: 'Banner',
+  data: () => {
+    return {
+        msg: 'hello'
+    }
+  }
 }
 </script>
 
 <style scoped>
+
+
     .banner {
         background: rgba(0,0,0,0.40);
         height: 100vh/* 607px */;

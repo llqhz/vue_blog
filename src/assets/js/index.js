@@ -66,12 +66,12 @@ $(function () {
   })
 
   /* 监听more点击事件 */
-  $('.more').on('click', function (event) {
+  $('body').on('click','.more', function (event) {
     event.preventDefault()
     /* Act on the event */
     $('html,body').animate({
       /* scrollTop:$(window).height() */
-      scrollTop: $('.content').offset().top
+      scrollTop: $('.content .green-section').offset().top
     }, 1000)
   })
 })
