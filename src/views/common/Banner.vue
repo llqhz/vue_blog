@@ -27,6 +27,12 @@ export default {
 
 <style scoped>
 
+    .hr {
+        height: 2px;
+        max-width: 92vw;
+        margin: 0 auto;
+        background: #fff;
+    }
 
     .banner {
         background: rgba(0,0,0,0.40);

@@ -54,6 +54,13 @@
     bottom: 0;
 }
 
+button,button:focus {
+    border: 0px;
+    padding: 14px 40px;
+    outline-width: 0px;
+    color: white;
+    cursor: pointer;
+}
 
 .back-to-top {
     position: fixed;
@@ -68,6 +75,15 @@
 }
 .back-to-top:hover {
     background: rgba(0,0,0,0.7);
+}
+
+@media screen and (max-width: 660px) {
+  body .sideBar {
+      width: 220px;
+  }
+  .sideBar ul{
+      padding-left: 20px;
+  }
 }
 </style>
 

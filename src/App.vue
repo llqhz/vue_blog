@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="main-wrapper">
+  <div id="app" >
     <nav-top />
     <!-- <router-link to="/">Home</router-link> -->
     <router-view />
@@ -49,12 +49,6 @@ export default {
 </style>
 
 <style lang="stylus">
-button,button:focus
-    background #2dc1a0
-    border 0px
-    padding 14px 40px
-    outline-width 0px
-    color white
-    cursor pointer
+
 
 </style>

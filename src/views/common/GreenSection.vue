@@ -17,6 +17,25 @@
 </template>
 
 <style scoped>
+.wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.hr {
+    height: 2px;
+    max-width: 92vw;
+    margin: 0 auto;
+    background: #fff;
+}
+
+section.green-section .hr{
+    width: 600px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.234);
+}
+
 section.green-section {
     text-align: center;
     height: 700px;

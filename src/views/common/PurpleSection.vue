@@ -54,9 +54,23 @@
 </template>
 
 <style >
+.hr {
+    width: 600px;
+    margin: 30px auto;
+    background:rgba(255, 255, 255, 0.134);;
+    height: 2px;
+    max-width: 92vw;
+}
+
 .purple-section {
     background: #262149;
     color: #fff;
+}
+
+.wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .purple-section .wrapper {
@@ -113,9 +127,6 @@
         font-size: 1.1rem;
     }
 
-    nav ul li a {
-        margin-right: 10px;
-    }
     body .sideBar {
         width: 250px;
     }

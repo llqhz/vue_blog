@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content main-wrapper">
     <banner />
     <green-section />
     <section class="gray-section">
@@ -21,7 +21,6 @@ import GreenSection from '@/views/common/GreenSection';
 import ArticlePreview from '@/views/common/ArticlePreview';
 import PurpleSection from '@/views/common/PurpleSection';
 
-
 export default {
   components: {
     Banner,
@@ -40,19 +39,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style >
-.hr {
-    height: 2px;
-    max-width: 92vw;
-    margin: 0 auto;
-    background: #fff;
-}
+<style scoped>
 
-.wrapper {
+
+
+/* .wrapper {
     max-width: 860px;
     margin: 0 auto;
     padding: 10px;
-}
+} */
 
 /* .main-wrapper {
     background: #444 url('../img/banner.jpg');
@@ -76,12 +71,6 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-section.green-section .hr, .purple-section .hr {
-    width: 600px;
-    margin: 30px auto;
-    background: rgba(0,0,0,0.15);
 }
 
 .gray-section {

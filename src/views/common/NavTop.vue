@@ -3,9 +3,9 @@
         <nav>
             <div class="logo"><a href="#">☆筱怪☆</a></div>
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">文章模板</a></li>
-                <li><a href="#">标题3</a></li>
+                <li v-for="(menu,index) in menuItems" :key="index">
+                    <router-link :to='menu.url' tag='a'>  {{ menu.name }}  </router-link>
+                </li>
                 <li><a href="#">侧边栏</a></li>
             </ul>
         </nav>
@@ -15,7 +15,31 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-export default class NavTop extends Vue {
+export default {
+    name : 'NavTop',
+    props: {
+        activeMenu: {
+            default: '/'
+        }
+    },
+    data: () => {
+        return {
+            menuItems: [
+                {
+                    url: '/',
+                    name: '首页'
+                },
+                {
+                    url: '/article',
+                    name: '文章模板'
+                },
+                {
+                    url: '/about',
+                    name: '关于'
+                }
+            ],
+        }
+    }
 
 }
 </script>
@@ -48,7 +72,8 @@ export default class NavTop extends Vue {
         line-height: 50px;
         display: inline-block;
         height: 50px;
-        margin-right: 20px;
+        padding-left: 8px;
+        padding-right: 8px;
         text-decoration: none;
         color: #fff;
     }
@@ -66,4 +91,15 @@ export default class NavTop extends Vue {
         color: #fff;
     }
 
+    .router-link-exact-active {
+        background-color: rgba(0,0,0,0.1);
+        color: #fff;
+    }
+
+    @media screen and (min-width: 660px){
+        nav ul li a {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
 </style>
