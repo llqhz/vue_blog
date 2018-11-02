@@ -1,25 +1,25 @@
 <template>
   <div id="app" class="main-wrapper">
-    <header id="header">
-      <header-top />
-    </header>
-      <!-- <router-link to="/">Home</router-link> -->
-    <!-- <router-view/> -->
+    <nav-top />
+    <!-- <router-link to="/">Home</router-link> -->
+    <router-view />
   </div>
 </template>
 
 <script>
-import HeaderTop from './views/common/Header.vue'
+import NavTop from './views/common/NavTop.vue'
 
-// 在此引入js
+// 在此引入全局js
+// import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
+import $ from 'jquery'
+import '@/assets/js/index.js'
 
-import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
-import '~@/assets/js/index.js'
+// import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 
 export default {
   name: 'app',
   components: {
-    HeaderTop
+    NavTop
   },
   data () {
     return {
@@ -34,7 +34,7 @@ export default {
 
 <style lang="css">
 /* 引入css文件和css里面的bg-img等url需要加上"~@" */
-@import url('~@/assets/css/index.css');
+/* @import url('~@/assets/css/index.css'); */
 
 /* 统一在此引入公共文件 */
 @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css';

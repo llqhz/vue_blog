@@ -8,6 +8,8 @@
 'use strict'
 
 $(function () {
+  // 已经执行到此处
+
   var mask = $('.mask')
 
   var sideBar = $('.sideBar')

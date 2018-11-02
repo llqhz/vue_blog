@@ -93,7 +93,14 @@ module.exports = {
         },
         module: {
 
-        }
+        },
+        output: {
+            libraryExport: 'default',
+            libraryTarget: 'umd'
+        },
+        externals: {
+            jquery: 'jQuery',
+        },
     },
 
     /* css: {

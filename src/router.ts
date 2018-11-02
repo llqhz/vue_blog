@@ -10,9 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'index',
+      component: () => import('@/views/index/Index.vue')
+    },
+    /* {
+      path: '/',
       name: 'home',
       component: Home
-    },
+    }, */
     {
       path: '/about',
       name: 'about',
@@ -21,10 +26,10 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
     },
-    {
-      path: '/index',
-      name: 'index',
-      component: () => import('@/views/index/Index.vue')
-    }
+    /* {
+      path: '/index2',
+      name: 'index2',
+      component: () => import('@/views/index/Index3.vue')
+    } */
   ]
 })

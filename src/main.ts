@@ -3,8 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-
-//import '@/assets/css/index.css'
+// import utils from '@/components/com/utils.js'
+// css import
+// import '@/assets/css/index.css'
+// import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
+// import '@/assets/js/index.js'
 
 Vue.config.productionTip = false
 
