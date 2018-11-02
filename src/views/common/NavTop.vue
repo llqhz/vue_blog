@@ -6,7 +6,7 @@
                 <li v-for="(menu,index) in menuItems" :key="index">
                     <router-link :to='menu.url' tag='a'>  {{ menu.name }}  </router-link>
                 </li>
-                <li><a href="#">侧边栏</a></li>
+                <li><a href="#"> ≡ </a></li>
             </ul>
         </nav>
     </header>
@@ -16,30 +16,34 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 export default {
-    name : 'NavTop',
-    props: {
-        activeMenu: {
-            default: '/'
-        }
-    },
-    data: () => {
-        return {
-            menuItems: [
-                {
-                    url: '/',
-                    name: '首页'
-                },
-                {
-                    url: '/article',
-                    name: '文章模板'
-                },
-                {
-                    url: '/about',
-                    name: '关于'
-                }
-            ],
-        }
+  name: 'NavTop',
+  props: {
+    activeMenu: {
+      default: '/'
     }
+  },
+  data: () => {
+    return {
+      menuItems: [
+        {
+          url: '/',
+          name: '首页'
+        },
+        {
+          url: '/list',
+          name: '文章列表'
+        },
+        {
+          url: '/article',
+          name: '文章模板'
+        },
+        {
+          url: '/about',
+          name: '关于'
+        }
+      ]
+    }
+  }
 
 }
 </script>

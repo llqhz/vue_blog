@@ -9,9 +9,10 @@
 </template>
 
 <script>
+
 import NavTop from './views/common/NavTop.vue'
-import ComFooter from '@/views/common/Footer';
-import SideBar from '@/views/common/SideBar';
+import ComFooter from '@/views/common/Footer'
+import SideBar from '@/views/common/SideBar'
 // 在此引入全局js
 // import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 import $ from 'jquery'
@@ -33,6 +34,9 @@ export default {
       enterAnimate: '', // 页面进入动效
       leaveAnimate: '' // 页面离开动效
     }
+  },
+  mounted: function () {
+    this.$Message.info('This is a info tip')
   }
 }
 </script>
@@ -45,10 +49,11 @@ export default {
 /* 统一在此引入公共文件 */
 @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css';
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
+@import 'http://unpkg.com/iview/dist/styles/iview.css';
 
 </style>
 
 <style lang="stylus">
-
-
+#app
+  font-size 16px
 </style>

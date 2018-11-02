@@ -8,6 +8,9 @@ import './registerServiceWorker'
 // import '@/assets/css/index.css'
 // import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 // import '@/assets/js/index.js'
+import iView from 'iview'
+Vue.use(iView)
+
 
 Vue.config.productionTip = false
 
