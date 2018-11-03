@@ -16,17 +16,17 @@
 </template>
 
 <script>
-import Banner from '@/views/common/Banner';
-import GreenSection from '@/views/common/GreenSection';
-import ArticlePreview from '@/views/common/ArticlePreview';
-import PurpleSection from '@/views/common/PurpleSection';
+import Banner from '@/views/common/Banner'
+import GreenSection from '@/views/common/GreenSection'
+import ArticlePreview from '@/views/common/ArticlePreview'
+import PurpleSection from '@/views/common/PurpleSection'
 
 export default {
   components: {
     Banner,
     GreenSection,
     ArticlePreview,
-    PurpleSection,
+    PurpleSection
   },
   name: 'Index',
   data: () => {
@@ -40,8 +40,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-
-
 
 /* .wrapper {
     max-width: 860px;

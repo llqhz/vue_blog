@@ -19,7 +19,7 @@ export default {
   name: 'Banner',
   data: () => {
     return {
-        msg: 'hello'
+      msg: 'hello'
     }
   }
 }
@@ -34,18 +34,6 @@ export default {
         background: #fff;
     }
 
-    .banner {
-        background: rgba(0,0,0,0.40);
-        height: 100vh/* 607px */;
-    }
-    .banner .inner h2 {
-        height: 23px;
-    }
-    .banner .inner .hr {
-        width: 8rem;
-    }
-
-
     button, button:focus {
         background: #2dc1a0;
         border: 0px;
@@ -57,6 +45,10 @@ export default {
         cursor: pointer;
     }
 
+    .banner {
+        background: rgba(0,0,0,0.40);
+        height: 100vh/* 607px */;
+    }
 
     /* inner */
     .banner .inner {
@@ -68,10 +60,12 @@ export default {
         color: white;
     }
     .banner .inner h2 {
-        margin: 10px;
+        margin: 7px;
+        height: 30px;
     }
     .banner .inner .sub-heading {
         margin: 30px;
+        letter-spacing: 1px;
     }
     .banner .inner .more {
         margin-top: 11px;
