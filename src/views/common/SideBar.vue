@@ -21,14 +21,18 @@
     width: 300px;
     background: #888;
     position: fixed;
+    z-index: 2;
     top: 0px;
     right: -300px;
     bottom: 0px;
+
+    font-size: 16px;
 }
 .sideBar ul {
     margin: 20px 0;
     list-style-type: none;
     padding-top: 20px;
+    padding-left: 20px;
 }
 .sideBar ul li {
     width: 200px;
@@ -82,8 +86,7 @@ button,button:focus {
       width: 220px;
   }
   .sideBar ul{
-      padding-left: 20px;
+      padding-left: 10px;
   }
 }
 </style>
-

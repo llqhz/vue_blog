@@ -67,6 +67,11 @@
     color: #fff;
 }
 
+.purple-section h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .wrapper {
     max-width: 860px;
     margin: 0 auto;
@@ -98,7 +103,6 @@
     padding: 10px 30px;
     box-sizing: border-box;
 }
-
 
 .card:nth-child(1) {
     background: rgba(0,0,0,0.09);
@@ -133,6 +137,3 @@
 }
 
 </style>
-
-
-

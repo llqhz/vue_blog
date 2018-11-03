@@ -29,7 +29,6 @@ export default {
 
     .hr {
         height: 2px;
-        max-width: 92vw;
         margin: 0 auto;
         background: #fff;
     }
@@ -59,6 +58,9 @@ export default {
         top: 16vh;
         color: white;
     }
+    .banner .inner .hr {
+        width: 8rem;
+    }
     .banner .inner h2 {
         margin: 7px;
         height: 30px;
@@ -79,6 +81,9 @@ export default {
     .banner .inner .more i {
         position: relative;
         animation: more-arrow 1s infinite;
+    }
+    .banner .inner .more p {
+        margin: 10px auto;
     }
 
 </style>

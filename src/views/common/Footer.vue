@@ -14,10 +14,11 @@
 
 <style scoped>
 footer {
-    min-height: 200px;
+    min-height: 160px;
     text-align: center;
     background: #151523;
     color: white;
+    font-size: 16px;
 }
 footer ul {
     /* width: 1080px; */
@@ -32,10 +33,18 @@ footer ul li a {
     color: white;
 }
 .copy {
-    margin-top: 30px;
-    padding-bottom: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 660px) {
+    footer {
+        min-height: 110px;
+        font-size: 12px;
+    }
+    footer ul {
+        padding: 10px
+    }
 }
 
 </style>
-
-

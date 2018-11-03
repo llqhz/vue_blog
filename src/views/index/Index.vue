@@ -75,3 +75,8 @@ export default {
     background: gray;
 }
 </style>
+
+<style lang="stylus" scoped>
+.content
+  font-size 16px
+</style>

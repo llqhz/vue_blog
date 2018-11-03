@@ -54,6 +54,7 @@ export default {
         background-color: rgba(134, 135, 136, 0.5);;
         /* position: fixed;
         width: 100%; */
+        font-size: 16px;
     }
 
     nav ul {

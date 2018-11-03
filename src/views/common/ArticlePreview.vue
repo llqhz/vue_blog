@@ -7,14 +7,12 @@
         <h2>又一个标题</h2>
         <h4 class="sub-heading">我是副标题</h4>
         <div class="text-content">
-            <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
         </div>
     </div>
     <div class="img-section" v-if="!left">
@@ -37,10 +35,10 @@ export default {
   },
   computed: {
     left: function () {
-      if ( this.direction == 'left' ) {
-        return true;
+      if (this.direction == 'left') {
+        return true
       } else {
-        return false;
+        return false
       }
     }
   }
@@ -57,7 +55,7 @@ export default {
 .article-preview {
     background: rgba(19, 11, 18, 0.7);
     color: white;
-    /* åŽ»é™¤.article-previewé—´é—´éš™ */
+    /* .article-previe 去除图片外边框 */
     font-size: 0;
     padding: 0;
 }
@@ -75,17 +73,28 @@ export default {
     padding: 2% 2%;
 }
 .text-section h2 {
+    text-align: center;
     font-size: 24px;
     letter-spacing: 1px;
-}
-.text-section p {
-    font-size: 1.1rem;
-    letter-spacing: 0.03vw;
-}
-.text-section .sub-heading {
-    margin:-10px 0;
+    /* margin: 5px auto; */
 }
 
+.text-section .text-content {
+    font-size: 1.1rem;
+    letter-spacing: 0.03vw;
+
+    text-indent: 2em;
+
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+
+}
+.text-section .sub-heading {
+    margin: 3px auto 10px auto;
+    font-size: 15px;
+    text-indent: 2em;
+}
 
 .article-preview > div {
     float: left;
@@ -111,23 +120,24 @@ export default {
     .article-preview .text-content {
         line-height: 18px;
     }
-    .text-section p {
-        font-size: 0.9rem;
+    .text-section .text-content {
+        font-size: 0.6rem;
         letter-spacing: 0;
+        text-indent: 0;
     }
     .text-section h2 {
-        margin-top: 0;
-        font-size: 16px;
+        margin: 0;
+        font-size: 14px;
         letter-spacing: 1px;
+        text-align: left;
+        text-indent: 8px;
     }
-    .text-section h4 {
-        font-size: 12px;
-        letter-spacing: 1px;
+    .text-section .sub-heading {
+        text-indent: 8px;
+        font-size: 8px;
+        margin: 0px;
+        text-align: left;
     }
 }
 
-
 </style>
-
-
-

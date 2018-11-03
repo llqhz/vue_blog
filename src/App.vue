@@ -47,13 +47,12 @@ export default {
 @import url('~@/assets/css/default.css');
 
 /* 统一在此引入公共文件 */
-@import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css';
+/* @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css'; */
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
 @import 'http://unpkg.com/iview/dist/styles/iview.css';
 
 </style>
 
 <style lang="stylus">
-#app
-  font-size 16px
+
 </style>
