@@ -2,7 +2,7 @@
   <!-- 示例： http://demo.cssmoban.com/cssthemes5/ccps_27_bdv/index.html -->
   <div class="container">
     <row>
-      <i-col :sm="{span:20,offset:2}" :xs="24">
+      <i-col :md="{span:20,offset:2}" :sm="24">
         <row>
           <i-col :xs='24' :sm="16">
             <list-swiper></list-swiper>

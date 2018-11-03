@@ -6,7 +6,7 @@
                 <li v-for="(menu,index) in menuItems" :key="index">
                     <router-link :to='menu.url' tag='a'>  {{ menu.name }}  </router-link>
                 </li>
-                <li><a href="#"> ≡ </a></li>
+                <li><a href="#"> <icon type="md-menu" /></a></li>
             </ul>
         </nav>
     </header>
@@ -50,11 +50,11 @@ export default {
 
 <style scoped>
     nav {
-        height: 50px;
+        height: 40px;
         background-color: rgba(134, 135, 136, 0.5);;
         /* position: fixed;
         width: 100%; */
-        font-size: 16px;
+        font-size: 12px;
     }
 
     nav ul {
@@ -64,7 +64,7 @@ export default {
     }
     nav ul li , nav .logo{
         display: inline-block;
-        height: 50px;
+        height: 30px;
     }
     @media screen and (max-width: 600px) {
         nav .logo {
@@ -74,13 +74,16 @@ export default {
     /* a 鏈潵灏辨槸span鍏冪礌 => line-height<=height */
     /* inline-block => height */
     nav ul li a , .logo a {
-        line-height: 50px;
+        line-height: 40px;
         display: inline-block;
-        height: 50px;
+        height: 40px;
         padding-left: 8px;
         padding-right: 8px;
         text-decoration: none;
         color: #fff;
+    }
+    nav ul li:last-of-type a {
+        padding-right: 16px;
     }
 
     /* 宸﹁竟logo */
@@ -105,6 +108,22 @@ export default {
         nav ul li a {
             padding-left: 20px;
             padding-right: 20px;
+        }
+        nav {
+            font-size: 16px;
+            height: 50px;
+        }
+        nav ul li , nav .logo{
+            height: 50px;
+        }
+        nav ul li a , .logo a {
+            line-height: 50px;
+            height: 50px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        nav ul li:last-of-type a {
+            padding-right: 24px;
         }
     }
 </style>

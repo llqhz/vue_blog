@@ -105,8 +105,14 @@ ul {
 .col-right {
   padding: 5px;
 }
+/* 标题 */
 .col-right h3 {
   text-indent: 1em;
+  cursor: pointer;
+}
+.col-right h3:hover{
+  color: #333;
+  text-shadow: 1px 1px 2px #888;
 }
 .author {
   text-align: right;

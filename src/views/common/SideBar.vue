@@ -64,6 +64,7 @@ button,button:focus {
     outline-width: 0px;
     color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .back-to-top {
@@ -84,9 +85,18 @@ button,button:focus {
 @media screen and (max-width: 660px) {
   body .sideBar {
       width: 220px;
+      font-size: 12px;
   }
   .sideBar ul{
       padding-left: 10px;
+  }
+  .sideBar ul li {
+      width: 200px;
+      padding: 10px 15px;
+  }
+  button,button:focus {
+      font-size: 12px;
+      padding: 10px 28px;
   }
 }
 </style>

@@ -50,6 +50,8 @@ export default {
     overflow: hidden;
     height: 0;
     padding-bottom: 26.7%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .swiper-div .swipper-img {
     width: 100%;
