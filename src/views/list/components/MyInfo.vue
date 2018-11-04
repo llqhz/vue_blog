@@ -41,8 +41,19 @@
 .about {
   overflow: hidden;
   background:  url(http://www.yangqq.com/skin/850/images/banner.png) no-repeat top center;
+  position: relative;
 }
-
+.about::after {
+  filter: blur(1px);
+  content: '';
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 5%;
+  z-index: 1;
+  background: inherit;
+}
 .avatar {
     margin: 80px auto 20px;
     width: 100px;

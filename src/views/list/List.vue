@@ -4,7 +4,7 @@
     <row>
       <i-col :md="{span:20,offset:2}" :sm="24">
         <row>
-          <i-col :xs='24' :sm="16">
+          <i-col :xs='24' :sm="16" class="list-left">
             <list-swiper></list-swiper>
             <list-hr titles="文章列表,"></list-hr>
             <article-items></article-items>
@@ -69,6 +69,11 @@ export default {
 .divider
   margin-top 10px
   margin-bottom 10px
+
+.list-left
+  border-right 2px solid #c2c3c3
+  box-shadow 2px 2px 5px #999
+  overflow hidden
 
 .list-right
   padding 10px
