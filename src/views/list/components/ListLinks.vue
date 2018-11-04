@@ -12,6 +12,8 @@ ul {
   list-style-type: none;
   padding-top: 10px;
   padding-bottom: 30px;
+
+  font-size: 14px;
 }
 ul li {
   border-bottom: 1px dotted #666;
@@ -20,6 +22,7 @@ ul li {
   margin: 0 auto;
   text-align: center;
   margin-top: 10px;
+  padding-bottom: 5px;
 }
 
 ul li a:hover {

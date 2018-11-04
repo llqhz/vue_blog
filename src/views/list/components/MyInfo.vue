@@ -73,7 +73,7 @@
 .topspace-info {
     background: rgba(0, 0, 0,0.01);
     padding: 40px 20px;
-    color: rgba(0, 128, 128, 0.8);
+    color: slategray;
     box-shadow: 2px 2px 1px rgba(0, 0, 0,0.1);
 
     position: relative;

@@ -17,6 +17,8 @@ ul {
   margin-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+
+  font-size: 13px;
 }
 ul li {
   margin-top: 5px;

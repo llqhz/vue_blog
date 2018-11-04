@@ -15,7 +15,7 @@
 ul {
   padding: 20px 30px;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 14px;
 }
 ul li {
   display: inline-block;
