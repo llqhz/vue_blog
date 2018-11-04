@@ -13,11 +13,26 @@ import 'iview/dist/styles/iview.css';
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 Vue.use(iView)
 Vue.use(VueAwesomeSwiper/* { default global options } */)
 
 
 Vue.config.productionTip = false
+/* router.prototype.goBack = function () {
+　　this.isBack = true
+　　window.history.go(-1)
+} */
+/* NProgress 顶部加载进度条 */
+router.beforeEach((to,from,next) => {
+  NProgress.start();
+  next();
+});
+router.afterEach(transition => {
+  NProgress.done();
+});
 
 new Vue({
   router,
