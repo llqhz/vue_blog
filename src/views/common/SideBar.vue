@@ -33,10 +33,11 @@
     list-style-type: none;
     padding-top: 20px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 .sideBar ul li {
-    width: 200px;
-    padding: 15px 20px;
+    width: 100%;
+    padding: 0px 20px;
 }
 .sideBar ul li:hover {
     background: rgba(0,0,0,0.2);
@@ -44,6 +45,8 @@
 .sideBar ul li a {
     display: inline-block;
     width: 100%;
+    height: 45px;
+    line-height: 45px;
     text-decoration: none;
     color: white;
 }
@@ -92,7 +95,11 @@ button,button:focus {
   }
   .sideBar ul li {
       width: 200px;
-      padding: 10px 15px;
+      padding: 0px 15px;
+  }
+  .sideBar ul li a {
+      height: 38px;
+      line-height: 38px;
   }
   button,button:focus {
       font-size: 12px;

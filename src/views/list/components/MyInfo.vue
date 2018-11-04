@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="avatar">
-      <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="">
+      <img title="筱怪" src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="">
     </div>
     <div class="topspace-info">
       <h1>执子之手，与子偕老</h1>
@@ -59,15 +59,40 @@
     width: 100px;
 }
 .avatar img {
-    width: 100px;
-    border-radius: 50%;
+  width: 100px;
+  border-radius: 50%;
+  transition: border-radius 0.2s;
+  cursor: pointer;
+}
+.avatar img:hover {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0,0.2);
+  padding: 2px;
 }
 
 .topspace-info {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0,0.01);
     padding: 40px 20px;
-    color: #fff;
+    color: rgba(0, 128, 128, 0.8);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0,0.1);
+
+    position: relative;
 }
+.topspace-info p {
+  color: unset;
+}
+.topspace-info::after {
+  filter: blur(1px);
+  content: '';
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 101%;
+  height: 103%;
+  z-index: 1;
+  background: rgba(0, 0, 0,0.1);
+}
+
 .about_me {
   padding: 20px;
   font-size: 15px;
