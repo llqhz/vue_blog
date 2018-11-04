@@ -1,15 +1,30 @@
 <template>
   <h2>
     <p>
-      <span>推荐</span>
-      文章
+      <span>{{action}}</span>
+      {{ name }}
     </p>
   </h2>
 </template>
 
 <script>
 export default {
-  name: 'ListHr'
+  name: 'ListHr',
+  props: {
+    titles: {
+      default: '推荐,文章'
+    }
+  },
+  computed: {
+    action: function () {
+      var arr = this.titles.split(',')
+      return arr[0]
+    },
+    name: function () {
+      var arr = this.titles.split(',')
+      return arr[1]
+    }
+  }
 }
 </script>
 

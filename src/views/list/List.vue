@@ -6,12 +6,24 @@
         <row>
           <i-col :xs='24' :sm="16">
             <list-swiper></list-swiper>
-            <list-hr></list-hr>
+            <list-hr titles="文章列表,"></list-hr>
             <article-items></article-items>
             <divider class="divider" />
             <article-page :total="100" show-elevator />
           </i-col>
-          <i-col :xs='24' :sm="8">右侧</i-col>
+          <i-col :xs='24' :sm="8" class="list-right">
+            <div class="right-content">
+              <my-info />
+              <list-hr titles=",个性标签"></list-hr>
+              <my-label />
+              <list-hr titles="最新,文章"></list-hr>
+              <list-news />
+              <list-hr titles="最热,文章"></list-hr>
+              <list-news />
+              <list-hr titles=",友情链接"></list-hr>
+              <list-links />
+            </div>
+          </i-col>
         </row>
       </i-col>
     </row>
@@ -34,13 +46,21 @@ import ListSwiper from './components/Swiper'
 import ListHr from './components/ListHr'
 import ArticleItems from './components/ArticleItems'
 import ArticlePage from './components/ArticlePage'
+import MyInfo from './components/MyInfo'
+import MyLabel from './components/MyLabel'
+import ListNews from './components/ListNews'
+import ListLinks from './components/ListLinks'
 export default {
   name: 'ArticleLIst',
   components: {
     ListSwiper,
     ListHr,
     ArticleItems,
-    ArticlePage
+    ArticlePage,
+    MyInfo,
+    MyLabel,
+    ListNews,
+    ListLinks
   }
 }
 </script>
@@ -49,4 +69,11 @@ export default {
 .divider
   margin-top 10px
   margin-bottom 10px
+
+.list-right
+  padding 10px
+  padding-top 0
+
+  .right-content
+    background-color #f7f7f7
 </style>
