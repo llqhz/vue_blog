@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="avatar">
-      <img title="筱怪" src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="">
+      <img title="筱怪" src="https://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="">
     </div>
     <div class="topspace-info">
       <h1>执子之手，与子偕老</h1>
@@ -40,7 +40,7 @@
 <style scoped>
 .about {
   overflow: hidden;
-  background:  url(http://www.yangqq.com/skin/850/images/banner.png) no-repeat top center;
+  background:  url(https://www.yangqq.com/skin/850/images/banner.png) no-repeat top center;
   position: relative;
 }
 .about::after {
