@@ -19,7 +19,7 @@ export default {
   min-width: 24px;
   height: 25px;
   line-height: 25px;
-  margin-right: 5px;
+  margin-right: 0px;
 }
 .page-xs >>> input {
   width: 40px;
@@ -31,6 +31,6 @@ export default {
 }
 
 .row {
-  padding-bottom: 10px;
+  padding: 0px 10px 10px 10px;
 }
 </style>

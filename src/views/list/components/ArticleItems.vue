@@ -23,7 +23,7 @@
           </div>
         </i-col>
       </row>
-      <divider />
+      <divider class="divider" />
     </li>
   </ul>
 </template>
@@ -47,15 +47,16 @@ ul {
 }
 .label {
   margin-top: 3px;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 9px;
-  color: #515a6e;;
+  color: #778899;
 }
 .label label {
   margin-right: 10px;
 }
 .label label span {
-  font-weight: bold;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .row,.col-left {
@@ -116,12 +117,12 @@ ul {
 }
 .author {
   text-align: right;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 9px;
-  color: rgba(134, 135, 136,0.9);
+  color: #778899;
 }
 .author .name,.author time {
-  font-weight: bold;
+  font-weight: 900;
   vertical-align: baseline;
 }
 
@@ -131,5 +132,9 @@ ul li >>> .ivu-divider-horizontal {
 ul li:last-of-type >>> .ivu-divider-horizontal {
   margin-bottom: 0;
   height: 0;
+}
+
+.divider {
+  background-color: #ccc;
 }
 </style>

@@ -7,7 +7,7 @@
       appear-active-class='animated fadeIn'
       enter-active-class='animated fadeIn'
       leave-active-class='animated fadeOut'
-      :duration="{enter: 500, leave: 500}"
+      :duration="{enter: 200, leave: 200}"
       mode='out-in'
     >
       <router-view class="router" :key='Math.floor( Math.random()*9000 )' />

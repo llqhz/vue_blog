@@ -196,25 +196,27 @@ textarea {
 }
 .author {
   text-align: center;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 9px;
-  color: rgba(134, 135, 136,0.9);
+  color: #778899;
   margin: 4px;
 }
 .author .name, .author time {
-  font-weight: bold;
+  font-weight: 900;
   vertical-align: baseline;
 }
 .divider {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
+  background-color: #ccc;
+  width: 90%;
+  max-width: 950px;
 }
 
 .label {
   margin-top: 3px;
-  font-weight: 200;
+  font-weight: normal;
   font-size: 12px;
-  color: #515a6e;
+  color: #778899;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -223,7 +225,8 @@ textarea {
   margin-right: 10px;
 }
 .label label span {
-  font-weight: bold;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 </style>
