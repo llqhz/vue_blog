@@ -69,7 +69,7 @@ export default {
 /* 统一在此引入公共文件 */
 /* @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css'; */
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
-@import 'http://unpkg.com/iview/dist/styles/iview.css';
+@import 'https://unpkg.com/iview/dist/styles/iview.css';
 @import 'https://lib.baomitu.com/animate.css/3.7.0/animate.css'
 
 </style>
