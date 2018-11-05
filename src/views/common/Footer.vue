@@ -7,7 +7,7 @@
         <li><a href="#"><i class="fa fa-github"></i></a></li>
     </ul>
     <div class="copy">
-        Copyright &copy; 2017 · ☆ 筱怪 ☆
+        Copyright &copy; 2018 · ☆ 筱怪 ☆
     </div>
   </footer>
 </template>
