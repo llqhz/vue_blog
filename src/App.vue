@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted: function () {
-    this.$Message.info('This is a info tip')
+    this.$Message.success('欢迎来到 筱怪的博客~ !')
   },
   watch: {
     /* '$route': function (to, from) {
