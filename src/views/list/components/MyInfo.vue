@@ -10,7 +10,7 @@
     <div class="about_me">
       <p>
         <label for="">
-          网名： <span class="value">DanceSmile | 即步非烟</span>
+          网名： <span class="value">llqhz | 筱怪</span>
         </label>
       </p>
       <p>
@@ -20,17 +20,17 @@
       </p>
       <p>
         <label for="">
-          籍贯： <span class="value">四川省—成都市</span>
+          籍贯： <span class="value">湖北省—武汉市</span>
         </label>
       </p>
       <p>
         <label for="">
-          电话： <span class="value">13662012345</span>
+          电话： <span class="value">13212345678</span>
         </label>
       </p>
       <p>
         <label for="">
-          邮箱： <span class="value">dancesmiling@qq.com</span>
+          邮箱： <span class="value">llqhz@qq.com</span>
         </label>
       </p>
     </div>
