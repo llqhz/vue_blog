@@ -37,10 +37,10 @@ export default {
           url: '/article',
           name: '文章模板'
         },
-        /* {
+        {
           url: '/about',
           name: '关于'
-        } */
+        }
       ]
     }
   }
