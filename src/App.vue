@@ -7,7 +7,7 @@
       appear-active-class='animated fadeIn'
       enter-active-class='animated fadeIn'
       leave-active-class='animated fadeOut'
-      :duration="{enter: 200, leave: 200}"
+      :duration="{enter: 150, leave: 150}"
       mode='out-in'
     >
       <router-view class="router" :key='Math.floor( Math.random()*9000 )' />
@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted: function () {
-    this.$Message.info('This is a info tip')
+    this.$Message.info('欢迎来到筱怪的博客 ！ ')
   },
   watch: {
     /* '$route': function (to, from) {
