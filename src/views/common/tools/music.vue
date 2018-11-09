@@ -36,8 +36,15 @@ export default {
   background: rgba(39,37,34,0.3);
 }
 
+.player >>> .audioplayer-bar {
+  background: #b59696;
+}
 .player >>> .audioplayer-bar-loaded {
   background: rgba(253, 81, 179, 0.86);
+}
+
+.audioplayer:not(.audioplayer-mini) .audioplayer-playpause {
+  border: none;
 }
 
 </style>

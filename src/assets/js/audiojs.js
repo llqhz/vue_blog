@@ -116,7 +116,7 @@
             if (theAudio.buffered.length < 1) return true
             barLoaded.width((theAudio.buffered.end(0) / theAudio.duration) * 100 + '%')
             if (Math.floor(theAudio.buffered.end(0)) >= Math.floor(theAudio.duration)) clearInterval(interval)
-          }, 100)
+          }, 2000)
         }
 
         var volumeTestDefault = theAudio.volume; var volumeTestValue = theAudio.volume = 0.111
@@ -134,6 +134,9 @@
         })
 
         theAudio.addEventListener('timeupdate', function () {
+          if ((new Date()).getMilliseconds() > 300 ) {
+            return;
+          }
           timeCurrent.html(secondsToTime(theAudio.currentTime))
           barPlayed.width((theAudio.currentTime / theAudio.duration) * 100 + '%')
         })
