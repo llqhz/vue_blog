@@ -7,7 +7,7 @@
       appear-active-class='animated fadeIn'
       enter-active-class='animated fadeIn'
       leave-active-class='animated fadeOut'
-      :duration="{enter: 150, leave: 150}"
+      :duration="{enter: 200, leave: 200}"
       mode='out-in'
     >
       <router-view class="router" :key='Math.floor( Math.random()*9000 )' />
@@ -26,7 +26,7 @@ import SideBar from '@/views/common/SideBar'
 // import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 import $ from 'jquery'
 import '@/assets/js/index.js'
-import '@/assets/js/audiojs.js'
+
 
 // import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 
@@ -71,7 +71,7 @@ export default {
 /* @import 'https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css'; */
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
 @import 'https://unpkg.com/iview/dist/styles/iview.css';
-@import 'https://lib.baomitu.com/animate.css/3.7.0/animate.css'
+@import 'https://lib.baomitu.com/animate.css/3.7.0/animate.css';
 
 </style>
 

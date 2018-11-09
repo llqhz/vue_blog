@@ -1,34 +1,14 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    22222
-    <audio src="http://w.llqhz.cn/p/static/fengju.mp3" controls="controls">不支持music</audio>
-    33333
-=======
   <div class="player">
     <audio src="http://w.llqhz.cn/p/static/fengju.mp3"
       preload="auto"
       ref="audio"
       controls  loop
     ></audio>
->>>>>>> 5eb9dc132613d1e61e798deac2af9016ed2b109e
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import '@/components/com/audiojs.js'
-
-export default {
-  name: 'music',
-  mounted: function () {
-    audiojs.events.ready(function() {
-      var as = audiojs.createAll();
-    });
-  }
-}
-</script>
-=======
 
 export default {
   name: 'music',
@@ -61,4 +41,3 @@ export default {
 }
 
 </style>
->>>>>>> 5eb9dc132613d1e61e798deac2af9016ed2b109e
