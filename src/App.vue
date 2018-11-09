@@ -25,8 +25,8 @@ import SideBar from '@/views/common/SideBar'
 // 在此引入全局js
 // import 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 import $ from 'jquery'
-import '@/assets/js/index.js'
-
+import '~@/assets/js/index.js'
+import '@/assets/js/audiojs.js'
 
 // import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
 
