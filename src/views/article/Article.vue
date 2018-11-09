@@ -6,6 +6,9 @@
       作者：<span class="name">筱怪</span> &nbsp;
       发表于：<time >2018-10-23</time>
     </p>
+    <div class="markdown-body">
+      <music></music>
+    </div>
     <div ref='demo' style='display:none'>
 # Highlight.js
 
@@ -109,6 +112,7 @@ import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
 // import 'highlight.js/styles/monokai-sublime.css'
 import 'highlight.js/styles/github.css'
+import music from '@/views/common/tools/music'
 
 const md = new MarkdownIt({
   html: true,
@@ -148,6 +152,7 @@ export default {
     this.demo = this.$refs.demo.innerHTML
   },
   components: {
+    music
   }
 }
 </script>

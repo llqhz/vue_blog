@@ -51,7 +51,11 @@ module.exports = {
 
   devServer: {
     port: 8085, // 端口号
+<<<<<<< HEAD
     host: '0.0.0.0',   // 支持局域网访问
+=======
+    host: '0.0.0.0',
+>>>>>>> 5eb9dc132613d1e61e798deac2af9016ed2b109e
     https: false, // https:{type:Boolean}
     open: true, // 配置自动启动浏览器
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
