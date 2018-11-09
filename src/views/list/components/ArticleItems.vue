@@ -2,12 +2,12 @@
   <ul>
     <li v-for="(items,index) in [1,2,3,4,5,6,7,8,9,10,11,22]" :key='index'>
       <row class="row">
-        <i-col :xs="24" :sm="8" class="col-left">
+        <i-col :xs="8" :sm="8" class="col-left">
           <div class="img-left">
             <!-- <img src="http://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg" alt=""> -->
           </div>
         </i-col>
-        <i-col :xs="24" :sm="16" class="col-right">
+        <i-col :xs="16" :sm="16" class="col-right">
           <h3>从摄影作品中获取网页颜色搭配技巧</h3>
           <p class="author">
             作者：<span class="name">筱怪</span> &nbsp;
@@ -48,7 +48,7 @@ ul {
 .label {
   margin-top: 3px;
   font-weight: normal;
-  font-size: 9px;
+  font-size: 10px;
   color: #778899;
 }
 .label label {
@@ -68,6 +68,7 @@ ul {
   padding: 1px;
   border: 3px solid rgba(0, 0, 0, 0.15);
   padding: 5px;
+  max-height: 150px;
 }
 .col-left .img-left {
   background-image: url(https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg);
@@ -97,9 +98,16 @@ ul {
     height: 45vw;
     margin: 0;
     margin-bottom: 5px;
+    max-height: 125px;
   }
   .row .col-right h3 {
     text-indent: 0;
+  }
+  .col-right h3 {
+    font-size: 11px;
+  }
+  .col-right .content {
+    margin: 3px auto;
   }
 }
 
@@ -110,6 +118,7 @@ ul {
 .col-right h3 {
   text-indent: 1em;
   cursor: pointer;
+  font-size: 12px;
 }
 .col-right h3:hover{
   color: #333;
@@ -118,12 +127,17 @@ ul {
 .author {
   text-align: right;
   font-weight: normal;
-  font-size: 9px;
+  font-size: 10px;
   color: #778899;
 }
 .author .name,.author time {
   font-weight: 900;
   vertical-align: baseline;
+}
+.col-right .content {
+  max-height: 72px;
+  overflow: hidden;
+  font-size: 10px;
 }
 
 ul li >>> .ivu-divider-horizontal {
@@ -137,4 +151,7 @@ ul li:last-of-type >>> .ivu-divider-horizontal {
 .divider {
   background-color: #ccc;
 }
+
+
+
 </style>
