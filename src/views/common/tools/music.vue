@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <audio>
+      <audio >
         <source src="http://w.llqhz.cn/p/static/fengju.mp3" type="audio/mpeg">
       </audio>
     </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import audioPlayer from "@/assets/js/audiojs_2.js";
+import audioPlayer from '@/assets/js/audiojs_2.js'
 
 export default {
   name: 'music',
@@ -55,31 +55,29 @@ export default {
     }
   },
   mounted: function () {
-    this.player();
-
-
+    this.player()
 
     /* $(this.audio).audioPlayer({
       classPrefix: 'audioplayer'
     }) */
   },
-  created: function() {
+  created: function () {
 
   },
   methods: {
-    player: function(){
+    player: function () {
       if (!this.audioplayer) {
         this.audioplayer = this.$refs.audioplayer
       }
-      audioPlayer.player(this.audioplayer);
+      audioPlayer.player(this.audioplayer)
     }
   }
 }
 </script>
 
-<style lang='stylus' scoped>
+<style lang='stylus' >
 /* @import url('~@/assets/css/audiojs.css'); */
-
+bg-padding = 12px
 
 .audio.green-audio-player {
   width: 100%;
@@ -96,6 +94,9 @@ export default {
   user-select: none;
   -webkit-user-select: none;
   background-color: #fff;
+}
+.audio.green-audio-player:focus {
+  outline: 0;
 }
 .audio.green-audio-player .play-pause-btn {
   display: none;
@@ -199,24 +200,9 @@ export default {
   top: -8px;
 }
 
-svg, img {
+.audio.green-audio-player svg, img {
   display: block;
 }
-
-/* html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #F8FFAE;
-  background: -webkit-linear-gradient(-65deg, #43C6AC, #F8FFAE);
-  background: linear-gradient(-65deg, #43C6AC, #F8FFAE);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 
 @keyframes spin {
   from {
@@ -224,6 +210,23 @@ body {
   }
   to {
     transform: rotateZ(1turn);
+  }
+}
+
+@media screen and ( max-width 659px ) {
+  .audio.green-audio-player {
+    height 35px
+    padding-left bg-padding
+    padding-right bg-padding
+  }
+  .audio.green-audio-player .controls {
+    font-size 12px
+    margin-left bg-padding
+    margin-right bg-padding
+  }
+  .audio.green-audio-player svg {
+    height 14px
+    width 14px
   }
 }
 

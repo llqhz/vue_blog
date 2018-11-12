@@ -172,6 +172,8 @@ export default {
 @media screen and  (max-width: 767px) {
   .markdown-body {
     padding: 15px;
+    font-size: 13px;
+    line-height: 1.4;
   }
 }
 @media screen and (min-width: 768px) {

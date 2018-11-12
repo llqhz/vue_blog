@@ -9,26 +9,31 @@
     </div>
     <div class="about_me">
       <p>
+        <icon type="ios-contact" />
         <label for="">
           网名： <span class="value">llqhz | 筱怪</span>
         </label>
       </p>
       <p>
+        <Icon type="logo-css3" />
         <label for="">
           职业： <span class="value">Web前端设计师、网页设计</span>
         </label>
       </p>
       <p>
+        <Icon type="md-home" />
         <label for="">
           籍贯： <span class="value">湖北省—武汉市</span>
         </label>
       </p>
       <p>
+        <Icon type="ios-call" />
         <label for="">
           电话： <span class="value">13212345678</span>
         </label>
       </p>
       <p>
+        <Icon type="ios-mail" />
         <label for="">
           邮箱： <span class="value">llqhz@qq.com</span>
         </label>
@@ -94,11 +99,14 @@
 }
 
 .about_me {
-  padding: 20px;
-  font-size: 15px;
+  padding: 20px 25px;
+  font-size: 13px;
 }
 .about_me p {
   line-height: 25px;
   height: 25px;
+}
+.about_me p label {
+  margin-left: 4px;
 }
 </style>
