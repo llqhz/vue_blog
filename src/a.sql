@@ -8,6 +8,13 @@ select * from tb as tb1
 where tb1.b  
 
 
+select * from bd_material
+select * from bd_material tb1
+where exists 
+( select tb2.CODE from bd_material tb2 
+  where tb1.MATERIALTYPE like CONCAT('%',tb2.MATERIALSPEC,'%') 
+)
+
 
 
 
