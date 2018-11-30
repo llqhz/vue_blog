@@ -35,12 +35,12 @@ export default {
         },
         {
           url: '/article',
-          name: '文章模板'
-        }/* ,
+          name: '文章详情'
+        },
         {
-          url: '/about',
-          name: '关于'
-        } */
+          url: '/publish',
+          name: '发布文章'
+        }
       ]
     }
   }

@@ -47,7 +47,7 @@ export default {
     }
   },
   mounted: function () {
-    this.$Message.success('欢迎来到 筱怪的博客~ !')
+    // this.$Message.success('欢迎来到 筱怪的博客~ !')
   },
   watch: {
     /* '$route': function (to, from) {

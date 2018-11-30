@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <audio >
+      <audio>
         <source src="http://w.llqhz.cn/p/static/fengju.mp3" type="audio/mpeg">
       </audio>
     </div>
@@ -51,12 +51,12 @@ export default {
   name: 'music',
   data: () => {
     return {
-      audioplayer: null
+      audioplayer: null,
+      isAutoPlay: true
     }
   },
   mounted: function () {
     this.player()
-
     /* $(this.audio).audioPlayer({
       classPrefix: 'audioplayer'
     }) */

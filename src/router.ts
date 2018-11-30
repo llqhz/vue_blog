@@ -32,6 +32,14 @@ export default new Router({
         /* webpackChunkName: "about" */
           '@/views/about/About.vue'
         )
+    },
+    {
+      path: '/publish',
+      name: 'publish',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('@/views/publish/Publish.vue')
     }
   ]
 })

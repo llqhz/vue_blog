@@ -77,6 +77,9 @@ ul {
   background-position: center;
   background-size: cover;
 }
+.row .col-right h3 {
+  font-size: 14px;
+}
 /* .left-content {
   max-height: 150px;
   overflow: hidden;
@@ -102,12 +105,13 @@ ul {
   }
   .row .col-right h3 {
     text-indent: 0;
-  }
-  .col-right h3 {
     font-size: 11px;
   }
   .col-right .content {
     margin: 3px auto;
+  }
+  .label {
+    margin-top: 0px;
   }
 }
 
@@ -151,7 +155,5 @@ ul li:last-of-type >>> .ivu-divider-horizontal {
 .divider {
   background-color: #ccc;
 }
-
-
 
 </style>
