@@ -2,15 +2,27 @@
   <div class="container">
     <row>
       <i-col :md="{span:20,offset:2}" :sm="24">
-        <row>
-          <i-col :xs='24' :sm="16" class="list-left">
-            左侧
-          </i-col>
-          <i-col :xs='24' :sm="8" class="list-right">
-            右侧
-          </i-col>
-        </row>
+        <div class="page">
+          <mavon-editor v-model="text"/>
+        </div>
       </i-col>
     </row>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Publish',
+  data () {
+    return {
+      text: ''
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+.page
+  background-color: #159957;
+  background-image: linear-gradient(120deg,#155799,#159957);
+</style>

@@ -15,10 +15,14 @@ import 'swiper/dist/css/swiper.css'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
 
 Vue.use(iView)
 Vue.use(VueAwesomeSwiper/* { default global options } */)
 
+Vue.use(mavonEditor) //markdown编辑器
 
 Vue.config.productionTip = false
 /* router.prototype.goBack = function () {
