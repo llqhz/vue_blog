@@ -2,27 +2,31 @@
   <div class="container">
     <row>
       <i-col :md="{span:20,offset:2}" :sm="24">
-        <div class="page">
-          <mavon-editor v-model="text"/>
-        </div>
+        <mo-markdown ></mo-markdown>
       </i-col>
     </row>
   </div>
 </template>
 
 <script>
+import MoMarkdown from '@/views/common/tools/MoMarkdown.vue'
+
 export default {
   name: 'Publish',
+  components: {
+    MoMarkdown
+  },
   data () {
     return {
-      text: ''
+      value: ''
     }
+  },
+  mounted () {
+
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-.page
-  background-color: #159957;
-  background-image: linear-gradient(120deg,#155799,#159957);
+<style lang="stylus">
+
 </style>

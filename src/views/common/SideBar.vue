@@ -15,13 +15,14 @@
     </button>
   </div>
 </template>
+<style lang='stylus' scoped>
+zIndex = 2000
 
-<style scoped>
 .sideBar {
     width: 300px;
     background: #888;
     position: fixed;
-    z-index: 2;
+    z-index: zIndex;
     top: 0px;
     right: -300px;
     bottom: 0px;
@@ -60,7 +61,7 @@
     right: 0;
     bottom: 0;
 
-    z-index: 2;
+    z-index: zIndex;
 }
 
 button,button:focus {
@@ -79,6 +80,7 @@ button,button:focus {
     background: rgba(0,0,0,0.5);
 
     display: none;
+    z-index: zIndex
 }
 .back-to-top:focus {
     background: rgba(0,0,0,0.5);
