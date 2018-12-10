@@ -33,6 +33,9 @@ export default {
     return {
       msg: 'hello'
     }
+  },
+  mounted: function () {
+    console.log(axios);
   }
 }
 </script>

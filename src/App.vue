@@ -29,6 +29,7 @@ import '@/assets/js/index.js'
 import '@/assets/js/audiojs.js'
 
 // import $ from 'https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'
+import axios from "axios"
 
 export default {
   name: 'app',

@@ -66,11 +66,11 @@ zIndex = 2000
 
 button,button:focus {
     border: 0px;
-    padding: 14px 40px;
+    padding: 10px 30px;
     outline-width: 0px;
     color: white;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .back-to-top {
@@ -80,7 +80,7 @@ button,button:focus {
     background: rgba(0,0,0,0.5);
 
     display: none;
-    z-index: zIndex
+    z-index: zIndex;
 }
 .back-to-top:focus {
     background: rgba(0,0,0,0.5);

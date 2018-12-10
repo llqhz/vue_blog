@@ -104,7 +104,8 @@ module.exports = {
       libraryTarget: 'umd'
     },
     externals: {
-      jquery: 'jQuery'
+      jquery: 'jQuery',
+      axios: 'axios'
     }
   }
 
