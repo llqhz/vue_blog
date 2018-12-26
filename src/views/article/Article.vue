@@ -102,6 +102,7 @@ addEventListener('load', function() {
       <label for="">分类：[<span>网站建设</span>]</label>
       <label for="">浏览：<span>459</span></label>
       <label for="">评论：<span>30</span></label>
+      <label for="">点赞：<icon type="thumbsup"></icon> <span>56</span></label>
     </div>
   </div>
 </template>

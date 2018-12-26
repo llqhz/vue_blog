@@ -1,12 +1,20 @@
 <template>
     <header id="header">
         <nav>
-            <div class="logo"><a href="#">☆筱怪☆</a></div>
+            <div class="logo">
+                <template v-if="isSigned">
+                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="个人中心">
+                    <a href="#">☆筱怪☆</a>
+                </template>
+                <template v-else>
+                    <a href="#">登录</a> | <a href="#">注册</a>
+                </template>
+            </div>
             <ul>
                 <li v-for="(menu,index) in menuItems" :key="index">
                     <router-link :to='menu.url' tag='a'>  {{ menu.name }}  </router-link>
                 </li>
-                <li><a href="#"> <icon type="md-menu" /></a></li>
+                <li><a href="#"> &nbsp;<icon type="md-menu" />&nbsp;</a></li>
             </ul>
         </nav>
     </header>
@@ -19,11 +27,13 @@ export default {
   name: 'NavTop',
   props: {
     activeMenu: {
-      default: '/'
+      default: '/',
+
     }
   },
   data: () => {
     return {
+      isSigned: false,
       menuItems: [
         {
           url: '/',
@@ -37,10 +47,10 @@ export default {
           url: '/article',
           name: '文章详情'
         },
-        {
+        /* {
           url: '/publish',
           name: '发布文章'
-        }
+        } */
       ]
     }
   }
@@ -68,7 +78,7 @@ export default {
     }
     @media screen and (max-width: 600px) {
         nav .logo {
-            display: none;
+            /* display: none; */
         }
     }
     /* a 鏈潵灏辨槸span鍏冪礌 => line-height<=height */
@@ -94,9 +104,26 @@ export default {
         font-weight: 700;
         float: left;
         padding-left: 20px;
+
+        display: flex;
+        width: 120px;
+        align-items: center;
+        height: 100%;
     }
-    .logo a {
+    .logo {
         color: #fff;
+        font-size: .5rem;
+    }
+    .logo img {
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 0 0 4px grey;
+        border: 1px solid lightgray;
+    }
+    nav .logo a {
+        padding-left: 7px;
+        padding-right: 7px;
+        font-size: 14px;
     }
 
     .router-link-exact-active {
