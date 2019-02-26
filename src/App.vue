@@ -73,6 +73,7 @@ export default {
 @import 'https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css';
 @import 'https://unpkg.com/iview/dist/styles/iview.css';
 @import 'https://lib.baomitu.com/animate.css/3.7.0/animate.css';
+@import 'https://unpkg.com/mint-ui/lib/style.css';
 
 </style>
 

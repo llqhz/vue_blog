@@ -25,6 +25,8 @@ Vue.use(VueAwesomeSwiper/* { default global options } */)
 
 Vue.use(mavonEditor) //markdown编辑器
 
+import MintUI from 'mint-ui'
+
 Vue.config.productionTip = false
 /* router.prototype.goBack = function () {
 　　this.isBack = true

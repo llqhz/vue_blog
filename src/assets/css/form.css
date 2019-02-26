@@ -1,0 +1,29 @@
+.mint-field .mint-cell-title {
+  width: 75px;
+}
+.mint-cell-wrapper {
+  font-size: 14px;
+  padding: 0 16px;
+}
+.mint-cell {
+  min-height: 37px;
+}
+.mint-radiolist .mint-cell {
+  min-height: 34px;
+}
+
+.form-container .mint-cell-wrapper {
+  font-size: 13px;
+}
+
+.mint-radiolist-title {
+  margin-left: 16px;
+}
+
+.form-container .form-title {
+  text-align: center;
+  margin: 7px;
+  font-size: 17px;
+  padding-left: 30px;
+  letter-spacing: 30px;
+}

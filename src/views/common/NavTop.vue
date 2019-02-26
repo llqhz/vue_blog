@@ -77,8 +77,15 @@ export default {
         height: 30px;
     }
     @media screen and (max-width: 600px) {
-        nav .logo {
+        #header nav .logo {
             /* display: none; */
+            width: 92px;
+        }
+        #header nav .logo a {
+            /* display: none; */
+            font-size: 12px;
+            padding-left: 3px;
+            padding-right: 3px;
         }
     }
     /* a 鏈潵灏辨槸span鍏冪礌 => line-height<=height */

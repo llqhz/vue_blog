@@ -104,8 +104,11 @@ module.exports = {
       libraryTarget: 'umd'
     },
     externals: {
+      vue: 'Vue',
       jquery: 'jQuery',
-      axios: 'axios'
+      axios: 'axios',
+      'mint-ui': 'MINT'
+      // 左边名字是固定的，是你从script引入的名字，右边是你页面中使用的名字
     }
   }
 
