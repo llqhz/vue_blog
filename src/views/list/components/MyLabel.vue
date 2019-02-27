@@ -1,15 +1,28 @@
 <template>
   <ul>
-    <li>青空</li>
-    <li>情感聊吧</li>
-    <li>study</li>
-    <li>青青唠叨</li>
-    <li>青空</li>
-    <li>情感聊吧</li>
-    <li>study</li>
-    <li>青青唠叨</li>
+    <li v-for="(tag,index) in tags" v-html="tag" :key='index'></li>
   </ul>
 </template>
+
+<script>
+export default {
+  name: 'MaLabel',
+  props: {
+    tags: {
+      default: function () {
+        return ['青空','study','青青唠叨']
+      }
+    }
+  },
+  data: () => {
+    return {
+
+    }
+  }
+}
+</script>
+
+
 
 <style scoped>
 ul {

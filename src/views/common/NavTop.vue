@@ -1,13 +1,13 @@
 <template>
     <header id="header">
         <nav>
-            <div class="logo">
+            <div class="logo" :class="{logined:isSigned}">
                 <template v-if="isSigned">
                     <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="个人中心">
                     <a href="#">☆筱怪☆</a>
                 </template>
                 <template v-else>
-                    <a href="#">登录</a> | <a href="#">注册</a>
+                    <router-link to='/login' tag='a'>登录</router-link> | <router-link to='/submit' tag='a'>注册</router-link>
                 </template>
             </div>
             <ul>
@@ -33,7 +33,7 @@ export default {
   },
   data: () => {
     return {
-      isSigned: false,
+      isSigned: true,
       menuItems: [
         {
           url: '/',
@@ -106,6 +106,8 @@ export default {
     /* 宸﹁竟logo */
 
     nav .logo {
+        overflow: hidden;
+
         letter-spacing: 1px;
         font-size: 20px;
         font-weight: 700;
@@ -160,4 +162,34 @@ export default {
             padding-right: 24px;
         }
     }
+
+
+    /* 设置登录后的logo */
+    @media screen and (min-width: 660px){
+        nav .logo.logined {
+            width: 250px;
+            padding-left: 40px;
+        }
+        nav .logo.logined img {
+            height: 30px;
+        }
+        nav .logo.logined a {
+            font-size: 14px;
+            letter-spacing: 0;
+        }
+    }
+    @media screen and (max-width: 659px){
+        nav .logo.logined {
+            width: 92px;
+            padding-left: 5px;
+        }
+        nav .logo.logined img {
+            height: 20px;
+        }
+        nav .logo.logined a {
+            font-size: 10px;
+            letter-spacing: 0;
+        }
+    }
+
 </style>
