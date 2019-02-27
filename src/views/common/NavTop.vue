@@ -33,7 +33,7 @@ export default {
   },
   data: () => {
     return {
-      isSigned: true,
+      isSigned: false,
       menuItems: [
         {
           url: '/',
@@ -171,7 +171,7 @@ export default {
             padding-left: 40px;
         }
         nav .logo.logined img {
-            height: 30px;
+            height: 40px;
         }
         nav .logo.logined a {
             font-size: 14px;

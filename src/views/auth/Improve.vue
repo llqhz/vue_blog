@@ -5,12 +5,27 @@
         <row>
           <i-col :xs='24' :sm="16" class="list-left">
               <div class="form-container">
-                <h4 class="form-title">登录</h4>
-                <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
-                <mt-field label="密码" type='password' placeholder="请输入密码" v-model="password"></mt-field>
-                <mt-field label="验证码" v-model="code" placeholder="请输入验证码">
-                  <img src="http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html" onclick="this.src='http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html'+'?id='+Math.random()" height="30px" width="100px">
-                </mt-field>
+                <h4 class="form-title">完善资料</h4>
+                <mt-field label="姓名" placeholder="请输入姓名" v-model="name"></mt-field>
+                <mt-field label="昵称" placeholder="请输入昵称" v-model="nickname"></mt-field>
+                <mt-field label="邮箱" placeholder="请输入邮箱" type="email" v-model="email"></mt-field>
+                <mt-field label="手机号" placeholder="请输入手机号" type="tel" v-model="mobile"></mt-field>
+                <mt-field label="地址" placeholder="请输入地址" type="tel" v-model="address"></mt-field>
+                <mt-radio
+                  title="性别"
+                  v-model="sex"
+                  :options="sexOps">
+                </mt-radio>
+                <mt-radio
+                  title="性别"
+                  v-model="job"
+                  :options="jobOps">
+                </mt-radio>
+                <mt-cell title="头像" is-link>
+                  <span style="color: green">这里是元素</span>
+                </mt-cell>
+                <mt-field label="个性签名" placeholder="请输入签名" v-model="signature_title"></mt-field>
+                <mt-field label="自我介绍" placeholder="请输入自我介绍" type="textarea" rows="4" v-model="signature_desc"></mt-field>
                 <divider class="divider form-btns" />
                 <row>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:5}' class="list-left">
@@ -20,7 +35,6 @@
                     <mt-button type="danger" size="large">注册</mt-button>
                   </i-col>
                 </row>
-
               </div>
             <divider class="divider" />
           </i-col>
@@ -51,7 +65,7 @@ import ListLinks from '../list/components/ListLinks'
 import ListNews from '../list/components/ListNews'
 
 export default {
-  name : "Login",
+  name : "Improve",
   components: {
     ListHr,
     MyLabel,
@@ -60,9 +74,35 @@ export default {
   },
   data : () => {
     return {
-      username: '',
-      password: '',
-      code: ''
+      name: '',
+      avatar: '',
+      nickname: '',
+      sex: '0',
+      age: 22,
+      job: '0',
+      address: '',
+      mobile: '',
+      email : '',
+      tags: '',
+      password : '',
+      signature_title : '',
+      signature_desc : '',
+
+      tags: ['青空','study','青青唠叨','青空','study','青青唠叨','青空','study','青青唠叨','青空','study','青青唠叨'],
+      sexOps: [{
+          label: '未知',
+          value: '0',
+        },
+        {
+          label: '男',
+          value: '1'
+        },
+        {
+          label: '女',
+          value: '2'
+        }],
+      jobOps : [{'label':'其他','value':'0'}, {'label':'学生','value':'1'},{'label':'教师','value':'2'}],
+
     }
   }
 }
@@ -91,10 +131,12 @@ export default {
 @media screen and (min-width 768px)
   .form-container
     min-height 1000px
-    background #fff
+    background-color #fff
 
   .form-title
-    margin-bottom 50px
+    margin-bottom 20px
+    letter-spacing 10px
+    padding-left 10px
 
 @media screen and (max-width 768px)
   .form-container
@@ -102,6 +144,8 @@ export default {
     .form-title
       margin-bottom 20px
       margin-top 20px
+      letter-spacing 7px
+      padding-left 7px
 
 .divider.form-btns
   margin-top 20px
