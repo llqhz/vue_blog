@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="(items,index) in [1,2,3,4,5,6,7,8,9,10,11,22]" :key='index'>
+    <li v-for="(article,index) in articles" :key='index'>
       <row class="row">
         <i-col :xs="8" :sm="8" class="col-left">
           <div class="img-left">
@@ -8,18 +8,18 @@
           </div>
         </i-col>
         <i-col :xs="16" :sm="16" class="col-right">
-          <h3>从摄影作品中获取网页颜色搭配技巧</h3>
+          <h3>{{ article.title }}</h3>
           <p class="author">
-            作者：<span class="name">筱怪</span> &nbsp;
-            发表于：<time>2018-10-23</time>
+            作者：<span class="name">{{ article.author }}</span> &nbsp;
+            发表于：<time>{{ article.updated_at }}</time>
           </p>
           <div class="content">
-            作为一个优秀、专业的网页设计师，首先要了解各种颜色的象征，以及不同类型网站常用的色彩搭配。色彩搭配看似复杂,但并不神秘。一般来说,网页的背景色应该柔和一些、素一些、淡一些,再配上深色的文字,使人看起来自然、舒畅。色彩是人的视觉最敏感的东西。主页的色彩处理得好，可以锦上添花，达到事半功倍的效果。
+            {{ article.summary }}
           </div>
           <div class="label">
-            <label for="">分类：[<span>网站建设</span>]</label>
-            <label for="">浏览：<span>459</span></label>
-            <label for="">评论：<span>30</span></label>
+            <label for="">分类：[<span>{{ article.classify_id }}</span>]</label>
+            <label for="">浏览：<span>{{ article.view_num }}</span></label>
+            <label for="">评论：<span>{{ article.comment_num }}</span></label>
           </div>
         </i-col>
       </row>
@@ -29,12 +29,20 @@
 </template>
 
 <script>
+
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: 'ArticleItems',
   data: () => {
     return {
 
     }
+  },
+  computed: {
+    ...mapGetters('articles',{
+      articles: 'articles'
+    })
   }
 }
 </script>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/index'
 import './registerServiceWorker'
 // import utils from '@/components/com/utils.js'
 // css import
@@ -43,6 +43,6 @@ router.afterEach(transition => {
 
 new Vue({
   router,
-  store,
+  store, // 自动注册到所有子组件里 子组件使用 this.$store访问
   render: h => h(App)
 }).$mount('#app')

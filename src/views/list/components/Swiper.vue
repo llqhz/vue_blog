@@ -15,6 +15,9 @@
 </template>
 
 <script>
+
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: 'ListSwiper',
   data () {
@@ -34,47 +37,30 @@ export default {
         pagination: {
           el: '.swiper-pagination'
         }
-      },
-      imgs: [
-        {
-          id: 1,
-          src: 'https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg'
-        },
-        {
-          id: 2,
-          src: 'https://img1.qunarzz.com/piao/fusion/1808/74/cad6bf966300902.jpg_750x200_7641ba93.jpg'
-        }
-      ],
-    }
-  },
-  // 注意时机为created 而不是mounted
-  created: function(){
-    for (let index = 0; index < this.imgs.length; index++) {
-      this.$set(this.imgs[index],'img_mode','default')
+      }
     }
   },
 
+  computed: {
+    ...mapGetters('swiper',{
+      imgs : 'swiperImages'
+    })
+  },
+
+
+  // 注意时机为created 而不是mounted
+  created: function(){
+    // 发送api请求
+    this.updateSwiperImages()
+  },
+
   mounted: function(){
-    this.list_swiper = this.$refs.list_swiper;
-    setTimeout(() => {
-      this.list_swiper.update();
-    }, 3000);
-    window.onresize = () =>　{
-      if ( this.isResizeing ) {
-        return;
-      } else {
-        this.isResizeing = true;
-      }
-      setTimeout(() => {
-        this.list_swiper.update();
-        this.isResizeing = false;
-      }, 1000);
-    }
+    this.resizeSwiper()
   },
 
   methods: {
     img_position: function (index,src,id,event) {
-      console.log(event);
+      // 计算图片缩略图
       let el = event.path[0];
       if ( !this.imgObject ) {
         this.imgObject = new Image();
@@ -88,8 +74,29 @@ export default {
       } else {
         mode = 'height_img'
       }
-      this.imgs[index].img_mode = mode;
-    }
+      this.$store.commit('swiper/setSwiperImagesMode', {img_mode:mode,index:index})
+    },
+    resizeSwiper(){
+      this.list_swiper = this.$refs.list_swiper;
+      setTimeout(() => {
+        this.list_swiper.update();
+      }, 3000);
+      window.onresize = () =>　{
+        if ( this.isResizeing ) {
+          return;
+        } else {
+          this.isResizeing = true;
+        }
+        setTimeout(() => {
+          this.list_swiper.update();
+          this.isResizeing = false;
+        }, 1000);
+      }
+    },
+    ...mapActions('swiper',{
+      updateSwiperImages: 'updateSwiperImages',
+    })
+
   }
 
 }
