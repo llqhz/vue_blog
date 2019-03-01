@@ -4,6 +4,9 @@ export default {
     article: {
       content: ''
     },
+    publish: {
+
+    },
   },
   getters: {
     article(state){
@@ -13,6 +16,9 @@ export default {
   mutations: {
     setArticle(state, article){
       state.article = article
+    },
+    setPublish(state, article) {
+      state.publish = article
     }
   },
   actions: {
@@ -48,6 +54,15 @@ detection.
         }
         commit('setArticle',article)
       }, 2000);
+    },
+    getPublish({commit,state},params){
+      if ( params.id ) {
+        commit('setPublish',state.article)
+      } else {
+        commit('setPublish', {
+
+        })
+      }
     }
   },
 }
