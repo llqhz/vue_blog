@@ -107,8 +107,9 @@ module.exports = {
       vue: 'Vue',
       jquery: 'jQuery',
       axios: 'axios',
-      'mint-ui': 'MINT'
+      'mint-ui': 'MINT',
       // 左边名字是固定的，是你从script引入的名字，右边是你页面中使用的名字
+      'vue-ueditor-wrap': 'VueUeditorWrap'
     }
   }
 

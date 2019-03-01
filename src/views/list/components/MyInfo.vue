@@ -1,46 +1,75 @@
 <template>
   <div class="about">
     <div class="avatar">
-      <img title="筱怪" src="https://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="">
+      <img :title="user.nickname" :src="user.avatar" :alt="user.nickname">
     </div>
     <div class="topspace-info">
-      <h1>执子之手，与子偕老</h1>
-      <p>于千万人之中，我遇见了我所遇见的人....</p>
+      <h1>{{ user.signature_title }}</h1>
+      <p>{{ user.signature_desc }}</p>
     </div>
     <div class="about_me">
       <p>
         <icon type="ios-contact" />
         <label for="">
-          网名： <span class="value">llqhz | 筱怪</span>
+          网名： <span class="value">{{ user.nickname }}</span>
         </label>
       </p>
       <p>
         <Icon type="logo-css3" />
         <label for="">
-          职业： <span class="value">Web前端设计师、网页设计</span>
+          职业： <span class="value">{{ user.job }}</span>
         </label>
       </p>
       <p>
         <Icon type="md-home" />
         <label for="">
-          籍贯： <span class="value">湖北省—武汉市</span>
+          籍贯： <span class="value">{{ user.address }}</span>
         </label>
       </p>
       <p>
         <Icon type="ios-call" />
         <label for="">
-          电话： <span class="value">13212345678</span>
+          电话： <span class="value">{{ user.mobile }}</span>
         </label>
       </p>
       <p>
         <Icon type="ios-mail" />
         <label for="">
-          邮箱： <span class="value">llqhz@qq.com</span>
+          邮箱： <span class="value">{{ user.email }}</span>
         </label>
       </p>
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters, mapActions } from "vuex";
+
+export default {
+  name: 'MyInfo',
+  data(){
+    return {
+
+    }
+  },
+  computed: {
+    ...mapGetters('user',{
+      user: 'user'
+    })
+  },
+  methods: {
+    ...mapActions('user',{
+      getUser: 'getUser'
+    })
+  },
+  created(){
+    this.getUser({id:1})
+  }
+
+}
+</script>
+
+
 
 <style scoped>
 .about {

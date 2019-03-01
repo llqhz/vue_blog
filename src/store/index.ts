@@ -8,6 +8,7 @@ import actions from './actions'
 import user from './modules/user'
 import swiper from './modules/swiper'
 import articles from './modules/articles'
+import article from './modules/article'
 
 
 export default new Vuex.Store({
@@ -19,6 +20,7 @@ export default new Vuex.Store({
   modules: {
     user,
     swiper,
-    articles
+    articles,
+    article
   }
 })

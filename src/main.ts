@@ -18,12 +18,13 @@ import 'nprogress/nprogress.css'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
-
+import VueUeditorWrap from 'vue-ueditor-wrap' // ES6 Module
 
 Vue.use(iView)
 Vue.use(VueAwesomeSwiper/* { default global options } */)
 
 Vue.use(mavonEditor) //markdown编辑器
+Vue.component('vue-ueditor-wrap', VueUeditorWrap)  //ueditor富文本编辑器
 
 import MintUI from 'mint-ui'
 

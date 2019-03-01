@@ -34,7 +34,7 @@ export default {
 }
 h2 {
     font-size: 14px;
-    font-family: "微软雅黑";
+    font-family: "宋体";
     letter-spacing: 2px;
     border-bottom: 3px solid #c5c8ce;
 
@@ -55,6 +55,7 @@ h2 p {
 h2 p span {
   font-weight: 700;
   font-size: 16px;
+  margin-right: -5px;
 }
 
 </style>

@@ -1,11 +1,23 @@
 <template>
   <ul>
-    <li><a href="#">个人空间</a></li>
-    <li><a href="#">个人博客</a></li>
-    <li><a href="#">个人网站</a></li>
-    <li><a href="#">个人收藏</a></li>
+    <li v-for="(link,index) in links" :key='index'>
+      <a :href="link.url" :title="link.title">{{ link.title }}</a>
+    </li>
   </ul>
 </template>
+
+<script>
+export default {
+  name: 'ListLinks',
+  props: {
+    links: {
+      default(){
+        return []
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 ul {

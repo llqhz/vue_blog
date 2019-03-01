@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="(tag,index) in tags" v-html="tag" :key='index'></li>
+    <li v-for="(tag,index) in mtags" v-html="tag" :key='index'></li>
   </ul>
 </template>
 
@@ -18,7 +18,13 @@ export default {
     return {
 
     }
-  }
+  },
+  computed:{
+    mtags(){
+      // 字符串 或 数组
+      return typeof this.tags == 'string' ? this.tags.split(',') : this.tags
+    }
+  },
 }
 </script>
 

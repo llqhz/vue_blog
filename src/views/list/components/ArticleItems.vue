@@ -43,6 +43,18 @@ export default {
     ...mapGetters('articles',{
       articles: 'articles'
     })
+  },
+  created(){
+    var params = {
+      page: 1,
+      type: 2,
+    }
+    this.getArticles(params)
+  },
+  methods: {
+    ...mapActions('articles',{
+      getArticles: 'getArticles'
+    })
   }
 }
 </script>
@@ -120,6 +132,12 @@ ul {
   }
   .label {
     margin-top: 0px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .col-right .content {
+    text-indent: 1.2em;
   }
 }
 

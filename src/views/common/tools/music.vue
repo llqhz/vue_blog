@@ -37,7 +37,7 @@
       </div>
 
       <audio>
-        <source src="http://w.llqhz.cn/p/static/fengju.mp3" type="audio/mpeg">
+        <source :src="src" type="audio/mpeg">
       </audio>
     </div>
 
@@ -53,6 +53,11 @@ export default {
     return {
       audioplayer: null,
       isAutoPlay: true
+    }
+  },
+  props: {
+    src: {
+      default: 'http://w.llqhz.cn/p/static/fengju.mp3'
     }
   },
   mounted: function () {

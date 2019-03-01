@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted: function () {
-    console.log(axios);
+
   }
 }
 </script>

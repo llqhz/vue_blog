@@ -11,17 +11,17 @@
             <divider class="divider" />
             <article-page :total="100" show-elevator />
           </i-col>
-          <i-col :xs='24' :sm="8" class="list-right">
+          <i-col :xs='{span:0}' :sm="8" class="list-right">
             <div class="right-content">
-              <my-info />
-              <list-hr titles=",个性标签"></list-hr>
+              <my-info :tags="user.tags" />
+              <list-hr titles="个性,标签"></list-hr>
               <my-label />
               <list-hr titles="最新,文章"></list-hr>
-              <list-news />
+              <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
-              <list-news />
-              <list-hr titles=",友情链接"></list-hr>
-              <list-links />
+              <list-news :news="hot" />
+              <list-hr titles="友情,链接"></list-hr>
+              <list-links :links='frendLinks' />
             </div>
           </i-col>
         </row>
@@ -40,6 +40,8 @@ import MyLabel from './components/MyLabel'
 import ListNews from './components/ListNews'
 import ListLinks from './components/ListLinks'
 
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: 'ArticleLIst',
   components: {
@@ -51,7 +53,37 @@ export default {
     MyLabel,
     ListNews,
     ListLinks
+  },
+  data(){
+    return {
+
+    }
+  },
+  computed: {
+
+    ...mapGetters('user',{
+      user: 'user',
+
+    }),
+    ...mapGetters('articles',{
+      latest: 'latest',
+      hot: 'hot',
+      frendLinks: 'frendLinks'
+    })
+  },
+  methods:{
+
+    ...mapActions('user',{}),
+
+    ...mapActions('articles',{
+      getTopNews: 'getTopNews'
+    })
+  },
+  created(){
+    this.getTopNews()
   }
+
+
 }
 
 </script>

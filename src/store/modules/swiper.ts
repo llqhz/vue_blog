@@ -32,7 +32,7 @@ export default {
     getSwiperImage(context) {
       // context: { commit,dispatch,state }
     },
-    updateSwiperImages({ commit, state }) {
+    updateSwiperImages({ commit, state }, payload) {
       // 只能通过提交触发mutations才能改变数据
       setTimeout(() => {
         var images = [{
