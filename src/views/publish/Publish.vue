@@ -3,7 +3,7 @@
     <row>
       <i-col :md="{span:20,offset:2}" :sm="24">
         <row>
-          <i-col :md="{span:16,offset:4}">
+          <i-col :xs='24' :sm="16" class="list-left">
             <div class="form-container">
               <h4 class="form-title">完善资料</h4>
               <mt-field label="姓名" placeholder="请输入姓名" v-model="name"></mt-field>
@@ -36,11 +36,25 @@
                 </i-col>
               </row>
             </div>
+            <divider class="divider" />
+            <mo-markdown ></mo-markdown>
+            <hr>
+            <vue-ueditor-wrap v-model="msg"></vue-ueditor-wrap>
+          </i-col>
+          <i-col :xs='{span:0}' :sm="8" class="list-right">
+            <div class="right-content">
+              <my-info :tags="user.tags" />
+              <list-hr titles="个性标签"></list-hr>
+              <my-label :tags="tags" />
+              <list-hr titles="最新,文章"></list-hr>
+              <list-news />
+              <list-hr titles="最热,文章"></list-hr>
+              <list-news />
+              <list-hr titles="友情链接"></list-hr>
+              <list-links />
+            </div>
           </i-col>
         </row>
-        <mo-markdown ></mo-markdown>
-        <hr>
-        <vue-ueditor-wrap v-model="msg"></vue-ueditor-wrap>
       </i-col>
     </row>
   </div>
@@ -49,10 +63,23 @@
 <script>
 import MoMarkdown from '@/views/common/tools/MoMarkdown.vue'
 
+import ListHr from '../list/components/ListHr'
+import MyLabel from '../list/components/MyLabel'
+import ListLinks from '../list/components/ListLinks'
+import ListNews from '../list/components/ListNews'
+import MyInfo from '../list/components/MyInfo'
+
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: 'Publish',
   components: {
-    MoMarkdown
+    MoMarkdown,
+    ListHr,
+    MyLabel,
+    ListLinks,
+    ListNews,
+    MyInfo,
   },
   data () {
     return {
@@ -88,6 +115,11 @@ export default {
         }],
       jobOps : [{'label':'其他','value':'0'}, {'label':'学生','value':'1'},{'label':'教师','value':'2'}],
     }
+  },
+  computed: {
+    ...mapGetters('user',{
+      user: 'user',
+    }),
   },
   mounted () {
 
