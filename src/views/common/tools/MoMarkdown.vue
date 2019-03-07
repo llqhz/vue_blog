@@ -19,12 +19,20 @@ export default {
     // 获取导航栏到屏幕顶部的距离
     var $nav = $('.mo-markdown .v-note-op')
     var navHeight = $nav.outerHeight() // 高度
-    var navBodyTop = $nav.offset().top // 文档定位top
+    var navBodyTop = $nav.offset().top  // // 文档定位top
+    var isComputed = false
     var distance = 0
     // 监听页面的滚动
     $(window).scroll(function () {
       // 获取距顶间距 = 相对与文档top - 文档移动了的top
-      distance = navBodyTop - $(this).scrollTop()
+      if ($nav.is(':visible')) {
+        isComputed || (navBodyTop = $nav.offset().top)
+        isComputed = true
+      } else {
+        return
+      }
+      distance = navBodyTop - $(window).scrollTop()
+      console.log(distance);
 
       if (distance <= 0) {
         if (distance > -navHeight) {

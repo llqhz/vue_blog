@@ -44,8 +44,8 @@ export default {
           name: '文章列表'
         },
         {
-          url: '/article',
-          name: '文章详情'
+          url: '/publish',
+          name: '发表文章'
         },
         /* {
           url: '/publish',

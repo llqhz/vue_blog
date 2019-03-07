@@ -81,7 +81,13 @@ export default {
   },
   created(){
     this.getTopNews()
-  }
+  },
+  watch: {
+    // 监听路由参数变化
+    $route (to,from) {
+      console.log(this.$route.params);
+    }
+  },
 
 
 }

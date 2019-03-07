@@ -7,10 +7,20 @@ export default {
     publish: {
 
     },
+    ops: {
+      content_type: [{ 'label': 'HTML', 'value': '0' }, { 'label': 'markdown', 'value': '1' }],
+      classify_id: [{ 'label': '其他', 'value': '0' }, { 'label': '网站建设', 'value': '1' }],
+    }
   },
   getters: {
     article(state){
       return state.article
+    },
+    content_type_ops(state){
+      return state.ops.content_type
+    },
+    classify_id_ops(state){
+      return state.ops.classify_id
     }
   },
   mutations: {

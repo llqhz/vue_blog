@@ -48,12 +48,12 @@ export default new Router({
     },
     {
       path: '/submit',
-      name: 'Submit',
+      name: 'submit',
       component: () => import('@/views/auth/Submit.vue')
     },
     {
       path: '/improve',
-      name: 'Improve',
+      name: 'improve',
       component: () => import('@/views/auth/Improve.vue')
     }
   ]

@@ -2,46 +2,76 @@
   <div>
     <div class="mask"></div>
     <div class="sideBar">
-        <ul>
-            <li><a href="#">item1</a></li>
-            <li><a href="#">item2</a></li>
-            <li><a href="#">item3</a></li>
-            <li><a href="#">item4</a></li>
-            <li><a href="#">item5</a></li>
-        </ul>
+      <ul>
+          <li>
+            <router-link tag='a' to="/improve">  个人信息  </router-link>
+          </li>
+          <li v-for="(menu,index) in menuItems" :key="index" @click="onSidebarClick(menu)">
+            <a :title="menu.name"> {{ menu.name }} </a>
+          </li>
+      </ul>
     </div>
     <button class="back-to-top">
-        返回顶部
+      返回顶部
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'SideBar',
+  data(){
+    return {
+      menuItems: [
+        { type_id: 1, name: '网站建设' },
+        { type_id: 2, name: '数据管理' },
+      ],
+    }
+  },
+  methods: {
+    onSidebarClick(menu){
+      var location = {
+        name: 'list',
+        params: {
+          type_id: menu.type_id
+        }
+      }
+      console.log(location);
+
+      this.$router.push(location)
+      document.querySelector('.mask').click()
+    }
+  }
+}
+</script>
+
+
 <style lang='stylus' scoped>
 zIndex = 2000
 
 .sideBar {
-    width: 300px;
-    background: #888;
-    position: fixed;
-    z-index: zIndex;
-    top: 0px;
-    right: -300px;
-    bottom: 0px;
-
-    font-size: 16px;
+  width: 300px;
+  background: #888;
+  position: fixed;
+  z-index: zIndex;
+  top: 0px;
+  right: -300px;
+  bottom: 0px;
+  font-size: 16px;
 }
 .sideBar ul {
-    margin: 20px 0;
-    list-style-type: none;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+  margin: 20px 0;
+  list-style-type: none;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .sideBar ul li {
-    width: 100%;
-    padding: 0px 20px;
+  width: 100%;
+  padding: 0px 20px;
 }
 .sideBar ul li:hover {
-    background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.2);
 }
 .sideBar ul li a {
     display: inline-block;
