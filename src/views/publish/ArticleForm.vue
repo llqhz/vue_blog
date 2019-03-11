@@ -4,8 +4,8 @@
       <h4 class="form-title">{{ formTitle }}</h4>
       <mt-field label="标题" placeholder="请输入标题" v-model="article.title"></mt-field>
       <mt-field label="副标题" placeholder="请输入副标题" v-model="article.sub_title"></mt-field>
-      <mt-field label="封面图" placeholder="请插入封面图" v-model="article.image"></mt-field>
-      <mt-field label="背景音乐" placeholder="请插入背景音乐" v-model="article.music"></mt-field>
+      <image-upload label="封面图" placeholder="请插入封面图" v-model="article.image"></image-upload>
+      <mt-field label="背景音乐" placeholder="请插入背景音乐(选填)" v-model="article.music"></mt-field>
       <mt-field label="文章简介" placeholder="请输入文章简介" type="textarea" rows="4"  v-model="article.summary"></mt-field>
       <mt-radio
         title="文章分类"
@@ -42,11 +42,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import MoMarkdown from '@/views/common/tools/MoMarkdown.vue'
+import ImageUpload from '@/views/common/tools/ImageUpload.vue'
 
 export default {
   name: 'ArticleForm',
   components: {
-    MoMarkdown
+    MoMarkdown,
+    ImageUpload
   },
   data:() => {
     return {
@@ -62,7 +64,8 @@ export default {
     article: {
       default: () => {
         return {
-
+          content_type: '1',
+          classify_id: '0',
         }
       }
     },

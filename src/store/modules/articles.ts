@@ -23,7 +23,7 @@ export default {
     }
   },
   mutations: {
-    updateArticles(state, articles){
+    setArticles(state, articles){
       state.articles = articles
     },
     setTopNews(state,news){
@@ -66,7 +66,7 @@ export default {
               comment_num: 20,
             },
           ]
-          commit('updateArticles', articles)
+          commit('setArticles', articles)
         }, 2000);
       }
     },

@@ -80,7 +80,8 @@ export default {
     })
   },
   created(){
-    this.getTopNews()
+    // 页面数据初始化
+    // this.getTopNews()
   },
   watch: {
     // 监听路由参数变化

@@ -28,6 +28,12 @@ Vue.component('vue-ueditor-wrap', VueUeditorWrap)  //ueditor富文本编辑器
 
 import MintUI from 'mint-ui'
 
+/**
+ * @description 全局注册应用配置
+ */
+import config from "./config"
+Vue.prototype.$config = config
+
 Vue.config.productionTip = false
 /* router.prototype.goBack = function () {
 　　this.isBack = true
@@ -45,5 +51,9 @@ router.afterEach(transition => {
 new Vue({
   router,
   store, // 自动注册到所有子组件里 子组件使用 this.$store访问
-  render: h => h(App)
+  render: h => h(App),
+  mounted(){
+    // 页面全局初始化
+    this.$store.dispatch('init')
+  }
 }).$mount('#app')

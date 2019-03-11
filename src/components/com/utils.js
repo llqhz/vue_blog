@@ -7,4 +7,11 @@ export default {
     document.body.appendChild(s);
   },
   alert: s => alert(s),
+  fileToImage(file){
+    let image = null
+    if (file) {
+      image = URL.createObjectURL(file)
+    }
+    return image
+  }
 }

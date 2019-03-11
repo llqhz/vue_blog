@@ -20,24 +20,28 @@ export default {
     var $nav = $('.mo-markdown .v-note-op')
     var navHeight = $nav.outerHeight() // 高度
     var navBodyTop = $nav.offset().top  // // 文档定位top
+    var width = $nav.width()            // 宽度
     var isComputed = false
     var distance = 0
     // 监听页面的滚动
     $(window).scroll(function () {
       // 获取距顶间距 = 相对与文档top - 文档移动了的top
       if ($nav.is(':visible')) {
-        isComputed || (navBodyTop = $nav.offset().top)
+        if ( !isComputed ) {
+          navBodyTop = $nav.offset().top
+          width = $nav.width()
+        }
         isComputed = true
       } else {
         return
       }
       distance = navBodyTop - $(window).scrollTop()
-      console.log(distance);
+      //console.log(distance);
 
       if (distance <= 0) {
         if (distance > -navHeight) {
           // 平滑偏移滚动
-          $nav.css({ position: 'relative', top: -distance + 'px' })
+          $nav.css({ position: 'relative', top: -distance + 'px',width:width+'px' })
         } else {
           // 吸附成功
           $nav.css({

@@ -27,14 +27,12 @@
           </i-col>
           <i-col :xs='{span:0}' :sm="8" class="list-right">
             <div class="right-content">
-              <list-hr titles="个性标签"></list-hr>
-              <my-label :tags="tags" />
               <list-hr titles="最新,文章"></list-hr>
-              <list-news />
+              <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
-              <list-news />
-              <list-hr titles="友情链接"></list-hr>
-              <list-links />
+              <list-news :news="hot" />
+              <list-hr titles="友情,链接"></list-hr>
+              <list-links :links='frendLinks' />
             </div>
           </i-col>
         </row>
@@ -50,6 +48,8 @@ import ListHr from '../list/components/ListHr'
 import MyLabel from '../list/components/MyLabel'
 import ListLinks from '../list/components/ListLinks'
 import ListNews from '../list/components/ListNews'
+
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name : "Submit",
@@ -68,6 +68,13 @@ export default {
       email : '',
       code: '',
     }
+  },
+  computed: {
+    ...mapGetters('articles',{
+      latest: 'latest',
+      hot: 'hot',
+      frendLinks: 'frendLinks'
+    })
   }
 }
 </script>
