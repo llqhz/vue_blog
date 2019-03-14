@@ -47,7 +47,7 @@ import ListHr from '../list/components/ListHr'
 import ListLinks from '../list/components/ListLinks'
 import ListNews from '../list/components/ListNews'
 
-import {  } from "utils";
+import { to } from "@/lib/utils";
 
 import { mapGetters, mapActions } from "vuex";
 
