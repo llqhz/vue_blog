@@ -15,6 +15,11 @@ export const login = ({ username, password, code }) => {
     data,
     method: 'post',
   })
+  /**
+   * {
+   *    token => ''
+   * }
+   */
 }
 
 /**
