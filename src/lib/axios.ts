@@ -49,7 +49,7 @@ class HttpRequest {
     }, error => {
       return Promise.reject(error)
     })
-    // 响应拦截
+    // 响应拦截和处理
     instance.interceptors.response.use(res => {
       this.destroy(url)
       const { data, status } = res

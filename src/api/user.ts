@@ -4,10 +4,11 @@ import axios from "@/lib/api.request"
  * 用户登录
  * @param {username,password}
  */
-export const login = ({ username, password }) => {
+export const login = ({ username, password, code }) => {
   const data = {
     username,
-    password
+    password,
+    code
   }
   return axios.request({
     url: 'login',

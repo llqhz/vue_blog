@@ -76,6 +76,12 @@ export default {
     })
   },
   methods: {
+    ...mapActions('user',{
+      handleLogin : 'handleLogin',
+      getUserInfo : 'getUserInfo'
+    }),
+
+
     handleSubmit(){
       var user = {
         username: this.username,
@@ -89,7 +95,6 @@ export default {
           })
         })
       })
-
     }
   }
 }
