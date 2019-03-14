@@ -1,3 +1,11 @@
+import {
+  login,
+  logout,
+  getUserInfo,
+} from '@/api/user'
+
+import { setToken, getToken } from '@/lib/utils'
+
 export default {
   namespaced: true,
   state: {
@@ -44,6 +52,22 @@ export default {
         }
         commit('setUser',user)
       }, 4000);
-    }
+    },
+    // 登录
+    handleLogin({ commit }, { username, password }) {
+      username = username.trim()
+      return new Promise((resolve, reject) => {
+        login({
+          username,
+          password
+        }).then(res => {
+          const data = res.data
+          commit('setToken', data.token)
+          resolve()
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    },
   },
 }

@@ -14,10 +14,10 @@
                 <divider class="divider form-btns" />
                 <row>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:5}' class="list-left">
-                    <mt-button type="primary" size="large">登录</mt-button>
+                    <mt-button type="primary" size="large" @click="handleSubmit">登录</mt-button>
                   </i-col>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:1}' class="list-left">
-                    <mt-button type="danger" size="large">注册</mt-button>
+                    <mt-button type="danger" size="large" @click="">注册</mt-button>
                   </i-col>
                 </row>
 
@@ -46,6 +46,8 @@
 import ListHr from '../list/components/ListHr'
 import ListLinks from '../list/components/ListLinks'
 import ListNews from '../list/components/ListNews'
+
+import {  } from "utils";
 
 import { mapGetters, mapActions } from "vuex";
 

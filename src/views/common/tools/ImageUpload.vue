@@ -14,7 +14,7 @@
 
 
 <script>
-import utils from "@/components/com/utils.js";
+import utils from "@/lib/utils";
 
 export default {
   name: "ImageUpload",
