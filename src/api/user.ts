@@ -1,5 +1,6 @@
 import axios from "@/lib/api.request"
 
+
 /**
  * 用户登录
  * @param {username,password}
@@ -15,11 +16,15 @@ export const login = ({ username, password, code }) => {
     data,
     method: 'post',
   })
-  /**
-   * {
-   *    token => ''
-   * }
-   */
+  const expect = {
+    token: '',
+    code: 0,
+    message: '获取成功'
+  }
+  const error = {
+    code: 30004,
+    message: '获取数据异常'
+  }
 }
 
 /**

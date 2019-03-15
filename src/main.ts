@@ -28,6 +28,7 @@ Vue.component('vue-ueditor-wrap', VueUeditorWrap)  //ueditor富文本编辑器
 
 import MintUI from 'mint-ui'
 
+
 /**
  * @description 全局注册应用配置
  */
@@ -47,6 +48,21 @@ router.beforeEach((to,from,next) => {
 router.afterEach(transition => {
   NProgress.done();
 });
+
+import ErrorHandler from "@/lib/error";
+import { message,notice } from "@/lib/utils";
+// 注册全局处理器
+Vue.config.errorHandler = function (err, vm, info) {
+  // handle error
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 只在 2.2.0+ 可用
+  let error = new ErrorHandler(err,vm,info)
+  message('error',error.message)
+}
+
+// 表单验证
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate)
 
 new Vue({
   router,
