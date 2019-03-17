@@ -52,8 +52,18 @@ class HttpRequest {
     // 响应拦截和处理
     instance.interceptors.response.use(res => {
       this.destroy(url)
-      const { data, status } = res
-      return { data, status }
+
+      if ( res.code !== 200 ) {
+        if ( res && res.data ) {
+          return Promise.reject(res.data)
+        } else {
+          return Promise.reject(res)
+        }
+      } else {
+        // const { data, status } = res
+        const { data } = res
+        return data
+      }
     }, error => {
       this.destroy(url)
       let errorInfo = error.response

@@ -32,7 +32,7 @@ export const login = ({ username, password, code }) => {
  * @param token
  */
 export const getUserInfo = (token) => {
-  return axios.create({
+  return axios.request({
     url: 'get_info',
     params: {
       token

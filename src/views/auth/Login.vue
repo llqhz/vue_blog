@@ -84,6 +84,7 @@ export default {
     }),
 
     handleSubmit(){
+      // 处理vue 绑定事件的错误，
       var user = {
         username: this.username,
         password: this.password,

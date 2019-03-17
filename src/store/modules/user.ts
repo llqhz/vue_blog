@@ -62,33 +62,21 @@ export default {
           password,
           code,
         }).then(res => {
-          const data = res.data
-          commit('setToken', data.token)
-          resolve()
-        }).catch(err => {
-          reject(err)
+          commit('setToken', res.token)
+          resolve(res.token)
         })
       })
     },
 
     // 获取用户相关信息
     getUserInfo({ state, commit }) {
-      return new Promise((resolve, reject) => {
-        try {
-          getUserInfo(state.token).then(res => {
-            const data = res.data
-            commit('setAvatar', data.avatar)
-            commit('setUserName', data.name)
-            commit('setUserId', data.user_id)
-            commit('setAccess', data.access)
-            commit('setHasGetInfo', true)
-            resolve(data)
-          }).catch(err => {
-            reject(err)
-          })
-        } catch (error) {
-          reject(error)
-        }
+      return getUserInfo(state.token).then(data => {
+        commit('setAvatar', data.avatar)
+        commit('setUserName', data.name)
+        commit('setUserId', data.user_id)
+        commit('setAccess', data.access)
+        commit('setHasGetInfo', true)
+        return Promise.resolve(data)
       })
     },
   },
