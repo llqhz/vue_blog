@@ -61,8 +61,10 @@ Vue.config.errorHandler = function (err, vm, info) {
 }
 
 // 表单验证
-import VeeValidate from 'vee-validate';
+import VeeValidate, { Validator } from 'vee-validate';
+import zh_CN from 'vee-validate/dist/locale/zh_CN';
 Vue.use(VeeValidate)
+Validator.localize('zh_CN', zh_CN);
 
 new Vue({
   router,

@@ -2,8 +2,8 @@ import config from "@/config/index";
 import Cookie from "@/lib/cookie";
 import Vue from 'vue';
 
-const { TOKEN_KEY, cookieExpires } = config
-const vm = new Vue()
+const { TOKEN_KEY, cookieExpires,baseUrl } = config
+const vm: Vue = new Vue()
 
 export default {
   load: (src) => {
@@ -67,7 +67,7 @@ export const message = (type,content, duration=1.5) => {
 }
 
 // iview notice提示
-export const notice = (type,title, content = '', duration=4.5) => {
+export const notice = (type: string, title: string, content: string = '', duration: number=4.5) => {
   if ( !(type && vm.$Notice[type]) ) {
     type = 'open'
   }
@@ -76,5 +76,9 @@ export const notice = (type,title, content = '', duration=4.5) => {
     content,
     duration
   })
+}
+
+export const url = (url_str: string) => {
+  return baseUrl + url_str
 }
 
