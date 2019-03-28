@@ -16,6 +16,8 @@
               <my-info :tags="user.tags" />
               <list-hr titles="个性,标签"></list-hr>
               <my-label />
+              <list-hr titles="文章,分类"></list-hr>
+              <my-label />
               <list-hr titles="最新,文章"></list-hr>
               <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
@@ -73,11 +75,24 @@ export default {
   },
   methods:{
 
-    ...mapActions('user',{}),
+    ...mapActions('user',{
+
+    }),
 
     ...mapActions('articles',{
       getTopNews: 'getTopNews'
-    })
+    }),
+
+    updatePageList(type,params){
+      switch (type) {
+        case '':
+
+          break;
+
+        default:
+          break;
+      }
+    }
   },
   created(){
     // 页面数据初始化
@@ -86,6 +101,7 @@ export default {
   watch: {
     // 监听路由参数变化
     $route (to,from) {
+      this.updatePageList('type',this.$route.params)
       console.log(this.$route.params);
     }
   },
