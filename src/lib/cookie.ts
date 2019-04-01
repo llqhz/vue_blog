@@ -3,10 +3,10 @@ const { SECRET_KEY } = config
 
 export default {
   encrypt(str){
-    return btoa(SECRET_KEY+str)
+    return btoa(encodeURIComponent(SECRET_KEY+str))
   },
   decrypt(str){
-    let s = atob(str)
+    let s = decodeURIComponent(atob(str))
     return s.search(SECRET_KEY) > -1 ? s.slice(SECRET_KEY.length) : null
   },
   set(key,val){
