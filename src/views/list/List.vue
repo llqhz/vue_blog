@@ -80,7 +80,8 @@ export default {
     }),
 
     ...mapActions('articles',{
-      getTopNews: 'getTopNews'
+      getTopNews: 'getTopNews',
+      getArticles: 'getArticles',
     }),
 
     updatePageList(type,params){
@@ -92,6 +93,7 @@ export default {
         default:
           break;
       }
+      this.getArticles({})
     }
   },
   created(){
