@@ -4,7 +4,7 @@ import axios from "@/lib/api.request";
  * 用户登录
  * @param {username,password}
  */
-export const list = ({ current, pageSize, word, type }) => {
+export const getList = ({ current=null, pageSize=null, word=null, type=null }) => {
   const data = {
     current,
     pageSize,
@@ -12,9 +12,9 @@ export const list = ({ current, pageSize, word, type }) => {
     type
   }
   return axios.request({
-    url: 'login',
+    url: 'articles',
     data,
-    method: 'post',
+    method: 'get',
   })
   const expect = {
     token: '',

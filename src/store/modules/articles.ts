@@ -1,4 +1,5 @@
 import state from '../state';
+import { getList } from "@/api/articles";
 
 export default {
   namespaced: true,
@@ -36,6 +37,10 @@ export default {
     getArticles({commit,state},payload){
       console.log(payload);
       if ( payload ) {
+        getList(payload)
+        .then(res=>{
+          commit('setArticles', res.articles)
+        })
         setTimeout(() => {
           var articles = [
             {
