@@ -17,7 +17,7 @@
             {{ article.summary }}
           </div>
           <div class="label">
-            <label for="">分类：[<span>{{ article.classify_id }}</span>]</label>
+            <label for="">分类：[<span>{{ article.classify }}</span>]</label>
             <label for="">浏览：<span>{{ article.view_num }}</span></label>
             <label for="">评论：<span>{{ article.comment_num }}</span></label>
           </div>
@@ -45,16 +45,10 @@ export default {
     })
   },
   created(){
-    var params = {
-      page: 1,
-      type: 2,
-    }
-    this.getArticles(params)
+
   },
   methods: {
-    ...mapActions('articles',{
-      getArticles: 'getArticles'
-    })
+
   }
 }
 </script>

@@ -1,16 +1,53 @@
 <template>
   <row class="row">
     <i-col :xs="24" :sm='0'>
-      <Page :total="100" show-elevator class="page-xs" />
+      <Page
+        class="page-xs"
+        :total="page.total"
+        :current='page.current'
+        :pageSize="page.pageSize"
+
+        :page-size-opts="page.pageSizeOptions"
+        :placement="page.placement"
+        :show-elevator='page.showElevator'
+        :show-sizer='page.showSizer'
+        @on-change='onPageChange'
+        @on-page-size-change="onPageChange"
+      />
     </i-col>
     <i-col :xs="0" :sm="24">
-      <Page :total="100" show-elevator class="page-sm"/>
+      <Page
+        class="page-sm"
+        :total="page.total"
+        :current='page.current'
+        :pageSize="page.pageSize"
+
+        :page-size-opts="page.pageSizeOptions"
+        :placement="page.placement"
+        :show-elevator='page.showElevator'
+        :show-sizer='page.showSizer'
+        @on-change='onPageChange'
+        @on-page-size-change="onPageChange"
+      />
     </i-col>
   </row>
 </template>
 <script>
 export default {
-  name: 'ArticlePage'
+  name: 'ArticlePage',
+  props: [
+    'page'
+  ],
+  methods: {
+    onPageChange(current){
+      console.log('onPageChange',current);
+      this.$emit('on-change',current)
+    },
+    onPageSizeChange(pageSize){
+      console.log('onPageSizeChange',pageSize);
+      this.$emit('on-page-size-change',pageSize)
+    }
+  }
 }
 </script>
 

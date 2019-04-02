@@ -9,7 +9,11 @@
             <list-hr titles="文章列表,"></list-hr>
             <article-items></article-items>
             <divider class="divider" />
-            <article-page :total="100" show-elevator />
+            <article-page
+              :page='page'
+              @on-change='onPageChange'
+              @on-page-size-change='onPageSizeChange'
+            />
           </i-col>
           <i-col :xs='{span:0}' :sm="8" class="list-right">
             <div class="right-content">
@@ -42,7 +46,8 @@ import MyLabel from './components/MyLabel'
 import ListNews from './components/ListNews'
 import ListLinks from './components/ListLinks'
 
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex"
+import { isDefined } from "@/lib/utils";
 
 export default {
   name: 'ArticleLIst',
@@ -58,7 +63,31 @@ export default {
   },
   data(){
     return {
+      page: {
+        current: 1,
+        total: 0,
+        pageSize: 10,
+        user_id: 0,
+        classify_id: 0,
+        word: '',
 
+        pageSizeOptions: [10,20,30,50],
+        placement: 'top',
+        showTotal: true,
+        showElevator: true,
+        showSizer: true,
+        transfer: true,
+        prevText: '上一页',
+        nextText: '下一页',
+      },
+      pageDefault: {
+        current: 1,
+        total: 0,
+        pageSize: 10,
+        user_id: 0,
+        classify_id: 0,
+        word: '',
+      }
     }
   },
   computed: {
@@ -84,27 +113,81 @@ export default {
       getArticles: 'getArticles',
     }),
 
-    updatePageList(type,params){
-      switch (type) {
-        case '':
-
-          break;
-
-        default:
-          break;
+    updatePageList(){
+      let data = {
+        current: this.page.current,
+        pageSize: this.page.pageSize,
+        user_id: this.page.user_id,
+        classify_id: this.page.classify_id,
+        word: this.page.word,
       }
-      this.getArticles({})
+      return this.getArticles(data)
+        .then(res=>{
+          this.setPageMeta(res._meta)
+        })
+    },
+    setPageMeta(page){
+      this.page.current = page.currentPage
+      this.page.pageSize = page.perPage
+      this.page.total = page.totalCount
+    },
+    pageInit(type='all'){
+      this.page.current = this.pageDefault.current
+      this.page.pageSize = this.pageDefault.pageSize
+      this.page.total = this.pageDefault.total
+      if ( type == 'page' ) {
+        return
+      }
+      this.page.user_id = this.pageDefault.user_id
+      this.page.classify_id = this.pageDefault.classify_id
+      this.page.word = this.pageDefault.word
+    },
+    // 设置分页参数
+    getPageParams(params){
+      isDefined(params.current) && (this.page.current = params.current)
+      isDefined(params.pageSize) && (this.page.pageSize = params.pageSize)
+      isDefined(params.user_id) && (this.page.user_id = params.user_id)
+      isDefined(params.classify_id) && (this.page.classify_id = params.classify_id)
+      isDefined(params.word) && (this.page.word = params.word)
+    },
+    onPageSizeChange(pageSize){
+      this.getPageParams({
+        pageSize,
+        current: 1
+      })
+      return this.updatePageList()
+    },
+    onPageChange(current){
+      this.getPageParams({
+        current,
+      })
+      return this.updatePageList()
     }
   },
   created(){
     // 页面数据初始化
     // this.getTopNews()
+    // 获取文章数据
+    this.pageInit()
+    this.updatePageList()
   },
   watch: {
-    // 监听路由参数变化
+    // 监听路由参数变化 仅包括 分类id和用户id
     $route (to,from) {
-      this.updatePageList('type',this.$route.params)
-      console.log(this.$route.params);
+      this.pageInit('page')
+      if ( this.$route.params ) {
+        let {
+          // 传0表示全部, 不传表示不变
+          classify_id=undefined,
+          user_id=undefined
+        } = this.$route.params
+        this.getPageParams({
+          classify_id,
+          word,
+          user_id,
+        })
+        this.updatePageList()
+      }
     }
   },
 

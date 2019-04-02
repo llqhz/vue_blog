@@ -82,3 +82,10 @@ export const url = (url_str: string) => {
   return baseUrl + url_str
 }
 
+
+export const isDefined = (value) => {
+  return typeof value === 'undefined' ? true : false
+}
+
+
+

@@ -52,14 +52,14 @@ router.afterEach(transition => {
 import ErrorHandler from "@/lib/error";
 import { message,notice } from "@/lib/utils";
 // 注册全局处理器
-Vue.config.errorHandler = function (err, vm, info) {
+/* Vue.config.errorHandler = function (err, vm, info) {
   // handle error
   // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
   // 只在 2.2.0+ 可用
   let error = new ErrorHandler(err,vm,info)
   message('error',error.message)
 }
-
+ */
 // 表单验证
 import VeeValidate, { Validator } from 'vee-validate';
 import zh_CN from 'vee-validate/dist/locale/zh_CN';

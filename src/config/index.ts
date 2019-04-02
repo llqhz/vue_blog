@@ -2,8 +2,8 @@ export default {
 
   // 请求路由前缀
   baseUrl: {
-    dev: 'http://api_blog.llqhz.cn/',
-    pro: 'http://api_blog.llqhz.cn/'
+    dev: 'https://api_blog.llqhz.cn/',
+    pro: 'https://api_blog.llqhz.cn/'
   },
 
   // 网站标题

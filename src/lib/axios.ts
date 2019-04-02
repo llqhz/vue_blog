@@ -52,8 +52,7 @@ class HttpRequest {
     // 响应拦截和处理
     instance.interceptors.response.use(res => {
       this.destroy(url)
-
-      if ( res.code !== 200 ) {
+      if (res.status !== 200 ) {
         if ( res && res.data ) {
           return Promise.reject(res.data)
         } else {
@@ -65,6 +64,7 @@ class HttpRequest {
         return data
       }
     }, error => {
+
       this.destroy(url)
       let errorInfo = error.response
       if (!errorInfo) {
