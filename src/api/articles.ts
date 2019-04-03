@@ -6,13 +6,13 @@ import axios from "@/lib/api.request";
  */
 export const getList = ({
     current = null,
-    pageSize = null,
+    pageSize = 10,
     word = null,
     classify_id=null,
     user_id=null
   }) => {
   const params = {
-    current,
+    page:current,
     pageSize,
     word,
     classify_id,
