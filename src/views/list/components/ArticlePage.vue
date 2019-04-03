@@ -12,7 +12,7 @@
         :show-elevator='page.showElevator'
         :show-sizer='page.showSizer'
         @on-change='onPageChange'
-        @on-page-size-change="onPageChange"
+        @on-page-size-change="onPageSizeChange"
       />
     </i-col>
     <i-col :xs="0" :sm="24">
@@ -27,7 +27,7 @@
         :show-elevator='page.showElevator'
         :show-sizer='page.showSizer'
         @on-change='onPageChange'
-        @on-page-size-change="onPageChange"
+        @on-page-size-change="onPageSizeChange"
       />
     </i-col>
   </row>

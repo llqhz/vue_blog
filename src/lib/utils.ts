@@ -83,8 +83,8 @@ export const url = (url_str: string) => {
 }
 
 
-export const isDefined = (value) => {
-  return typeof value === 'undefined' ? true : false
+export const isDefined = v => {
+  return v !== undefined && v !== null
 }
 
 

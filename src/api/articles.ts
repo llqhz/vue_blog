@@ -5,13 +5,13 @@ import axios from "@/lib/api.request";
  * @param {username,password}
  */
 export const getList = ({
-  current = null,
-  pageSize = null,
-  word = null,
-  classify_id=null,
-  user_id=null
- }) => {
-  const data = {
+    current = null,
+    pageSize = null,
+    word = null,
+    classify_id=null,
+    user_id=null
+  }) => {
+  const params = {
     current,
     pageSize,
     word,
@@ -20,16 +20,7 @@ export const getList = ({
   }
   return axios.request({
     url: 'articles',
-    data,
+    params,  // get 传参
     method: 'get',
   })
-  const expect = {
-    token: '',
-    code: 0,
-    message: '获取成功'
-  }
-  const error = {
-    code: 30004,
-    message: '获取数据异常'
-  }
 }

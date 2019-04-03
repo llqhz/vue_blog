@@ -121,6 +121,7 @@ export default {
         classify_id: this.page.classify_id,
         word: this.page.word,
       }
+      console.log(data);
       return this.getArticles(data)
         .then(res=>{
           this.setPageMeta(res._meta)
@@ -152,8 +153,8 @@ export default {
     },
     onPageSizeChange(pageSize){
       this.getPageParams({
+        current: 1,
         pageSize,
-        current: 1
       })
       return this.updatePageList()
     },
