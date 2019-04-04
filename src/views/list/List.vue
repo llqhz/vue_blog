@@ -19,9 +19,9 @@
             <div class="right-content">
               <my-info :tags="user.tags" />
               <list-hr titles="个性,标签"></list-hr>
-              <my-label />
+              <my-label  />
               <list-hr titles="文章,分类"></list-hr>
-              <my-label />
+              <article-classify :tags="classify" />
               <list-hr titles="最新,文章"></list-hr>
               <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
@@ -43,6 +43,7 @@ import ArticleItems from './components/ArticleItems'
 import ArticlePage from './components/ArticlePage'
 import MyInfo from './components/MyInfo'
 import MyLabel from './components/MyLabel'
+import ArticleClassify from './components/ArticleClassify'
 import ListNews from './components/ListNews'
 import ListLinks from './components/ListLinks'
 
@@ -59,7 +60,8 @@ export default {
     MyInfo,
     MyLabel,
     ListNews,
-    ListLinks
+    ListLinks,
+    ArticleClassify
   },
   data(){
     return {
@@ -99,7 +101,8 @@ export default {
     ...mapGetters('articles',{
       latest: 'latest',
       hot: 'hot',
-      frendLinks: 'frendLinks'
+      frendLinks: 'frendLinks',
+      classify: 'classify'
     })
   },
   methods:{

@@ -24,3 +24,12 @@ export const getList = ({
     method: 'get',
   })
 }
+
+
+export function getTopNews() {
+  return axios.request({
+    url: 'news',
+    method: 'get'
+  })
+}
+
