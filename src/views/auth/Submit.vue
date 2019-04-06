@@ -7,6 +7,7 @@
               <div class="form-container">
                 <h4 class="form-title">注册</h4>
                 <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
+                <mt-field label="昵称" placeholder="请输入昵称" v-model="nickname"></mt-field>
                 <mt-field label="密码" type='password' placeholder="请输入昵称" v-model="password"></mt-field>
                 <mt-field label="确认密码" type='password' placeholder="请输入密码" v-model="repassword"></mt-field>
                 <mt-field label="邮箱" placeholder="请输入邮箱" type="email" v-model="email"></mt-field>
@@ -89,6 +90,12 @@ export default {
     }
   },
 
+  mounted(){
+    /* setTimeout(() => {
+      pageTo('login',{id:3});
+    }, 2000); */
+  },
+
   methods: {
     refreshCode(){
       return getCodeImage()
@@ -115,7 +122,12 @@ export default {
         codeHash: this.codeHash,
       }
       return this.handleSignup(user).then(res=>{
-        console.log(res);
+        this.$Message.success('注册成功',()=>{
+          pageTo('login',res)
+        })
+      })
+      .catch(err=>{
+        this.$Message.warning(err.message)
       })
     }
   }

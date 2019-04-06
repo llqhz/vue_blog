@@ -8,19 +8,19 @@
                 <h4 class="form-title">登录</h4>
                 <mt-cell title="用户名" class="mint-field">
                   <div class="mt-field-content">
-                    <input type="text" v-model="username" placeholder="请输入用户名" class="mint-field-core" name="username" data-vv-as="用户名" v-validate="'alpha|required'">
+                    <input type="text" v-model="username" placeholder="请输入用户名" class="mint-field-core" name="username" data-vv-as="用户名" v-validate="'required'">
                     <span class="ivu-notice-icon-error">{{ errors.first('username') }}</span>
                   </div>
                 </mt-cell>
                 <mt-cell title="密码" class="mint-field">
                   <div class="mt-field-content">
-                    <input type="text" v-model="password" placeholder="请输入密码" class="mint-field-core" name="password" data-vv-as="密码" v-validate="'alpha|required'">
+                    <input type="password" v-model="password" placeholder="请输入密码" class="mint-field-core" name="password" data-vv-as="密码" v-validate="'required'">
                     <span class="ivu-notice-icon-error">{{ errors.first('password') }}</span>
                   </div>
                 </mt-cell>
                 <mt-cell title="验证码" class="mint-field">
                   <div class="mt-field-content" style="flex:1">
-                    <input type="text" v-model="code" placeholder="请输入验证码" class="mint-field-core" name="code" data-vv-as="验证码" v-validate="'alpha|required'">
+                    <input type="text" v-model="code" placeholder="请输入验证码" class="mint-field-core" name="code" data-vv-as="验证码" v-validate="'required'">
                     <span class="ivu-notice-icon-error">{{ errors.first('code') }}</span>
                   </div>
                   <div>
@@ -99,6 +99,10 @@ export default {
       return url(this.codeUrl,'api_')
     }
   },
+  mounted(){
+    this.loadSignupParams()
+
+  },
   methods: {
     ...mapActions('user',{
       handleLogin : 'handleLogin',
@@ -111,6 +115,17 @@ export default {
         this.codeUrl = res.url
         this.codeHash = res.hash
       })
+    },
+
+    loadSignupParams(){
+      if ( this.$router.params ) {
+        let {
+          username='',
+          password='',
+        } = this.$router.params
+        this.username = username
+        this.password = password
+      }
     },
 
     handleSubmit(){
@@ -127,6 +142,9 @@ export default {
             name: this.$config.homeName
           })
         })
+      })
+      .catch(err=>{
+        this.$Message.warning(err.message)
       })
     }
   }

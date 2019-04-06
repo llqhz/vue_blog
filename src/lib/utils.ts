@@ -1,6 +1,7 @@
 import config from "@/config/index";
 import Cookie from "@/lib/cookie";
 import Vue from 'vue';
+import router from "@/router";
 
 const { TOKEN_KEY, cookieExpires,baseUrl } = config
 const vm: Vue = new Vue()
@@ -47,11 +48,11 @@ export const hasChild = (item) => {
 }
 
 // 跳转到指定页面
-export const pageTo = (name='', query=null ) => {
-  return Vue.$router.push({
+export const pageTo = (name = '', params=null ) => {
+  return router.push({
     name,
-    query
-  })
+    params,
+  });
 }
 
 // iview message 提示

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
+import state from '@/store/state';
 // import { Spin } from 'iview'
 
 const addErrorLog = errorInfo => {
@@ -26,9 +27,10 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        //
+        'Access-Token': state.user.access_token ? state.user.access_token: null
       }
     }
+
     return config
   }
   destroy(url) {
