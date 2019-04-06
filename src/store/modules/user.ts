@@ -1,6 +1,7 @@
 import {
   login,
   logout,
+  signup,
   getUserInfo,
 } from '@/api/user'
 
@@ -54,17 +55,46 @@ export default {
       }, 4000);
     },
     // 登录
-    handleLogin({ state,commit }, { username, password, code }) {
+    handleLogin({ state,commit }, { username, password, code,codeHash }) {
       username = username.trim()
       return new Promise((resolve, reject) => {
         login({
           username,
           password,
           code,
+          codeHash
         }).then(res => {
           commit('setToken', res.token)
           resolve(res.token)
         })
+      })
+    },
+
+    // 登录
+    handleSignup({ state, commit },
+      { username,
+        password,
+        repassword,
+        code,
+        codeHash,
+        email,
+        nickname,
+      })
+    {
+      username = username.trim()
+      return new Promise((resolve, reject) => {
+        signup({
+          username,
+          password,
+          repassword,
+          code,
+          codeHash,
+          email,
+          nickname
+        }).then(res => {
+          commit("setToken", res.token);
+          resolve(res.token);
+        });
       })
     },
 

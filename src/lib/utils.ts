@@ -78,8 +78,21 @@ export const notice = (type: string, title: string, content: string = '', durati
   })
 }
 
-export const url = (url_str: string) => {
-  return baseUrl + url_str
+export const url = (url_str: string,type='static') => {
+  let prefix = '';
+  switch (type) {
+    case "api":
+      prefix = baseUrl.pro;
+      break;
+    case "api_":
+      prefix = baseUrl.pro.substr(0,baseUrl.pro.length-1);
+      break;
+
+    default:
+      prefix = baseUrl.static;
+      break;
+  }
+  return prefix + url_str;
 }
 
 

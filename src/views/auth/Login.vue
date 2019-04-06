@@ -24,7 +24,7 @@
                     <span class="ivu-notice-icon-error">{{ errors.first('code') }}</span>
                   </div>
                   <div>
-                    <img src="http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html" onclick="this.src='http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html'+'?id='+Math.random()" height="30px" width="100px">
+                    <img :src="codeImg" @click="refreshCode" height="30px" width="100px">
                   </div>
                 </mt-cell>
                 <divider class="divider form-btns" />
@@ -64,6 +64,7 @@ import ListNews from '../list/components/ListNews'
 
 import { pageTo, notice, url } from "@/lib/utils";
 import { mapGetters, mapActions } from "vuex";
+import { getCodeImage } from "@/api/user";
 
 export default {
   name : "Login",
@@ -77,6 +78,8 @@ export default {
       username: '',
       password: '',
       code: '',
+      codeUrl: '',
+      codeHash: '',
     }
   },
   computed:{
@@ -89,7 +92,11 @@ export default {
       frendLinks: 'frendLinks'
     }),
     codeImg(){
-      return url('/user/login_img')
+      if (!this.codeUrl && !this.isCodeGetInited) {
+        this.isCodeGetInited = true
+        this.refreshCode()
+      }
+      return url(this.codeUrl,'api_')
     }
   },
   methods: {
@@ -98,12 +105,21 @@ export default {
       getUserInfo : 'getUserInfo'
     }),
 
+    refreshCode(){
+      return getCodeImage()
+      .then(res=>{
+        this.codeUrl = res.url
+        this.codeHash = res.hash
+      })
+    },
+
     handleSubmit(){
       // 处理vue 绑定事件的错误，
       var user = {
         username: this.username,
         password: this.password,
-        code: this.code
+        code: this.code,
+        codeHash: this.codeHash,
       }
       return this.handleLogin(user).then(res=>{
         return this.getUserInfo().then(res=>{

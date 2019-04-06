@@ -11,15 +11,15 @@
                 <mt-field label="确认密码" type='password' placeholder="请输入密码" v-model="repassword"></mt-field>
                 <mt-field label="邮箱" placeholder="请输入邮箱" type="email" v-model="email"></mt-field>
                 <mt-field label="验证码" v-model="code" placeholder="请输入验证码">
-                  <img src="http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html" onclick="this.src='http://wx.dwh027.com/2018/zt_sjh_cms/index.php/login/verify.html'+'?id='+Math.random()" height="30px" width="100px">
+                  <img :src="codeImg" @click="refreshCode" height="30px" width="100px">
                 </mt-field>
                 <divider class="divider form-btns" />
                 <row>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:5}' class="list-left">
-                    <mt-button type="primary" size="large">登录</mt-button>
+                    <mt-button @click="handleSubmit" type="primary" size="large">注册</mt-button>
                   </i-col>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:1}' class="list-left">
-                    <mt-button type="danger" size="large">注册</mt-button>
+                    <mt-button type="danger" size="large">登录</mt-button>
                   </i-col>
                 </row>
               </div>
@@ -50,6 +50,8 @@ import ListLinks from '../list/components/ListLinks'
 import ListNews from '../list/components/ListNews'
 
 import { mapGetters, mapActions } from "vuex";
+import { pageTo, notice, url } from "@/lib/utils";
+import { getCodeImage } from "@/api/user";
 
 export default {
   name : "Submit",
@@ -67,6 +69,8 @@ export default {
       nickname: '',
       email : '',
       code: '',
+      codeUrl: '',
+      codeHash: '',
     }
   },
   computed: {
@@ -74,7 +78,46 @@ export default {
       latest: 'latest',
       hot: 'hot',
       frendLinks: 'frendLinks'
-    })
+    }),
+
+    codeImg(){
+      if (!this.codeUrl && !this.isCodeGetInited) {
+        this.isCodeGetInited = true
+        this.refreshCode()
+      }
+      return url(this.codeUrl,'api_')
+    }
+  },
+
+  methods: {
+    refreshCode(){
+      return getCodeImage()
+      .then(res=>{
+        this.codeUrl = res.url
+        this.codeHash = res.hash
+      })
+    },
+
+    ...mapActions('user',{
+      handleSignup: 'handleSignup'
+    }),
+
+
+    handleSubmit(){
+      // 处理vue 绑定事件的错误，
+      var user = {
+        username: this.username,
+        password: this.password,
+        code: this.code,
+        repassword: this.repassword,
+        nickname: this.nickname,
+        email: this.email,
+        codeHash: this.codeHash,
+      }
+      return this.handleSignup(user).then(res=>{
+        console.log(res);
+      })
+    }
   }
 }
 </script>
