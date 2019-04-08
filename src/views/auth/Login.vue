@@ -100,6 +100,7 @@ export default {
     }
   },
   mounted(){
+    // 加载注册的用户表单参数
     this.loadSignupParams()
 
   },
@@ -138,9 +139,7 @@ export default {
       }
       return this.handleLogin(user).then(res=>{
         return this.getUserInfo().then(res=>{
-          pageTo({
-            name: this.$config.homeName
-          })
+          pageTo('index')
         })
       })
       .catch(err=>{

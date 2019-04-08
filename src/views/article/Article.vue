@@ -73,8 +73,11 @@ export default {
 
   },
   created(){
-    var id = 1
+    var id = this.$router.params.id
     this.getArticle(id)
+    .catch(err=>{
+        this.$Message.error('获取文章内容出错');
+      })
   },
   mounted: function () {
     // hljs.initHighlightingOnLoad()

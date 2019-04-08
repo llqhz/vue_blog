@@ -17,15 +17,6 @@ export const login = ({ username, password, code, codeHash }) => {
     data,
     method: 'post',
   })
-  const expect = {
-    token: '',
-    code: 0,
-    message: '获取成功'
-  }
-  const error = {
-    code: 30004,
-    message: '获取数据异常'
-  }
 }
 
 // 刷新验证码
@@ -50,10 +41,7 @@ export function getCodeImage() {
  */
 export const getUserInfo = (token) => {
   return axios.request({
-    url: 'get_info',
-    params: {
-      token
-    },
+    url: 'user/info',
     method: 'get'
   })
 }
@@ -64,7 +52,7 @@ export const getUserInfo = (token) => {
  */
 export const logout = (token) => {
   return axios.request({
-    url: 'logout',
+    url: 'user/logout',
     method: 'post'
   })
 }
