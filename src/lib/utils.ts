@@ -6,6 +6,8 @@ import router from "@/router";
 const { TOKEN_KEY, cookieExpires,baseUrl } = config
 const vm: Vue = new Vue()
 
+window.Cookie = Cookie
+
 export default {
   load: (src) => {
     console.log('sssssss')

@@ -38,24 +38,34 @@ export default {
         user.mobile && (user.mobile = state.default.mobile)
       }
       return state.isLogined ? user : state.default;
+    },
+    isLogined(state,getters){
+      return state.isLogined
     }
   },
   mutations: {
     setUser(state, user) {
       state.isLogined = true;
-      state.user = user;
+      let info = {
+        id: user.id,
+        nickname: user.nickname, // 昵称
+        avatar: user.avatar || 'https://picsum.photos/300/300/?image=648', // 头像
+        signature_title: user.signature_title || "缄默不言 ~",
+        signature_desc: user.signature_desc || "桃李不言 , 下自成蹊 .",
+        job: user.job || "尽职尽责",
+        address: user.address || "四海为家",
+        mobile: user.mobile || "132********",
+        email: user.email || "*****@qq.com",
+        tags: user.tags || "暂无标签"
+      }
+      state.user = info;
     },
-    setToken(state, token) {
-      setToken(token);
-      state.access_token = token;
+    setToken(state,token) {
+      setToken(token)
+      state.access_token = token
     }
   },
   actions: {
-    getUser({ commit, state }, payload) {
-      console.log(payload);
-      var id = payload.id;
-
-    },
     // 登录
     handleLogin({ state, commit }, { username, password, code, codeHash }) {
       username = username.trim();
@@ -97,10 +107,30 @@ export default {
 
     // 获取用户相关信息
     getUserInfo({ state, commit }) {
-      return getUserInfo(state.token).then(data => {
+      return getUserInfo(state.access_token).then(data => {
         commit("setUser", data);
         return Promise.resolve(data);
       });
+    },
+
+    // 自动登录
+    autoLogin({ state, commit, dispatch}){
+      let token = getToken()
+      commit("setToken", token);
+      try {
+        if ( !token ) return
+        dispatch('getUserInfo')
+          .catch(err=>{
+            // 自动登录失败
+          })
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    handleLogout({state,commit}){
+      commit("setToken", null);
+      return logout(state.user.access_token)
     }
   }
 };

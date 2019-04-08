@@ -3,12 +3,22 @@
     <div class="mask"></div>
     <div class="sideBar">
       <ul>
+        <template v-if="isLogined">
           <li>
-            <router-link tag='a' to="/improve">  个人信息  </router-link>
+            <a href="javascript:void(0)" @click="toImprove">  个人信息  </a>
           </li>
-          <li v-for="(menu,index) in menuItems" :key="index" @click="onSidebarClick(menu)">
-            <a :title="menu.name"> {{ menu.name }} </a>
+          <li>
+            <a href="javascript:void(0)" @click="toMyArticles">  我的文章  </a>
           </li>
+          <li>
+            <a href="javascript:void(0)" @click="toLogout">  退出  </a>
+          </li>
+        </template>
+        <template v-else>
+          <li @click='closeSidebar'>
+            <router-link tag='a' to='login'>登录</router-link>
+          </li>
+        </template>
       </ul>
     </div>
     <button class="back-to-top">
@@ -18,6 +28,10 @@
 </template>
 
 <script>
+
+import { mapGetters, mapActions } from "vuex";
+import { pageTo } from "@/lib/utils";
+
 export default {
   name: 'SideBar',
   data(){
@@ -28,7 +42,40 @@ export default {
       ],
     }
   },
+  computed:{
+    ...mapGetters('user',{
+      isLogined: 'isLogined'
+    })
+  },
   methods: {
+    ...mapActions('user',{
+      logout: 'handleLogout',
+    }),
+    closeSidebar(){
+      document.querySelector('.mask').click()
+    },
+    toImprove(){
+      this.closeSidebar()
+      pageTo('improve')
+    },
+    toLogout(){
+      this.closeSidebar()
+      this.logout().then(()=>{
+        this.$Message.success({
+          content: '注销成功',
+          onClose: () => {
+            pageTo('index')
+          }
+        })
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    },
+    toMyArticles(){
+      this.closeSidebar()
+      pageTo('list')
+    },
     onSidebarClick(menu){
       var location = {
         name: 'list',
@@ -37,9 +84,8 @@ export default {
         }
       }
       console.log(location);
-
       this.$router.push(location)
-      document.querySelector('.mask').click()
+      this.closeSidebar()
     }
   }
 }

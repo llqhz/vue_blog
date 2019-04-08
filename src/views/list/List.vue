@@ -16,12 +16,14 @@
             />
           </i-col>
           <i-col :xs='{span:0}' :sm="8" class="list-right">
-            <div class="right-content">
-              <my-info :tags="user.tags" />
-              <list-hr titles="个性,标签"></list-hr>
-              <my-label  />
+            <div class="right-content" :class="{'info-div-top':!isLogined}">
+              <div v-show="isLogined" class="info-div">
+                <my-info />
+                <list-hr titles="个性,标签"></list-hr>
+                <my-label :tags="user.tags" />
+              </div>
               <list-hr titles="文章,分类"></list-hr>
-              <article-classify :tags="classify" />
+              <article-classify :tags="classify" :i_tag='page.classify_id' @changeClassify='changeClassify' />
               <list-hr titles="最新,文章"></list-hr>
               <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
@@ -96,7 +98,7 @@ export default {
 
     ...mapGetters('user',{
       user: 'user',
-
+      isLogined: 'isLogined'
     }),
     ...mapGetters('articles',{
       latest: 'latest',
@@ -116,6 +118,11 @@ export default {
       getArticles: 'getArticles',
     }),
 
+    changeClassify(id){
+      this.page.classify_id = id
+      this.updatePageList()
+    },
+
     updatePageList(){
       let data = {
         current: this.page.current,
@@ -124,7 +131,7 @@ export default {
         classify_id: this.page.classify_id,
         word: this.page.word,
       }
-      console.log(data);
+      console.log('date 1',data);
       return this.getArticles(data)
         .then(res=>{
           this.setPageMeta(res._meta)
@@ -216,4 +223,8 @@ export default {
 
   .right-content
     background-color #f7f7f7
+
+.info-div-top {
+  padding-top 30px
+}
 </style>

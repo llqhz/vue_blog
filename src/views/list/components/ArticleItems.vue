@@ -8,7 +8,7 @@
           </div>
         </i-col>
         <i-col :xs="16" :sm="16" class="col-right">
-          <h3>{{ article.title }}</h3>
+          <h3 @click="toArticle(article.id)">{{ article.title }}</h3>
           <p class="author">
             作者：<span class="name">{{ article.author }}</span> &nbsp;
             发表于：<time>{{ article.updated_at }}</time>
@@ -31,6 +31,7 @@
 <script>
 
 import { mapGetters, mapActions } from "vuex";
+import { pageTo } from "@/lib/utils";
 
 export default {
   name: 'ArticleItems',
@@ -48,7 +49,9 @@ export default {
 
   },
   methods: {
-
+    toArticle(id){
+      pageTo('article',{id:id})
+    }
   }
 }
 </script>

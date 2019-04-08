@@ -1,6 +1,7 @@
 <template>
   <ul>
-    <li v-for="(tag,index) in mtags" v-html="tag.title" :key='index'></li>
+    <li @click="changeClassify(0)" :class="{active:i_tag==0}" >全部</li>
+    <li v-for="(tag,index) in mtags" :class="{active:i_tag==tag.id}" @click="changeClassify(tag.id)" v-html="tag.title" :key='index'></li>
   </ul>
 </template>
 
@@ -12,7 +13,8 @@ export default {
       default: function () {
         return []
       }
-    }
+    },
+    i_tag: {}
   },
   data: () => {
     return {
@@ -25,6 +27,11 @@ export default {
       return this.tags
     }
   },
+  methods: {
+    changeClassify(id){
+      this.$emit('changeClassify',id)
+    }
+  }
 }
 </script>
 
@@ -49,7 +56,7 @@ ul li {
   cursor: pointer;
 }
 
-ul li:hover {
+ul li:hover,ul li.active {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 </style>

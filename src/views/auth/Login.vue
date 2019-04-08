@@ -100,6 +100,7 @@ export default {
     }
   },
   mounted(){
+    // 加载注册的用户表单参数
     this.loadSignupParams()
 
   },

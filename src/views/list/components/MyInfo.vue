@@ -58,12 +58,10 @@ export default {
     })
   },
   methods: {
-    ...mapActions('user',{
-      getUser: 'getUser'
-    })
+
   },
   created(){
-    this.getUser({id:1})
+
   }
 
 }

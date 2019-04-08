@@ -24,12 +24,19 @@ class HttpRequest {
     this.queue = {}
   }
   getInsideConfig() {
-    const config = {
+    let token = state.user.access_token ? state.user.access_token : null
+
+    let config = {
       baseURL: this.baseUrl,
       headers: {
-        'Access-Token': state.user.access_token ? state.user.access_token: null
+        //'X-Api-Key':
       }
     }
+    if ( token ) {
+      // 添加token
+      config.headers['X-Api-Key'] = token
+    }
+
 
     return config
   }

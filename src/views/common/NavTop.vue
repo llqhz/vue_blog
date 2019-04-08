@@ -3,8 +3,8 @@
         <nav>
             <div class="logo" :class="{logined:isSigned}">
                 <template v-if="isSigned">
-                    <img src="http://thirdwx.qlogo.cn/mmopen/vi_32/rgmtJfdPRoianrDeicYkkl5Y9cukTMCzvD2McCcpJ7ZJK2y23yVgtISrSKUjNFPJvblNuZbSepkVvFCc42xzgKbg/0" alt="个人中心">
-                    <a href="#">☆筱怪☆</a>
+                    <img :src="user.avatar" alt="个人中心">
+                    <router-link to='/improve' tag='a'>{{user.nickname}}</router-link>
                 </template>
                 <template v-else>
                     <router-link to='/login' tag='a'>登录</router-link> | <router-link to='/submit' tag='a'>注册</router-link>
@@ -22,6 +22,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { mapGetters } from "vuex";
+
 
 export default {
   name: 'NavTop',
@@ -33,8 +35,7 @@ export default {
   },
   data: () => {
     return {
-      isSigned: false,
-      menuItems: [
+      menuItem: [
         {
           url: '/',
           name: '首页'
@@ -43,15 +44,27 @@ export default {
           url: '/list',
           name: '文章列表'
         },
-        {
-          url: '/publish',
-          name: '发表文章'
-        },
         /* {
           url: '/publish',
           name: '发布文章'
         } */
       ]
+    }
+  },
+  computed: {
+    ...mapGetters('user',{
+      isSigned: 'isLogined',
+      user: 'user'
+    }),
+    menuItems(){
+      let menus = Object.assign([],this.menuItem)
+      if ( this.isSigned ) {
+          menus.push({
+            url: '/publish',
+            name: '发布文章'
+          })
+      }
+      return menus
     }
   }
 
