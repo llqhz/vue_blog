@@ -138,9 +138,7 @@ export default {
       }
       return this.handleLogin(user).then(res=>{
         return this.getUserInfo().then(res=>{
-          pageTo({
-            name: this.$config.homeName
-          })
+          pageTo('index')
         })
       })
       .catch(err=>{

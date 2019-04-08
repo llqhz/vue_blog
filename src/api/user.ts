@@ -50,7 +50,7 @@ export function getCodeImage() {
  */
 export const getUserInfo = (token) => {
   return axios.request({
-    url: 'get_info',
+    url: 'user/info',
     params: {
       token
     },
