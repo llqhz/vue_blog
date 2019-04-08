@@ -36,8 +36,11 @@ export function getTopNews() {
 
 export function getArticle(id) {
   return axios.request({
-    url: 'articles/'+id,
-    method: 'get'
-  })
+    url: "articles/" + id,
+    method: "get",
+    params: {
+      expand: 'content'
+    }
+  });
 }
 

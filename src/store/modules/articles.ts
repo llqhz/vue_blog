@@ -31,6 +31,7 @@ export default {
     setArticles(state, articles){
       let items = articles.map((item,key,arr)=>{
         return {
+          id: item.id,
           title: item.title,
           author: item.author,
           updated_at: item.updated_at,

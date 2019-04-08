@@ -55,15 +55,19 @@ export default {
     }
   },
   actions: {
-    getArticle({commit,state},params){
-      if (params && params.id ) {
-        var id = params.id
-        return getArticle(id)
-          .then(article=>{
-            commit('setArticle',article)
-          })
-      }
-      return Promise.reject({message:'获取文章信息出错'})
+    getArticle({commit,state},id=0){
+      return getArticle(id)
+        .then(article=>{
+          commit('setArticle',article)
+        })
+        .catch(err=>{
+          commit("setArticle", {
+            title: "暂无内容",
+            content: "这里空空如也 ， 什么也木有 ~",
+            content_type: 1,
+          });
+          return Promise.reject(err)
+        })
     },
     getPublish({commit,state},params){
       if ( params.id ) {

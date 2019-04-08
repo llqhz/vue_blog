@@ -15,7 +15,7 @@ export default {
     user: {},
     default: {
       nickname: "匿名", // 昵称
-      avatar: "https://via.placeholder.com/300.png/09f/fff", // 头像
+      avatar: "https://picsum.photos/300/300/?image=648", // 头像
       signature_title: "桃李不言，下自成蹊！",
       signature_desc: "只可意会，不可言传 ~ ",
       job: "无业游民",
@@ -27,20 +27,22 @@ export default {
   },
   getters: {
     user(state, getters) {
-      let user = Object.assign({}, state.user)
-      if ( state.isLogined ) {
-        user.avatar && (user.avatar = state.default.avatar)
-        user.tags && (user.tags = state.default.tags)
-        user.signature_title && (user.signature_title = state.default.signature_title)
-        user.signature_desc && (user.signature_desc = state.default.signature_desc)
-        user.job && (user.job = state.default.job)
-        user.address && (user.address = state.default.address)
-        user.mobile && (user.mobile = state.default.mobile)
+      let user = Object.assign({}, state.user);
+      if (state.isLogined) {
+        user.avatar && (user.avatar = state.default.avatar);
+        user.tags && (user.tags = state.default.tags);
+        user.signature_title &&
+          (user.signature_title = state.default.signature_title);
+        user.signature_desc &&
+          (user.signature_desc = state.default.signature_desc);
+        user.job && (user.job = state.default.job);
+        user.address && (user.address = state.default.address);
+        user.mobile && (user.mobile = state.default.mobile);
       }
       return state.isLogined ? user : state.default;
     },
-    isLogined(state,getters){
-      return state.isLogined
+    isLogined(state, getters) {
+      return state.isLogined;
     }
   },
   mutations: {
@@ -49,7 +51,7 @@ export default {
       let info = {
         id: user.id,
         nickname: user.nickname, // 昵称
-        avatar: user.avatar || 'https://picsum.photos/300/300/?image=648', // 头像
+        avatar: user.avatar || "https://picsum.photos/300/300/?image=648", // 头像
         signature_title: user.signature_title || "缄默不言 ~",
         signature_desc: user.signature_desc || "桃李不言 , 下自成蹊 .",
         job: user.job || "尽职尽责",
@@ -57,12 +59,12 @@ export default {
         mobile: user.mobile || "132********",
         email: user.email || "*****@qq.com",
         tags: user.tags || "暂无标签"
-      }
+      };
       state.user = info;
     },
-    setToken(state,token) {
-      setToken(token)
-      state.access_token = token
+    setToken(state, token) {
+      setToken(token);
+      state.access_token = token;
     }
   },
   actions: {
@@ -114,23 +116,22 @@ export default {
     },
 
     // 自动登录
-    autoLogin({ state, commit, dispatch}){
-      let token = getToken()
+    autoLogin({ state, commit, dispatch }) {
+      let token = getToken();
       commit("setToken", token);
       try {
-        if ( !token ) return
-        dispatch('getUserInfo')
-          .catch(err=>{
-            // 自动登录失败
-          })
+        if (!token) return;
+        dispatch("getUserInfo").catch(err => {
+          // 自动登录失败
+        });
       } catch (error) {
         console.log(error);
       }
     },
 
-    handleLogout({state,commit}){
+    handleLogout({ state, commit }) {
       commit("setToken", null);
-      return logout(state.user.access_token)
+      return logout(state.user.access_token);
     }
   }
 };

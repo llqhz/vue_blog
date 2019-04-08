@@ -16,7 +16,7 @@
     </div>
     <divider class="divider" />
     <div class="label markdown-body">
-      <label for="">分类：[<span>{{ article.classify_id }}</span>]</label>
+      <label for="">分类：[<span>{{ article.classify }}</span>]</label>
       <label for="">浏览：<span>{{ article.view_num }}</span></label>
       <label for="">评论：<span>{{ article.comment_num }}</span></label>
       <label for="">点赞：<icon type="thumbsup"></icon> <span>{{ article.love_num }}</span></label>
@@ -73,11 +73,15 @@ export default {
 
   },
   created(){
-    var id = this.$router.params.id
-    this.getArticle(id)
-    .catch(err=>{
-        this.$Message.error('获取文章内容出错');
-      })
+    var params = this.$route.query
+    if ( params && params.id ) {
+      this.getArticle(params.id)
+      .catch(err=>{
+          this.$Message.error('获取文章内容出错');
+        })
+    } else {
+      this.$Message.error('获取文章内容出错');
+    }
   },
   mounted: function () {
     // hljs.initHighlightingOnLoad()

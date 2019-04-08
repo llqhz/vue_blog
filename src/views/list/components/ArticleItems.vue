@@ -50,7 +50,10 @@ export default {
   },
   methods: {
     toArticle(id){
-      pageTo('article',{id:id})
+      this.$router.push({
+        name: 'article',
+        query: {id:id}
+      })
     }
   }
 }
