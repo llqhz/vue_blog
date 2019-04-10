@@ -10,12 +10,12 @@
       <mt-radio
         title="文章分类"
         v-model="article.classify_id"
-        :options="classify_id_ops">
+        :options="ops.classify">
       </mt-radio>
       <mt-radio
         title="文章类型"
         v-model="article.content_type"
-        :options="content_type_ops">
+        :options="ops.content_type">
       </mt-radio>
       <mt-cell title="文章内容"></mt-cell>
       <div class="article-edit-content" v-show="article.content_type==='1'">
@@ -78,10 +78,28 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('article',{
-      classify_id_ops: 'classify_id_ops',
-      content_type_ops: 'content_type_ops'
-    })
+    ...mapGetters('articles',{
+      classify: 'classify'
+    }),
+    ops(){
+      return {
+        classify: this.transOps(this.classify),
+        content_type: [
+          {label:'HTML',value:1},
+          {label:'MarkDown',value:2},
+        ]
+      }
+    }
+  },
+  methods: {
+    transOps(ops){
+      return ops.map(op => {
+         return {
+           label: String(op.title),
+           value: String(op.id)
+         }
+      });
+    },
   }
 }
 </script>
