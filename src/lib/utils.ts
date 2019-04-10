@@ -4,9 +4,7 @@ import Vue from 'vue';
 import router from "@/router";
 
 const { TOKEN_KEY, cookieExpires,baseUrl } = config
-const vm: Vue = new Vue()
-
-window.Cookie = Cookie
+const vm:Vue = new Vue()
 
 export default {
   load: (src) => {

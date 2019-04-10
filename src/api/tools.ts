@@ -1,4 +1,3 @@
-import { baseUrl } from "@/config";
 import axios from "@/lib/api.request";
 
 export function imageUpload(file:File) {

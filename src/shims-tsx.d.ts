@@ -1,6 +1,8 @@
 import Vue, { VNode } from 'vue'
 
 declare global {
+  var $: any;
+  var axios: any;
   namespace JSX {
     // tslint:disable no-empty-interface
     interface Element extends VNode {}
