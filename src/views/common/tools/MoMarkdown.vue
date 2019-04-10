@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { imageUpload } from "@/api/tools";
+
 export default {
   name: 'MoMarkdown',
   props: [
@@ -59,26 +61,23 @@ export default {
     // 绑定@imgAdd event
     $imgAdd(pos, $file){
       // 第一步.将图片上传到服务器.
-      var formdata = new FormData();
-      formdata.append('image', $file);
-      axios({
-        url: 'https://www.llqhz.cn/app/api/backend/web/index.php/?r=api/tools/img-upload',
-        method: 'post',
-        data: formdata,
-        headers: { 'Content-Type': 'multipart/form-data' },
-      }).then((res) => {
-        // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
-        /**
-       * $vm 指为mavonEditor实例，可以通过如下两种方式获取
-       * 1. 通过引入对象获取: `import {mavonEditor} from ...` 等方式引入后，`$vm`为`mavonEditor`
-       * 2. 通过$refs获取: html声明ref : `<mavon-editor ref=md ></mavon-editor>，`$vm`为 `this.$refs.md`
-       */
-        if ( res.data.code == 1 ) {
-          this.$refs.mkdown.$img2Url(pos, res.data.url);
-        } else {
-          this.$Message.error('上传失败 !')
-        }
-      })
+      imageUpload($file)
+        .then(res=>{
+          // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
+          /**
+         * $vm 指为mavonEditor实例，可以通过如下两种方式获取
+         * 1. 通过引入对象获取: `import {mavonEditor} from ...` 等方式引入后，`$vm`为`mavonEditor`
+         * 2. 通过$refs获取: html声明ref : `<mavon-editor ref=md ></mavon-editor>，`$vm`为 `this.$refs.md`
+         */
+          this.$refs.mkdown.$img2Url(pos, res.url);
+          this.$Message.info('上传成功',()=>{
+            this.$emit('input',res.url)
+          })
+        })
+        .catch(err=>{
+          console.log(err);
+          this.$Message.error(err.msg||'上传失败 !')
+        })
     }
   }
 }

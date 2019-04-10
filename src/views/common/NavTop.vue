@@ -12,7 +12,7 @@
             </div>
             <ul>
                 <li v-for="(menu,index) in menuItems" :key="index">
-                    <router-link :to='menu.url' tag='a'>  {{ menu.name }}  </router-link>
+                    <a href="javascript:void(0)" @click="pageToUrl(menu.url)"> {{ menu.name }}</a>
                 </li>
                 <li><a href="#"> &nbsp;<icon type="md-menu" />&nbsp;</a></li>
             </ul>
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 
 export default {
@@ -37,11 +37,11 @@ export default {
     return {
       menuItem: [
         {
-          url: '/',
+          url: 'index',
           name: '首页'
         },
         {
-          url: '/list',
+          url: 'list',
           name: '文章列表'
         },
         /* {
@@ -60,12 +60,26 @@ export default {
       let menus = Object.assign([],this.menuItem)
       if ( this.isSigned ) {
           menus.push({
-            url: '/publish',
+            url: 'publish',
             name: '发布文章'
           })
       }
       return menus
     }
+  },
+  methods:{
+    pageToUrl(url){
+        console.log(url);
+        this.updateParams({
+            n: Math.random()
+        })
+        this.$router.push({
+            name: url,
+        })
+    },
+    ...mapActions('articles',{
+        updateParams: 'updateParams'
+    })
   }
 
 }

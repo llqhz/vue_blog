@@ -1,6 +1,6 @@
 <template>
   <div class="mt-img-field">
-    <mt-cell title="标题文字" >
+    <mt-cell :title="label" >
       <div class="mt-filed-image-content imgs-fields">
         <div class="mt-filed-image-content-image div-image" :style="{backgroundImage:'url('+image+')'}"  @click="handleButtonClick"></div>
         <div class="mt-filed-image-content-button">
@@ -15,12 +15,13 @@
 
 <script>
 import utils from "@/lib/utils";
+import { imageUpload } from "@/api/tools";
 
 export default {
   name: "ImageUpload",
   data(){
     return {
-      image: '',
+      image: this.value, // 初始赋值
       file: null,
     }
   },
@@ -29,41 +30,28 @@ export default {
       default(){
         return ''
       }
+    },
+    label:{
+      default(){
+        return ''
+      }
     }
   },
   methods: {
     onImageChange(e){
       this.file = e.target.files[0]
-      this.uploadImage(this.file)
+      imageUpload(this.file)
         .then(res=>{
           this.image = utils.fileToImage(this.file)
+          this.$emit('input',res.url)
           this.$Message.info('上传成功',()=>{
             this.$emit('input',res.url)
           })
         })
         .catch(err=>{
+          console.log(err);
           this.$Message.error(err.msg||'上传失败 !')
         })
-    },
-    uploadImage(file){
-      return new Promise((resolve,reject)=>{
-          let formdata = new FormData()
-          formdata.append('image',file,file.name)
-          axios({
-            url: 'https://www.llqhz.cn/app/api/backend/web/index.php/?r=api/tools/img-upload',
-            method: 'post',
-            data: formdata,
-            headers: { 'Content-Type': 'multipart/form-data' },
-          }).then((res) => {
-            // 第二步.将返回的url替换到文本原位置
-            if ( res.data.code == 1 ) {
-              resolve(res)
-            } else {
-              reject(res)
-            }
-          })
-        })
-      axios.post('')
     },
     handleButtonClick(e){
       $(e.target).parents('.imgs-fields').find('input').click()

@@ -36,15 +36,13 @@ export default {
   name: 'SideBar',
   data(){
     return {
-      menuItems: [
-        { type_id: 1, name: '网站建设' },
-        { type_id: 2, name: '数据管理' },
-      ],
+
     }
   },
   computed:{
     ...mapGetters('user',{
-      isLogined: 'isLogined'
+      isLogined: 'isLogined',
+      user: 'user'
     })
   },
   methods: {
@@ -72,9 +70,15 @@ export default {
         console.log(err);
       })
     },
+    ...mapActions('articles',{
+        updateParams: 'updateParams'
+    }),
     toMyArticles(){
+      this.updateParams({
+          user_id: this.user.id
+        })
+      this.$router.push({name:'list'})
       this.closeSidebar()
-      pageTo('list')
     },
     onSidebarClick(menu){
       var location = {
@@ -83,7 +87,6 @@ export default {
           type_id: menu.type_id
         }
       }
-      console.log(location);
       this.$router.push(location)
       this.closeSidebar()
     }

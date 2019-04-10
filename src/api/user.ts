@@ -78,3 +78,42 @@ export const signup = ({ username, password, repassword,code, codeHash,nickname,
     method: 'post',
   })
 }
+
+/**
+ * 完善信息
+ * @param {username,password}
+ */
+export const improve = ({
+    id,
+    name,
+    nickname, // 昵称
+    avatar, // 头像
+    signature_title,
+    signature_desc,
+    job = 0,
+    sex = 0,
+    address = "居无定所",
+    mobile = "132********",
+    email = "********@qq.com",
+    tags = "博客,希望"
+  }) => {
+  const data = {
+    id,
+    name,
+    nickname, // 昵称
+    avatar, // 头像
+    signature_title,
+    signature_desc,
+    job,
+    sex,
+    address,
+    mobile,
+    email,
+    tags
+  }
+  return axios.request({
+    url: 'user/improve',
+    data,
+    method: 'put',
+  })
+}

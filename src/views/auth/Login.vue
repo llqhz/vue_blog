@@ -139,7 +139,12 @@ export default {
       }
       return this.handleLogin(user).then(res=>{
         return this.getUserInfo().then(res=>{
-          pageTo('index')
+          this.$Message.success({
+            content: '登陆成功',
+            onClose(){
+              pageTo('index')
+            }
+          })
         })
       })
       .catch(err=>{

@@ -27,7 +27,7 @@ export default {
       url = window.webkitURL.createObjectURL;
     }
     if (file) {
-      image = url.createObjectURL(file)
+      image = url(file)
     }
     return image
   },
@@ -92,7 +92,9 @@ export const url = (url_str: string,type='static') => {
       break;
 
     default:
-      prefix = baseUrl.static;
+      if (!/^http/.test(url_str)) {
+        prefix = baseUrl.static;
+      }
       break;
   }
   return prefix + url_str;

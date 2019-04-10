@@ -3,6 +3,7 @@ import {
   logout,
   signup,
   getUserInfo,
+  improve,
 } from '@/api/user'
 
 import { setToken, getToken } from '@/lib/utils'
@@ -14,35 +15,47 @@ export default {
     access_token: "",
     user: {},
     default: {
+      name: '匿名',
       nickname: "匿名", // 昵称
       avatar: "https://picsum.photos/300/300/?image=648", // 头像
       signature_title: "桃李不言，下自成蹊！",
       signature_desc: "只可意会，不可言传 ~ ",
-      job: "无业游民",
+      job: 0,
+      job_text: "闲人隐士",
+      sex: 0,
+      sex_text: "未知",
       address: "居无定所",
       mobile: "132********",
       email: "********@qq.com",
       tags: "博客,希望"
+    },
+    ops: {
+      job: [],
+      sex: []
     }
   },
   getters: {
     user(state, getters) {
       let user = Object.assign({}, state.user);
       if (state.isLogined) {
-        user.avatar && (user.avatar = state.default.avatar);
-        user.tags && (user.tags = state.default.tags);
-        user.signature_title &&
+        user.avatar || (user.avatar = state.default.avatar);
+        user.tags || (user.tags = state.default.tags);
+        user.signature_title ||
           (user.signature_title = state.default.signature_title);
-        user.signature_desc &&
+        user.signature_desc ||
           (user.signature_desc = state.default.signature_desc);
-        user.job && (user.job = state.default.job);
-        user.address && (user.address = state.default.address);
-        user.mobile && (user.mobile = state.default.mobile);
+        user.address || (user.address = state.default.address);
+        user.mobile || (user.mobile = state.default.mobile);
+        user.job_text || (user.job_text = state.default.job_text);
+        user.sex_text || (user.sex_text = state.default.sex_text);
       }
       return state.isLogined ? user : state.default;
     },
     isLogined(state, getters) {
       return state.isLogined;
+    },
+    ops(state, getters) {
+      return state.ops;
     }
   },
   mutations: {
@@ -50,21 +63,35 @@ export default {
       state.isLogined = true;
       let info = {
         id: user.id,
+        name: user.name, // 昵称
         nickname: user.nickname, // 昵称
-        avatar: user.avatar || "https://picsum.photos/300/300/?image=648", // 头像
-        signature_title: user.signature_title || "缄默不言 ~",
-        signature_desc: user.signature_desc || "桃李不言 , 下自成蹊 .",
-        job: user.job || "尽职尽责",
-        address: user.address || "四海为家",
-        mobile: user.mobile || "132********",
-        email: user.email || "*****@qq.com",
-        tags: user.tags || "暂无标签"
+        avatar: user.avatar || state.default.avatar, // 头像
+        signature_title: user.signature_title || state.default.signature_title,
+        signature_desc: user.signature_desc || state.default.signature_desc,
+        job: typeof user.job != "undefined" ? user.job:state.default.job,
+        job_text: user.job_text || state.default.job_text,
+        address: user.address || state.default.address,
+        mobile: user.mobile || state.default.mobile,
+        email: user.email || state.default.email,
+        tags: user.tags || state.default.tags,
+        sex: typeof user.sex != "undefined" ? user.sex : state.default.sex,
+        sex_text: user.sex_text || state.default.sex_text
       };
       state.user = info;
     },
     setToken(state, token) {
       setToken(token);
       state.access_token = token;
+    },
+    setLogout(state) {
+      state.user = Object.assign({}, state.default);
+      state.isLogined = false;
+    },
+    setOps(state, { job = [], sex = [] }) {
+      state.ops = {
+        job,
+        sex
+      };
     }
   },
   actions: {
@@ -111,6 +138,10 @@ export default {
     getUserInfo({ state, commit }) {
       return getUserInfo(state.access_token).then(data => {
         commit("setUser", data);
+        commit("setOps", {
+          job: data.job_ops,
+          sex: data.sex_ops
+        });
         return Promise.resolve(data);
       });
     },
@@ -131,7 +162,50 @@ export default {
 
     handleLogout({ state, commit }) {
       commit("setToken", null);
+      commit("setLogout");
       return logout(state.user.access_token);
+    },
+
+    // 完善信息
+    handleImprove(
+      { state, commit, dispatch },
+      {
+        id,
+        name,
+        nickname, // 昵称
+        avatar, // 头像
+        signature_title,
+        signature_desc,
+        job = 0,
+        sex = 0,
+        address = "居无定所",
+        mobile = "132********",
+        email = "********@qq.com",
+        tags = "博客,希望"
+      }
+    ) {
+      name = name.trim();
+      nickname = nickname.trim();
+      return improve({
+        id,
+        name,
+        nickname, // 昵称
+        avatar, // 头像
+        signature_title,
+        signature_desc,
+        job,
+        sex,
+        address,
+        mobile,
+        email,
+        tags
+      }).then(res => {
+        if (res.code == -1) {
+          return Promise.reject(res);
+        }
+        dispatch("getUserInfo");
+        return res;
+      });
     }
   }
 };

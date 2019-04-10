@@ -57,6 +57,8 @@ export default {
         initialFrameHeight: 600,
         // 初始容器宽度
         initialFrameWidth: '100%',
+
+        serverUrl: 'https://api_blog.llqhz.cn/tools/ue-upload'
       }
     }
   },

@@ -104,7 +104,8 @@ export default {
       latest: 'latest',
       hot: 'hot',
       frendLinks: 'frendLinks',
-      classify: 'classify'
+      classify: 'classify',
+      listParams: 'listParams'
     })
   },
   methods:{
@@ -180,26 +181,29 @@ export default {
     // this.getTopNews()
     // 获取文章数据
     this.pageInit()
+    this.getPageParams(this.$route.params)
     this.updatePageList()
   },
   watch: {
-    // 监听路由参数变化 仅包括 分类id和用户id
-    $route (to,from) {
-      this.pageInit('page')
-      if ( this.$route.params ) {
-        let {
-          // 传0表示全部, 不传表示不变
-          classify_id=undefined,
-          user_id=undefined
-        } = this.$route.params
-        this.getPageParams({
-          classify_id,
-          word,
-          user_id,
-        })
-        this.updatePageList()
-      }
-    }
+    // 监听路由参数变化 仅包括 分类id和用户id 忽略未传参数
+    listParams: function (params,oldValue) {
+        this.pageInit('all')
+        if ( params ) {
+          let {
+            // 传0表示全部, 不传表示不变
+            classify_id=undefined,
+            user_id=undefined,
+            word=undefined,
+          } = params
+          console.log('start: ',params);
+          this.getPageParams({
+            classify_id,
+            word,
+            user_id,
+          })
+          this.updatePageList()
+        }
+      },
   },
 
 
