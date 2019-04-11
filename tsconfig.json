@@ -2,17 +2,25 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
+<<<<<<< HEAD
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "strictPropertyInitialization": false,
     "sourceMap": true,
+=======
+    "allowSyntheticDefaultImports": false,
+    "sourceMap": false,
+>>>>>>> 28972448d8a58e06e9b61d5441807d825a4af4f0
     "baseUrl": ".",
+    "noImplicitAny":false,
+    "noImplicitReturns":false,
+    "noImplicitUseStrict":true,
     "types": [
       "webpack-env",
       "mocha",
