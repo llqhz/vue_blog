@@ -31,14 +31,14 @@
     ]
   },
   "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx", "src/lib/utils.ts"
   ],
   "exclude": [
     "node_modules",
-    "src/**/*.ts",
-    "src/**/*.vue",
   ]
 }
 

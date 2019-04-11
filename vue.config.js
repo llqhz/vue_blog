@@ -110,7 +110,8 @@ module.exports = {
       axios: 'axios',
       'mint-ui': 'MINT',
       // 左边名字是固定的，是你从script引入的名字，右边是你页面中使用的名字
-      'vue-ueditor-wrap': 'VueUeditorWrap'
+      'vue-ueditor-wrap': 'VueUeditorWrap',
+      AOS: 'AOS'
     }
   }
 

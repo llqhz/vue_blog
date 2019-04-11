@@ -2,15 +2,50 @@
   <section class="green-section">
     <div class="wrapper">
       <div>
-        <h2>标题</h2>
-        <h4>副标题</h4>
-        <div class="hr"></div>
-        <p class="sub-heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2
+          data-aos="fade-right"
+          data-aos-delay="50"
+          data-aos-offset="200"
+          data-aos-duration="600"
+        >标题</h2>
+        <h4
+          data-aos="fade-right"
+          data-aos-delay="250"
+          data-aos-offset="200"
+          data-aos-duration="600"
+        >副标题</h4>
+        <div class="hr"
+          data-aos="flip-left"
+          data-aos-delay="350"
+          data-aos-offset="200"
+          data-aos-duration="600"
+        ></div>
+        <p class="sub-heading"
+          data-aos="fade-up"
+          data-aos-delay="650"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
       <div class="icon-group">
-        <span class="icon"><i class="fa fa-firefox fa-3x"></i></span>
-        <span class="icon"><i class="fa fa-first-order fa-3x fa-rotate-45"></i></span>
-        <span class="icon"><i class="fa fa-ge fa-3x"></i></span>
+        <span class="icon"
+          data-aos="zoom-in-right"
+          data-aos-delay="1300"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        ><i class="fa fa-firefox fa-3x"></i></span>
+        <span class="icon"
+          data-aos="zoom-in"
+          data-aos-delay="1300"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        ><i class="fa fa-first-order fa-3x fa-rotate-45"></i></span>
+        <span class="icon"
+          data-aos="zoom-in-left"
+          data-aos-delay="1300"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        ><i class="fa fa-ge fa-3x"></i></span>
       </div>
     </div>
   </section>

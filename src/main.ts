@@ -28,6 +28,13 @@ Vue.component('vue-ueditor-wrap', VueUeditorWrap)  //ueditor富文本编辑器
 
 import MintUI from 'mint-ui'
 
+import AOS from 'AOS'
+AOS.init({
+  offset: 200,
+  duration: 600,
+  easing: "ease-in-sine",
+  delay: 100
+});
 
 /**
  * @description 全局注册应用配置
@@ -47,6 +54,7 @@ router.beforeEach((to,from,next) => {
 });
 router.afterEach(transition => {
   NProgress.done();
+  AOS.refreshHard();
 });
 
 import ErrorHandler from "@/lib/error";

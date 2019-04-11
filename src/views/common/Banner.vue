@@ -1,12 +1,44 @@
 <template>
     <div class="banner">
         <div class="inner">
-            <div class="hr"></div>
-            <h2>☆筱怪☆</h2>
-            <div class="hr"></div>
-            <p class="sub-heading">Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button type="button">了解更多</button>
-            <div class="more">
+            <div class="hr"
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            ></div>
+            <h2
+                data-aos="flip-right"
+                data-aos-delay="250"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            >
+                ☆筱怪☆
+            </h2>
+            <div class="hr"
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            ></div>
+            <p class="sub-heading"
+                data-aos="fade-up"
+                data-aos-delay="750"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            >Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button type="button"
+                data-aos="fade-up"
+                data-aos-delay="1450"
+                data-aos-offset="200"
+                data-aos-duration="1200"
+            >了解更多</button>
+            <div class="more"
+                data-aos="fade-up"
+                data-aos-delay="2400"
+                data-aos-offset="200"
+                data-aos-duration="1200"
+            >
                 <i class="fa fa-angle-double-down fa-3x"></i>
                 <p>更多</p>
             </div>

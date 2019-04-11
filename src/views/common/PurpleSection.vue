@@ -2,9 +2,24 @@
   <section class="purple-section">
     <div class="wrapper">
           <div class="head-wrapper">
-            <h2>有一个标题</h2>
-            <div class="hr"></div>
-            <div class="sub-heading">
+            <h2
+                data-aos="fade-down"
+                data-aos-delay="50"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            >有一个标题</h2>
+            <div class="hr"
+                data-aos="flip-left"
+                data-aos-delay="250"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            ></div>
+            <div class="sub-heading"
+                data-aos="fade-left"
+                data-aos-delay="50"
+                data-aos-offset="200"
+                data-aos-duration="600"
+            >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -12,42 +27,16 @@
             </div>
         </div>
         <div class="card-group">
-            <div class="card">
+            <div class="card" v-for="(item) in [1,2,3,4,5,6]" :key='item'
+                :data-aos="item%2?'fade-fight':'fade-left'"
+                :data-aos-delay="100*item"
+                data-aos-offset="50"
+                data-aos-duration="600"
+            >
                 <h2>标题</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam </p>
             </div>
-            <div class="card">
-                <h2>标题</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis</p>
-            </div>
-            <div class="card">
-                <h2>标题</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis</p>
-            </div>
-            <div class="card">
-                <h2>标题</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis</p>
-            </div>
-            <div class="card">
-                <h2>标题</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis</p>
-            </div>
-            <div class="card">
-                <h2>标题</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis</p>
-            </div>
-
         </div>
     </div>
 </section>

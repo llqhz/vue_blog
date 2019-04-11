@@ -1,6 +1,11 @@
 <template>
   <ul>
-    <li v-for="(article,index) in articles" :key='index'>
+    <li v-for="(article,index) in articles"
+      data-aos="fade-right"
+      data-aos-delay="50"
+      data-aos-offset="200"
+      data-aos-duration="600"
+      :key='index'>
       <row class="row">
         <i-col :xs="8" :sm="8" class="col-left">
           <div class="img-left">

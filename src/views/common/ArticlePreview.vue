@@ -1,12 +1,32 @@
 <template>
  <div class="article-preview">
     <div class="img-section" v-if="left">
-        <img src="~@/assets/img/pic01.jpg" alt="">
+        <img src="~@/assets/img/pic01.jpg" alt=""
+          data-aos="flip-left"
+          data-aos-delay="50"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >
     </div>
     <div class="text-section">
-        <h2>又一个标题</h2>
-        <h4 class="sub-heading">我是副标题</h4>
-        <div class="text-content">
+        <h2
+          data-aos="fade-right"
+          data-aos-delay="250"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >又一个标题</h2>
+        <h4 class="sub-heading"
+          data-aos="fade-left"
+          data-aos-delay="450"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >我是副标题</h4>
+        <div class="text-content"
+          data-aos="fade-right"
+          data-aos-delay="750"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -16,7 +36,12 @@
         </div>
     </div>
     <div class="img-section" v-if="!left">
-        <img src="~@/assets/img/pic01.jpg" alt="">
+        <img src="~@/assets/img/pic01.jpg" alt=""
+          data-aos="flip-right"
+          data-aos-delay="50"
+          data-aos-offset="200"
+          data-aos-duration="1000"
+        >
     </div>
   </div>
 </template>
