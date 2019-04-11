@@ -41,7 +41,7 @@
     "tests/**/*.tsx", "src/lib/utils.ts"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }
 
