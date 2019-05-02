@@ -28,7 +28,7 @@
         </div>
         <div class="card-group">
             <div class="card" v-for="(item) in [1,2,3,4,5,6]" :key='item'
-                :data-aos="item%2?'fade-fight':'fade-left'"
+                :data-aos="item%2?'fade-right':'fade-left'"
                 :data-aos-delay="100*item"
                 data-aos-offset="50"
                 data-aos-duration="600"
