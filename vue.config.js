@@ -12,7 +12,7 @@ module.exports = {
   // https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.
 
   // baseUrl: process.env.NODE_ENV === 'production' ? '/online/' : '/',
-  baseUrl: './', //被舍弃了
+  baseUrl: "./", //被舍弃了
   //publicPath: './',
 
   // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
@@ -52,18 +52,18 @@ module.exports = {
 
   devServer: {
     port: 8085, // 端口号
-    host: '0.0.0.0',   // 支持局域网访问
+    host: "0.0.0.0", // 支持局域网访问
     https: false, // https:{type:Boolean}
     open: true, // 配置自动启动浏览器
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
     proxy: {
-      '/api': {
-        target: '<url>',
+      "/api": {
+        target: "<url>",
         ws: true,
         changeOrigin: true
       },
-      '/foo': {
-        target: '<other_url>'
+      "/foo": {
+        target: "<other_url>"
       }
     } // 配置多个代理
   },
@@ -82,36 +82,37 @@ module.exports = {
   // webpack的config配置 采用对象配置
   configureWebpack: {
     resolve: {
-      extensions: ['.js', '.vue', '.json'],
+      extensions: [".js", ".vue", ".json"],
       alias: {
-        'vue$': 'vue/dist/vue.esm.js',
-        '@': resolve('src'),
-        'assets': resolve('src/assets'),
-        'components': resolve('src/components'),
-        'views': resolve('src/views')
+        vue$: "vue/dist/vue.esm.js",
+        "@": resolve("src"),
+        assets: resolve("src/assets"),
+        components: resolve("src/components"),
+        views: resolve("src/views")
       }
     },
     module: {
       rules: [
         {
           test: /\.js$/,
-          loader: 'babel-loader',
+          loader: "babel-loader",
           exclude: /node_modules/
         }
       ]
     },
     output: {
-      libraryExport: 'default',
-      libraryTarget: 'umd'
+      libraryExport: "default",
+      libraryTarget: "umd"
     },
     externals: {
-      vue: 'Vue',
-      jquery: 'jQuery',
-      axios: 'axios',
-      'mint-ui': 'MINT',
+      vue: "Vue",
+      jquery: "jQuery",
+      axios: "axios",
+      "mint-ui": "MINT",
       // 左边名字是固定的，是你从script引入的名字，右边是你页面中使用的名字
-      'vue-ueditor-wrap': 'VueUeditorWrap',
-      AOS: 'AOS'
+      "vue-ueditor-wrap": "VueUeditorWrap",
+      AOS: "AOS",
+      WOW: "WOW"
     }
   }
 
@@ -130,5 +131,4 @@ module.exports = {
             }
         }
     } */
-
-}
+};

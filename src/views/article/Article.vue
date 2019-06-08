@@ -6,10 +6,8 @@
       作者：<span class="name">{{ article.author }}</span> &nbsp;
       发表于：<time >{{ article.updated_at }}</time>
     </p>
-    <div class="markdown-body">
-      <template v-if="article.music">
+    <div class="markdown-body" v-if="article.music">
         <music :src='article.music'></music>
-      </template>
     </div>
     <divider class="divider" />
     <div class="markdown-body" v-html='content'>

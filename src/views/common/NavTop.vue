@@ -58,7 +58,7 @@ export default {
     }),
     menuItems(){
       let menus = Object.assign([],this.menuItem)
-      if ( this.isSigned ) {
+      if ( this.isSigned && false ) {
           menus.push({
             url: 'publish',
             name: '发布文章'

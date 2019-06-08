@@ -7,7 +7,7 @@
           <li>
             <a href="javascript:void(0)" @click="toImprove">  个人信息  </a>
           </li>
-          <li>
+          <li style="display: none">
             <a href="javascript:void(0)" @click="toMyArticles">  我的文章  </a>
           </li>
           <li>

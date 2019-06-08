@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="(link,index) in news" :key='index'>
-      <a href="link.url" :title='link.title'>{{ link.title }}</a>
+      <a @click="toArticle(link.id)" :title='link.title'>{{ link.title }}</a>
     </li>
   </ul>
 </template>
@@ -14,6 +14,14 @@ export default {
       default(){
         return []
       },
+    }
+  },
+  methods: {
+    toArticle(id){
+      this.$router.push({
+        name: 'article',
+        query: {id:id}
+      })
     }
   }
 }

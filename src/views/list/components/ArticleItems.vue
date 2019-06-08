@@ -1,10 +1,8 @@
 <template>
   <ul>
     <li v-for="(article,index) in articles"
-      data-aos="fade-right"
-      data-aos-delay="50"
-      data-aos-offset="200"
-      data-aos-duration="600"
+      class="wow fadeInLeft"
+      data-wow-duration="2s"
       :key='index'>
       <row class="row">
         <i-col :xs="8" :sm="8" class="col-left">
@@ -171,6 +169,7 @@ ul {
 }
 .col-right .content {
   max-height: 72px;
+  min-height: 72px;
   overflow: hidden;
   font-size: 10px;
 }

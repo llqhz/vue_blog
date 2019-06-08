@@ -36,6 +36,10 @@ AOS.init({
   delay: 100
 });
 
+import WOW from 'WOW'
+let wow = new WOW()
+wow.init()
+
 /**
  * @description 全局注册应用配置
  */
@@ -55,6 +59,7 @@ router.beforeEach((to,from,next) => {
 router.afterEach(transition => {
   NProgress.done();
   AOS.refreshHard();
+  wow.sync();
 });
 
 import ErrorHandler from "@/lib/error";
