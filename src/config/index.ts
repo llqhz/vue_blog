@@ -15,7 +15,10 @@ export default {
   // token键名
   TOKEN_KEY: "token",
   cookieExpires: 30, // token有效期
-  SECRET_KEY: "8923hed728" // 加密秘钥
+  SECRET_KEY: "8923hed728", // 加密秘钥
+
+  // 404 信息
+  NotFoundTitle: "来到了内容的荒原 ~"
 };
 
 

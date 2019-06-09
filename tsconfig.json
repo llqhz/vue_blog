@@ -13,7 +13,6 @@
     "strictPropertyInitialization": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "noImplicitAny":false,
     "noImplicitReturns":false,
     "noImplicitUseStrict":true,
     "types": [

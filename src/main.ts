@@ -30,7 +30,7 @@ import MintUI from 'mint-ui'
 
 import AOS from 'AOS'
 AOS.init({
-  offset: 200,
+  offset: 0,
   duration: 600,
   easing: "ease-in-sine",
   delay: 100

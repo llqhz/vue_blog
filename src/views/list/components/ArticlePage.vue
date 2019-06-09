@@ -70,7 +70,19 @@ export default {
 .row {
   padding: 0px 10px 10px 10px;
 }
-.row >>> .ivu-select .ivu-select-arrow {
-  top: 72%;
+
+.page-xs >>> .ivu-select .ivu-select-selected-value {
+  height: 25px;
+  line-height: 25px;
 }
+.page-xs >>> .ivu-select-single .ivu-select-selection {
+  height: 25px;
+}
+.row >>> .ivu-select .ivu-select-arrow {
+  top: 68%;
+}
+.page-xs >>> .ivu-select .ivu-select-arrow {
+  top: 83%;
+}
+
 </style>
