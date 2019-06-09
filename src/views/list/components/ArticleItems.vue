@@ -91,7 +91,7 @@ ul {
   padding: 1px;
   border: 3px solid rgba(0, 0, 0, 0.15);
   padding: 5px;
-  max-height: 150px;
+  /* max-height: 150px; */
 }
 .col-left .img-left {
   background-image: url(https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg);
@@ -121,10 +121,9 @@ ul {
     display: block;
   }
   .col-left {
-    height: 45vw;
+    height: 32vw;
     margin: 0;
     margin-bottom: 5px;
-    max-height: 125px;
   }
   .row .col-right h3 {
     text-indent: 0;
@@ -132,6 +131,7 @@ ul {
   }
   .col-right .content {
     margin: 3px auto;
+    height: 17vw;
   }
   .label {
     margin-top: 0px;
@@ -141,6 +141,10 @@ ul {
 @media screen and (min-width: 769px) {
   .col-right .content {
     text-indent: 1.2em;
+    height: 5.3vw;
+  }
+  .col-left {
+    max-height: 150px;
   }
 }
 
@@ -168,8 +172,6 @@ ul {
   vertical-align: baseline;
 }
 .col-right .content {
-  max-height: 72px;
-  min-height: 72px;
   overflow: hidden;
   font-size: 10px;
 }
@@ -184,6 +186,9 @@ ul li:last-of-type >>> .ivu-divider-horizontal {
 
 .divider {
   background-color: #ccc;
+}
+ul li .divider >>> .ivu-divider-horizontal {
+  margin: 14px 0;
 }
 
 </style>

@@ -70,4 +70,7 @@ export default {
 .row {
   padding: 0px 10px 10px 10px;
 }
+.row >>> .ivu-select .ivu-select-arrow {
+  top: 72%;
+}
 </style>

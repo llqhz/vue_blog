@@ -80,4 +80,5 @@ export default {
 <style lang="stylus">
 #app
   background rgba(0,0,0,0.08)
+  overflow hidden
 </style>
