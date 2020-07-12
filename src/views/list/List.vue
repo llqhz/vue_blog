@@ -6,7 +6,7 @@
         <row>
           <i-col :xs='24' :sm="16" class="list-left">
             <list-swiper></list-swiper>
-            <list-hr titles="文章列表,"></list-hr>
+            <list-hr titles="文章,列表"></list-hr>
             <article-items></article-items>
             <divider class="divider" />
             <article-page
@@ -29,7 +29,7 @@
               <list-hr titles="最热,文章"></list-hr>
               <list-news :news="hot" />
               <list-hr titles="友情,链接"></list-hr>
-              <list-links :links='frendLinks' />
+              <list-links :links='friendLinks' />
             </div>
           </i-col>
         </row>
@@ -53,7 +53,7 @@ import { mapGetters, mapActions } from "vuex"
 import { isDefined } from "@/lib/utils";
 
 export default {
-  name: 'ArticleLIst',
+  name: 'ArticleList',
   components: {
     ListSwiper,
     ListHr,
@@ -95,7 +95,6 @@ export default {
     }
   },
   computed: {
-
     ...mapGetters('user',{
       user: 'user',
       isLogined: 'isLogined'
@@ -103,7 +102,7 @@ export default {
     ...mapGetters('articles',{
       latest: 'latest',
       hot: 'hot',
-      frendLinks: 'frendLinks',
+      friendLinks: 'friendLinks',
       classify: 'classify',
       listParams: 'listParams'
     })

@@ -7,9 +7,11 @@ export default {
     articles: [],
     latestNews: [],
     hotNews: [],
-    frendLinks: [],
+    friendLinks: [],
     classify: [],
-    listParams:{}
+    listParams:{},
+    footer: {},
+    home: {}
   },
   getters: {
     articles(state) {
@@ -21,14 +23,20 @@ export default {
     hot(state) {
       return state.hotNews;
     },
-    frendLinks(state) {
-      return state.frendLinks;
+    friendLinks(state) {
+      return state.friendLinks;
     },
     classify(state) {
       return state.classify;
     },
     listParams(state) {
       return state.listParams;
+    },
+    footer(state) {
+      return state.footer;
+    },
+    home(state) {
+      return state.home;
     }
   },
   mutations: {
@@ -42,7 +50,8 @@ export default {
           summary: item.summary,
           view_num: item.view_num,
           comment_num: item.comment_num,
-          classify: item.classify
+          classify: item.classify,
+          image: item.image
         };
       });
       state.articles = items;
@@ -62,7 +71,7 @@ export default {
           user_id: item.user_id
         };
       });
-      state.frendLinks = news.frendLinks.map((item, key, arr) => {
+      state.friendLinks = news.friendLinks.map((item, key, arr) => {
         return {
           title: item.title,
           url: item.url
@@ -74,6 +83,8 @@ export default {
           id: item.value
         };
       });
+      state.home = news.home;
+      state.footer = news.footer;
     },
     setListParams(state, params) {
       state.listParams = params;
@@ -88,8 +99,8 @@ export default {
     },
     getTopNews({ commit, state }) {
       return getTopNews().then(res => {
-        let { latestNews, hotNews, frendLinks, classify } = res;
-        commit("setTopNews", { latestNews, hotNews, frendLinks, classify });
+        let { latestNews, hotNews, friendLinks, classify, footer, home } = res;
+        commit("setTopNews", { latestNews, hotNews, friendLinks, classify, footer, home });
         return res;
       });
     },

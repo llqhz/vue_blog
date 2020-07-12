@@ -7,9 +7,9 @@
         <li><a href="#"><i class="fa fa-github"></i></a></li>
     </ul>
     <div class="copy">
-        Copyright &copy; 2018 · ☆ 筱怪 ☆
+        Copyright &copy; 2018~2020 · ☆ 筱怪 ☆
         <br>
-        <span class="beian" @click="open('http://beian.gov.cn/portal/registerSystemInfo?recordcode=42010202000693','__blank')"> 鄂公网安备 42010202000693 号 </span>
+        <span class="beian" @click="open('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010202000693','__blank')"> 鄂公网安备 42010202000693 号 </span>
         |
         <span class="beian" @click="open('http://www.miibeian.gov.cn/','__blank')"> 鄂ICP备17026562号-1 </span>
     </div>
@@ -17,7 +17,14 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
+    name: 'Footer',
+    computed: {
+        ...mapGetters('articles', {
+            footer: 'footer'
+        })
+    },
     methods: {
         open(url,type){
             return window.open(url,type)

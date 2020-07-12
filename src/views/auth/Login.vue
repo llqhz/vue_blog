@@ -33,7 +33,7 @@
                     <mt-button type="primary" size="large" @click="handleSubmit">登录</mt-button>
                   </i-col>
                   <i-col :xs='{span:8,offset:2}' :md='{span:6,offset:1}' class="list-left">
-                    <mt-button type="danger" size="large" @click="">注册</mt-button>
+                    <mt-button type="danger" size="large" @click="jumpToRegister">注册</mt-button>
                   </i-col>
                 </row>
               </div>
@@ -46,7 +46,7 @@
               <list-hr titles="最热,文章"></list-hr>
               <list-news :news="hot" />
               <list-hr titles="友情,链接"></list-hr>
-              <list-links :links='frendLinks' />
+              <list-links :links='friendLinks' />
             </div>
           </i-col>
         </row>
@@ -89,7 +89,7 @@ export default {
     ...mapGetters('articles',{
       latest: 'latest',
       hot: 'hot',
-      frendLinks: 'frendLinks'
+      friendLinks: 'friendLinks'
     }),
     codeImg(){
       if (!this.codeUrl && !this.isCodeGetInited) {
@@ -116,6 +116,10 @@ export default {
         this.codeUrl = res.url
         this.codeHash = res.hash
       })
+    },
+
+    jumpToRegister(page) {
+      pageTo('submit')
     },
 
     loadSignupParams(){

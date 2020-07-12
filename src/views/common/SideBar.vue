@@ -3,6 +3,10 @@
     <div class="mask"></div>
     <div class="sideBar">
       <ul>
+        <li v-for="(classify,index) in classifies" :key="classify.name">
+          <a href="javascript:void(0)" @click="toClassifyArticles(classify.id)"> {{ classify.title }}  </a>
+        </li>
+        <hr class="sidebar-split">
         <template v-if="isLogined">
           <li>
             <a href="javascript:void(0)" @click="toImprove">  个人信息  </a>
@@ -43,6 +47,9 @@ export default {
     ...mapGetters('user',{
       isLogined: 'isLogined',
       user: 'user'
+    }),
+    ...mapGetters('articles',{
+      classifies: 'classify',
     })
   },
   methods: {
@@ -76,6 +83,17 @@ export default {
     toMyArticles(){
       this.updateParams({
           user_id: this.user.id
+        })
+      this.$router.push({name:'list'})
+      this.closeSidebar()
+    },
+    toClassifyArticles(classify_id){
+      this.updateParams({
+          user_id: null,
+          classify_id: classify_id,
+          current: 1,
+          pageSize: 10,
+          word: "",
         })
       this.$router.push({name:'list'})
       this.closeSidebar()
@@ -114,6 +132,15 @@ zIndex = 2000
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+
+  .sidebar-split {
+    border-bottom: 1px solid #d3d3d3ba;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-bottom: 4px;
+    height: 0px;
+  }
 }
 .sideBar ul li {
   width: 100%;

@@ -6,7 +6,7 @@
       :key='index'>
       <row class="row">
         <i-col :xs="8" :sm="8" class="col-left">
-          <div class="img-left">
+          <div class="img-left" :style="{ backgroundImage: 'url(' + article.image + ')' }">
             <!-- <img src="http://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg" alt=""> -->
           </div>
         </i-col>
@@ -94,7 +94,9 @@ ul {
   /* max-height: 150px; */
 }
 .col-left .img-left {
-  background-image: url(https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg);
+  /*
+   * background-image: url(https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg);
+  */
   width: 100%;
   background-origin: content-box;
   background-position: center;
