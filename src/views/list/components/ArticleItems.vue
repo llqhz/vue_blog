@@ -28,6 +28,9 @@
       </row>
       <divider class="divider" />
     </li>
+    <li v-if="!articles || !articles.length">
+      <p class="center">~ 暂无数据 ~</p>
+    </li>
   </ul>
 </template>
 
@@ -62,11 +65,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 ul {
   list-style-type: none;
   padding: 10px;
   padding-bottom: 0px;
+
+  .center {
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-size: 20px;
+    margin: 40px;
+    text-align: center;
+  }
 }
 .label {
   margin-top: 3px;

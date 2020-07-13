@@ -1,17 +1,16 @@
 <template>
   <footer>
     <ul>
-        <li><a href="#"><i class="fa fa-weibo"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-qq"></i></a></li>
-        <li><a href="#"><i class="fa fa-github"></i></a></li>
+        <li v-for="(icon, index) in footer.icons" :key="icon.link">
+            <a :href="icon.link"><i :class="icon.icon"></i></a>
+        </li>
     </ul>
     <div class="copy">
-        Copyright &copy; 2018~2020 · ☆ 筱怪 ☆
+        {{ footer.copy }}
         <br>
-        <span class="beian" @click="open('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42010202000693','__blank')"> 鄂公网安备 42010202000693 号 </span>
+        <span class="beian" @click="open(footer.police.link,'__blank')"> {{ footer.police.text }} </span>
         |
-        <span class="beian" @click="open('http://www.miibeian.gov.cn/','__blank')"> 鄂ICP备17026562号-1 </span>
+        <span class="beian" @click="open(footer.record.link,'__blank')"> {{ footer.record.text }} </span>
     </div>
   </footer>
 </template>
