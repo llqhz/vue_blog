@@ -13,7 +13,7 @@
                 data-aos-offset="200"
                 data-aos-duration="600"
             >
-                ☆筱怪☆
+                {{ banner.name }}
             </h2>
             <div class="hr"
                 data-aos="fade-left"
@@ -26,7 +26,9 @@
                 data-aos-delay="750"
                 data-aos-offset="200"
                 data-aos-duration="600"
-            >Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            >
+                {{ banner.motto }}
+            </p>
             <button type="button"
                 data-aos="fade-up"
                 data-aos-delay="1450"
@@ -51,8 +53,19 @@ export default {
   name: 'Banner',
   data: () => {
     return {
-      msg: 'hello'
+      
     }
+  },
+  props: {
+    banner: {
+      type: Object,
+      default: () => {
+        return {
+          name: "☆筱怪☆",
+          motto: "Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      }
+    } 
   }
 }
 </script>

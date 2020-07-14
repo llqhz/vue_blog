@@ -14,29 +14,24 @@
           data-aos-delay="250"
           data-aos-offset="200"
           data-aos-duration="1000"
-        >又一个标题</h2>
+        > {{ article.title }} </h2>
         <h4 class="sub-heading"
           data-aos="fade-left"
           data-aos-delay="450"
           data-aos-offset="200"
           data-aos-duration="1000"
-        >我是副标题</h4>
+        > {{ article.subTitle }} </h4>
         <div class="text-content"
           data-aos="fade-right"
           data-aos-delay="750"
           data-aos-offset="200"
           data-aos-duration="1000"
         >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {{ article.introduction }}
         </div>
     </div>
     <div class="img-section" v-if="!left">
-        <img src="~@/assets/img/pic01.jpg" alt=""
+        <img :src="article.image" :alt="article.subTitle"
           data-aos="flip-right"
           data-aos-delay="50"
           data-aos-offset="200"
@@ -56,7 +51,17 @@ export default {
   props: {
     direction: {
       default: 'left'
-    }
+    },
+    article: {
+      default: () => {
+        return {
+          title: "又一个标题",
+          subTitle: "我是副标题",
+          image: "/img/pic01.a5488d85.jpg",
+          introduction: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      }
+    },
   },
   computed: {
     left: function () {

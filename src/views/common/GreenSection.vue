@@ -7,13 +7,13 @@
           data-aos-delay="50"
           data-aos-offset="200"
           data-aos-duration="600"
-        >标题</h2>
+        > {{ article && article.title }} </h2>
         <h4
           data-aos="fade-right"
           data-aos-delay="250"
           data-aos-offset="200"
           data-aos-duration="600"
-        >副标题</h4>
+        > {{ article && article.subTitle }} </h4>
         <div class="hr"
           data-aos="flip-left"
           data-aos-delay="350"
@@ -25,7 +25,9 @@
           data-aos-delay="650"
           data-aos-offset="200"
           data-aos-duration="1000"
-        >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        >
+          {{ article && article.introduction }}
+        </p>
       </div>
       <div class="icon-group">
         <span class="icon"
@@ -50,6 +52,24 @@
     </div>
   </section>
 </template>
+
+<script>
+
+export default {
+  name: "GreenSection",
+  props: {
+    article: {
+      default: () => {
+        return {
+            title: "标题",
+            subTitle: "副标题",
+            introduction: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      } 
+    }
+  }
+}
+</script>
 
 <style scoped>
 .wrapper {

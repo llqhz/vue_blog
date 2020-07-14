@@ -1,16 +1,16 @@
 <template>
   <footer>
     <ul>
-        <li v-for="(icon, index) in footer.icons" :key="icon.link">
+        <li v-for="(icon, index) in footer.icons" :key="index">
             <a :href="icon.link"><i :class="icon.icon"></i></a>
         </li>
     </ul>
     <div class="copy">
         {{ footer.copy }}
         <br>
-        <span class="beian" @click="open(footer.police.link,'__blank')"> {{ footer.police.text }} </span>
+        <span class="beian" @click="open(footer.police.link,'__blank')"> {{ footer.police && footer.police.text }} </span>
         |
-        <span class="beian" @click="open(footer.record.link,'__blank')"> {{ footer.record.text }} </span>
+        <span class="beian" @click="open(footer.record.link,'__blank')"> {{ footer.record && footer.record.text }} </span>
     </div>
   </footer>
 </template>

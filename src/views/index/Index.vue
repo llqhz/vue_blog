@@ -1,17 +1,15 @@
 <template>
   <div class="content main-wrapper">
-    <banner />
-    <green-section />
+    <banner :banner="home.banner" />
+    <green-section :article="home.greenSection" />
     <section class="gray-section">
-      <article-preview direction='left' />
-      <article-preview direction='right' />
-      <article-preview direction='left' />
-      <article-preview direction='right' />
-      <article-preview direction='left' />
-      <article-preview direction='right' />
+      <article-preview 
+        v-for="(article, index) in home.graySection" :key="index" 
+        :direction="index%2 == 0 ? 'left' : 'right'"
+        :article="article"
+      />
     </section>
-    <purple-section></purple-section>
-
+    <purple-section :articles="home.purpleSection"></purple-section>
   </div>
 </template>
 
@@ -20,19 +18,25 @@ import Banner from '@/views/common/Banner'
 import GreenSection from '@/views/common/GreenSection'
 import ArticlePreview from '@/views/common/ArticlePreview'
 import PurpleSection from '@/views/common/PurpleSection'
+import { mapGetters, mapActions } from "vuex";
 
 export default {
+  name: 'Index',
   components: {
     Banner,
     GreenSection,
     ArticlePreview,
     PurpleSection
   },
-  name: 'Index',
   data: () => {
     return {
-      msg: 'hello'
+      
     }
+  },
+  computed: {
+    ...mapGetters('articles', {
+      home: 'home'
+    })
   },
   mounted: function () {
 
