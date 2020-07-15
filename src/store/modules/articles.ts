@@ -106,6 +106,7 @@ export default {
     },
     updateParams({ commit, state },params) {
       commit("setListParams",params);
+      return Promise.resolve();
     }
   }
 };

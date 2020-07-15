@@ -3,6 +3,9 @@
     <div class="mask"></div>
     <div class="sideBar">
       <ul>
+        <li>
+          <a href="javascript:void(0)" @click="toClassifyArticles(null)">  全部  </a>
+        </li>
         <li v-for="(classify,index) in classifies" :key="classify.name">
           <a href="javascript:void(0)" @click="toClassifyArticles(classify.id)"> {{ classify.title }}  </a>
         </li>
@@ -81,21 +84,23 @@ export default {
         updateParams: 'updateParams'
     }),
     toMyArticles(){
-      this.updateParams({
-          user_id: this.user.id
-        })
-      this.$router.push({name:'list'})
+      let params = {
+        user_id: this.user.id
+      }
+      this.updateParams(params)
+      this.$router.push({name:'list', params})
       this.closeSidebar()
     },
     toClassifyArticles(classify_id){
-      this.updateParams({
-          user_id: null,
-          classify_id: classify_id,
-          current: 1,
-          pageSize: 10,
-          word: "",
-        })
-      this.$router.push({name:'list'})
+      let params = {
+        user_id: null,
+        classify_id: classify_id,
+        current: 1,
+        pageSize: 10,
+        word: "",
+      };
+      this.updateParams(params)
+      this.$router.push({name:'list', params})
       this.closeSidebar()
     },
     onSidebarClick(menu){
@@ -134,7 +139,8 @@ zIndex = 2000
   padding-right: 20px;
 
   .sidebar-split {
-    border-bottom: 1px solid #d3d3d3ba;
+    box-shadow: 0px 0px 5px white;
+    border-bottom: 1px solid #d3d3d36a;
     border-left: none;
     border-right: none;
     border-top: none;

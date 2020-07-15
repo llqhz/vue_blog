@@ -6,7 +6,17 @@
         <row>
           <i-col :xs='24' :sm="16" class="list-left">
             <list-swiper></list-swiper>
-            <list-hr titles="文章,列表"></list-hr>
+            <hr>
+            <row type="flex" justify="end" style="margin-top: 5px;">
+              <i-col :xs='12' :sm="10">
+                <i-input size="small" placeholder="请输入文章关键词">
+                  <span slot="prepend">搜索</span>
+                  <i-button slot="append" icon="ios-search"></i-button>
+                </i-input>
+              </i-col>
+            </row>
+            
+            <list-hr style="margin-top: -15px;" titles="文章,列表"></list-hr>
             <article-items></article-items>
             <divider class="divider" />
             <article-page
@@ -180,6 +190,7 @@ export default {
     // this.getTopNews()
     // 获取文章数据
     this.pageInit()
+    console.log(this.$route.params);
     this.getPageParams(this.$route.params)
     this.updatePageList()
   },

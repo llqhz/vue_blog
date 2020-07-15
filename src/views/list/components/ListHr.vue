@@ -1,8 +1,10 @@
 <template>
   <h2>
     <p>
-      <span>{{action}}</span>
-      {{ name }}
+      <template v-if="action || name">
+        <span>{{action}}</span>
+        {{ name }}
+      </template>
     </p>
   </h2>
 </template>
@@ -12,7 +14,7 @@ export default {
   name: 'ListHr',
   props: {
     titles: {
-      default: '推荐,文章'
+      default: ''
     }
   },
   computed: {
