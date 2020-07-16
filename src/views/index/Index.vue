@@ -46,7 +46,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style scoped>
+<style lang="stylus" scoped>
 
 /* .wrapper {
     max-width: 860px;
@@ -63,7 +63,7 @@ export default {
     background-size: contain;
     background-position: center center;
 } */
-/* 某些移动端不支持: background-attachment: fixed; */
+/* 某些移动端不支持: background-attachment: fixed;
 .main-wrapper:before {
   content: ' ';
   position: fixed;
@@ -77,6 +77,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
 }
+ */
 
 .gray-section {
     background: gray;

@@ -1,5 +1,6 @@
 <template>
     <div class="banner">
+        <i class="banner-wrappers" :style="imageStyle"></i>
         <div class="inner">
             <div class="hr"
                 data-aos="fade-right"
@@ -53,8 +54,18 @@ export default {
   name: 'Banner',
   data: () => {
     return {
-      
+
     }
+  },
+  computed: {
+      imageStyle: function() {
+        return {
+            background: '#444 url(' + this.banner.image + ')',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+        }
+      }
   },
   props: {
     banner: {
@@ -70,7 +81,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
     .hr {
         height: 2px;
@@ -92,6 +103,19 @@ export default {
     .banner {
         background: rgba(0,0,0,0.40);
         height: 100vh/* 607px */;
+
+        .banner-wrappers {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #444 url(/img/banner.603836f2.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
     }
 
     /* inner */

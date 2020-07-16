@@ -8,10 +8,10 @@
             <list-swiper></list-swiper>
             <hr>
             <row type="flex" justify="end" style="margin-top: 5px;">
-              <i-col :xs='12' :sm="10">
-                <i-input size="small" placeholder="请输入文章关键词">
+              <i-col :xs='16' :sm="10">
+                <i-input v-model="page.word" size="small" placeholder="请输入文章关键词">
                   <span slot="prepend">搜索</span>
-                  <i-button slot="append" icon="ios-search"></i-button>
+                  <i-button @click="search" slot="append" icon="ios-search"></i-button>
                 </i-input>
               </i-col>
             </row>
@@ -83,7 +83,7 @@ export default {
         pageSize: 10,
         user_id: 0,
         classify_id: 0,
-        word: '',
+        word: 'xxxx',
 
         pageSizeOptions: [10,20,30,50],
         placement: 'top',
@@ -130,6 +130,12 @@ export default {
 
     changeClassify(id){
       this.page.classify_id = id
+      this.page.word = ""
+      this.updatePageList()
+    },
+
+    search(word){
+      this.page.classify_id = 0
       this.updatePageList()
     },
 

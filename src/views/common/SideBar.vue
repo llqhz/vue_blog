@@ -4,7 +4,7 @@
     <div class="sideBar">
       <ul>
         <li>
-          <a href="javascript:void(0)" @click="toClassifyArticles(null)">  全部  </a>
+          <a href="javascript:void(0)" @click="toClassifyArticles(0)">  全部  </a>
         </li>
         <li v-for="(classify,index) in classifies" :key="classify.name">
           <a href="javascript:void(0)" @click="toClassifyArticles(classify.id)"> {{ classify.title }}  </a>
@@ -14,7 +14,7 @@
           <li>
             <a href="javascript:void(0)" @click="toImprove">  个人信息  </a>
           </li>
-          <li style="display: none">
+          <li v-if="false">
             <a href="javascript:void(0)" @click="toMyArticles">  我的文章  </a>
           </li>
           <li>

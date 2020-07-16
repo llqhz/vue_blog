@@ -74,6 +74,9 @@ export default {
     var params = this.$route.query
     if ( params && params.id ) {
       this.getArticle(params.id)
+      .then(res => {
+        document.title = this.article.title
+      })
       .catch(err=>{
           this.$Message.error('获取文章内容出错');
         })
