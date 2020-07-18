@@ -17,7 +17,7 @@
       <p>
         <Icon type="logo-css3" />
         <label for="">
-          职业： <span class="value">{{ user.job }}</span>
+          职业： <span class="value">{{ user.job_text }}</span>
         </label>
       </p>
       <p>
@@ -72,7 +72,7 @@ export default {
 <style scoped>
 .about {
   overflow: hidden;
-  background:  url(https://www.yangqq.com/skin/850/images/banner.png) no-repeat top center;
+  background:  url('~@/assets/img/info-banner.png') no-repeat top center;
   position: relative;
 }
 .about::after {

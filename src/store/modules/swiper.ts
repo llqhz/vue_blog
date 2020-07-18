@@ -32,19 +32,21 @@ export default {
     getSwiperImage(context) {
       // context: { commit,dispatch,state }
     },
-    updateSwiperImages({ commit, state }, payload) {
+    updateSwiperImages({ commit, state, rootGetters }, payload) {
       // 只能通过提交触发mutations才能改变数据
-      setTimeout(() => {
-        var images = [{
-          id: 1,
-          src: 'https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg'
-        },
-        {
-          id: 2,
-          src: 'https://img1.qunarzz.com/piao/fusion/1808/74/cad6bf966300902.jpg_750x200_7641ba93.jpg'
-        }];
-        commit('swiperImages', images)
-      }, 2000);
+      // setTimeout(() => {
+      //   let g = rootGetters
+      //   console.log(g)
+      //   var images = [{
+      //     id: 1,
+      //     src: 'https://img1.qunarzz.com/piao/fusion/1806/ee/b889bce65d6dcf02.jpg_750x200_b1cb6a9f.jpg'
+      //   },
+      //   {
+      //     id: 2,
+      //     src: 'https://img1.qunarzz.com/piao/fusion/1808/74/cad6bf966300902.jpg_750x200_7641ba93.jpg'
+      //   }];
+      //   commit('swiperImages', images)
+      // }, 2000);
     }
   }
 }

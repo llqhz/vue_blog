@@ -11,7 +11,7 @@ export default {
     classify: [],
     listParams:{},
     footer: {},
-    home: {}
+    home: {},
   },
   getters: {
     articles(state) {
@@ -97,10 +97,11 @@ export default {
         return res;
       });
     },
-    getTopNews({ commit, state }) {
+    getTopNews({ commit, state, rootState }) {
       return getTopNews().then(res => {
-        let { latestNews, hotNews, friendLinks, classify, footer, home } = res;
-        commit("setTopNews", { latestNews, hotNews, friendLinks, classify, footer, home });
+        let { latestNews, hotNews, friendLinks, classify, footer, home, swipers } = res;
+        commit("setTopNews", { latestNews, hotNews, friendLinks, classify, footer, home, swipers });
+        rootState.swiper.swiperImages = swipers
         return res;
       });
     },

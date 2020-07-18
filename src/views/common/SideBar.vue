@@ -64,7 +64,7 @@ export default {
     },
     toImprove(){
       this.closeSidebar()
-      pageTo('improve')
+      pageTo('improve', {'user_id': this.user.id})
     },
     toLogout(){
       this.closeSidebar()

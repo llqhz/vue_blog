@@ -59,12 +59,17 @@ export default {
   },
   computed: {
       imageStyle: function() {
-        return {
-            background: '#444 url(' + this.banner.image + ')',
+        let image = this.banner && this.banner.image;
+        let style = {
+            backgroundColor: '#444',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center',
         }
+        if (image) {
+            style.backgroundImage = 'url(' + image + ')';
+        }
+        return style;
       }
   },
   props: {
@@ -111,7 +116,7 @@ export default {
             right: 0;
             bottom: 0;
             left: 0;
-            background: #444 url(/img/banner.603836f2.jpg);
+            background: #444 url('~@/assets/img/banner.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;

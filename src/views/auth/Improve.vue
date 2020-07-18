@@ -36,14 +36,14 @@
           </i-col>
           <i-col :xs='{span:0}' :sm="8" class="list-right">
             <div class="right-content">
-              <list-hr titles="个性标签"></list-hr>
+              <list-hr titles="个性,标签"></list-hr>
               <my-label :tags="user.tags" />
               <list-hr titles="最新,文章"></list-hr>
               <list-news :news="latest" />
               <list-hr titles="最热,文章"></list-hr>
               <list-news :news="hot" />
               <list-hr titles="友情,链接"></list-hr>
-              <list-links :links='frendLinks' />
+              <list-links :links='friendLinks' />
             </div>
           </i-col>
         </row>
@@ -94,7 +94,7 @@ export default {
     ...mapGetters('articles',{
       latest: 'latest',
       hot: 'hot',
-      frendLinks: 'frendLinks'
+      friendLinks: 'friendLinks'
     }),
 
     ...mapGetters('user',{
@@ -137,7 +137,8 @@ export default {
         tags: user.tags,
         signature_title: user.signature_title,
         signature_desc: user.signature_desc,
-        avatar: user.avatar
+        avatar: user.avatar,
+        address: user.address
       }
     },
     submit(){

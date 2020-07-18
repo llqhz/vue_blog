@@ -125,8 +125,11 @@ export default {
         codeHash: this.codeHash,
       }
       return this.handleSignup(user).then(res=>{
-        this.$Message.success('注册成功',()=>{
-          pageTo('login',res)
+        this.$Message.success({
+          content: '注册成功', 
+          onClose: () => {
+            pageTo('login',res)
+          }
         })
       })
       .catch(err=>{

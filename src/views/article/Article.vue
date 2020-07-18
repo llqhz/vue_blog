@@ -55,7 +55,7 @@ export default {
   name: 'Article',
   data: () => {
     return {
-
+      documentTitle: ''
     }
   },
   computed: {
@@ -75,6 +75,7 @@ export default {
     if ( params && params.id ) {
       this.getArticle(params.id)
       .then(res => {
+        this.documentTitle = document.title
         document.title = this.article.title
       })
       .catch(err=>{
@@ -83,6 +84,9 @@ export default {
     } else {
       this.$Message.error('获取文章内容出错');
     }
+  },
+  beforeDestroy: function() {
+    document.title = this.documentTitle
   },
   mounted: function () {
     // hljs.initHighlightingOnLoad()
