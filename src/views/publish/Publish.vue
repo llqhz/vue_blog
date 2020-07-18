@@ -16,7 +16,7 @@
               <list-hr titles="最热,文章"></list-hr>
               <list-news :news="hot" />
               <list-hr titles="友情,链接"></list-hr>
-              <list-links :links='frendLinks' />
+              <list-links :links='friendLinks' />
             </div>
           </i-col>
         </row>
@@ -61,7 +61,7 @@ export default {
     ...mapGetters('articles',{
       latest: 'latest',
       hot: 'hot',
-      frendLinks: 'frendLinks'
+      friendLinks: 'friendLinks'
     })
   },
   mounted () {
