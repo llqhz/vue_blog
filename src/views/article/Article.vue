@@ -29,7 +29,7 @@ import hljs from 'highlight.js'
 // import 'highlight.js/styles/monokai-sublime.css'
 import 'highlight.js/styles/github.css'
 import music from '@/views/common/tools/music'
-
+import flowchart from 'flowchart.js'
 import { mapGetters, mapActions } from "vuex";
 
 
@@ -46,6 +46,8 @@ const md = new MarkdownIt({
                hljs.highlight(lang, str, true).value +
                '</code></pre>'
       } catch (__) {}
+    } else if (lang == 'flow') {
+      return `<pre><div class="md-flowchart">${str}</div></pre>`
     }
 
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
@@ -69,6 +71,16 @@ export default {
       article: 'article'
     })
 
+  },
+  watch: {
+    content: {
+      immediate: true,
+      handler(val) {
+        this.$nextTick(() => {
+          this.parseFlowChart()
+        })
+      }
+    }
   },
   created(){
     var params = this.$route.query
@@ -95,7 +107,19 @@ export default {
   methods: {
     ...mapActions('article',{
       getArticle: 'getArticle'
-    })
+    }),
+    parseFlowChart() {
+      document.querySelectorAll('.md-flowchart').forEach(element => {
+        try {
+          let code = element.textContent
+          let chart = flowchart.parse(code)
+          element.textContent = ''
+          chart.drawSVG(element)
+        } catch (e) {
+          element.outerHTML = `<pre>flowchart complains: ${e}</pre>`
+        }
+      })
+    },
   },
   components: {
     music
