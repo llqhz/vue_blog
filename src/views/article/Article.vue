@@ -30,6 +30,8 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import music from '@/views/common/tools/music'
 import flowchart from 'flowchart.js'
+import mermaid from 'mermaid'
+import MermaidPlugin from "./components/markdown-it-plugin-mermaid"
 import { mapGetters, mapActions } from "vuex";
 
 
@@ -52,7 +54,7 @@ const md = new MarkdownIt({
 
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
   }
-})
+}).use(MermaidPlugin)
 export default {
   name: 'Article',
   data: () => {
