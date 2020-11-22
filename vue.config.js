@@ -13,7 +13,7 @@ module.exports = {
 
   // baseUrl: process.env.NODE_ENV === 'production' ? '/online/' : '/',
   baseUrl: "./", //被舍弃了
-  //publicPath: './',
+  publicPath: './',
 
   // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
 

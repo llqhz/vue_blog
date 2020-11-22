@@ -1,8 +1,18 @@
 import mermaid from 'mermaid'
 
+const isWindow = typeof window === 'object'
+
 const mermaidChart = (code) => {
   try {
     mermaid.parse(code)
+    
+    // 修复偶尔不显示问题
+    if (isWindow) {
+      setTimeout(() => {
+        mermaid.init('.mermaid')
+      }, 0);
+    }
+
     return `<pre><div class="mermaid">${code}</div></pre>`
   } catch ({ str, hash }) {
     return `<pre>${str}</pre>`
